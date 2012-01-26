@@ -21,7 +21,8 @@ function Tile(x, y, typeValue) {
 	
 	switch(this.typeValue) {
 	case 0:
-		this.src = "";
+		this.sprite.src = "";
+		break;
 	case 1:
 		this.sprite.src = "images/metal1.gif";
 		break;
@@ -32,25 +33,30 @@ function Tile(x, y, typeValue) {
 	// Other tile types here
 	
 	default:
-		this.src = "";
+		// Backup if not caught by case 0
+		this.sprite.src = "";
 		break;
 	};
 }
 
 Tile.prototype.draw = function() {
-	if (this.typeValue) {
+	// if (typevalue) logic is now handled in TileManager
 	
-		//buffer_ctx.save();		
-		//buffer_ctx.fillStyle = "#fb000d"; buffer_ctx.fillRect(this.x, 0, 1, canvas.height); // left
-		//buffer_ctx.fillStyle = "#0fc"; buffer_ctx.fillRect(this.x+this.width, 0, 1, canvas.height); // right		
-		//buffer_ctx.fillStyle = "orange"; buffer_ctx.fillRect(0, this.y, canvas.width, 1); // top		
-		//buffer_ctx.fillStyle = "yellow"; buffer_ctx.fillRect(0, this.y+this.height, canvas.width, 1); // bottom			
-		//buffer_ctx.restore();
-						
-		buffer_ctx.drawImage(this.sprite, this.x, this.y);
-	}
+	// Draw edge lines for x/y space testing
+	//buffer_ctx.save();		
+	//buffer_ctx.fillStyle = "#fb000d"; buffer_ctx.fillRect(this.x, 0, 1, canvas.height); // left
+	//buffer_ctx.fillStyle = "#0fc"; buffer_ctx.fillRect(this.x+this.width, 0, 1, canvas.height); // right		
+	//buffer_ctx.fillStyle = "orange"; buffer_ctx.fillRect(0, this.y, canvas.width, 1); // top		
+	//buffer_ctx.fillStyle = "yellow"; buffer_ctx.fillRect(0, this.y+this.height, canvas.width, 1); // bottom			
+	//buffer_ctx.restore();
+					
+	buffer_ctx.drawImage(this.sprite, this.x, this.y);	
 }
 
 Tile.prototype.move = function() {
-	this.x -= 0.4;
+	// unless (endgame logic?) ...
+	
+	this.x -= 0.4; // Slightly faster than background for nice parallax effect
+	
+	return this; // for chaining, ex tile.move().draw();
 }

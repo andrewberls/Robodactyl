@@ -2,6 +2,7 @@
 function TileManager() {
 
 	// Add to the gameObject manager
+	// See game.js - this is a bad approach and needs to change
 	gameObjects.push(this);
 		
 	this.tiles = [];
@@ -21,24 +22,19 @@ function TileManager() {
 			var tile1 = new Tile(j*30, i*30, 1);
 			var tile2 = new Tile(j*30, i*30, 2);
 			var tileNull = new Tile(j*30, i*30, 0);
-				
-			
-			if (i === 14) {
-				this.tiles[i].push(tile2);
-			} else if (i%3==0 && j%3 == 0) {
-				this.tiles[i].push(tile1);
-			} else {
-				this.tiles[i].push(tileNull);
-			}
+						
+			// Checkerboard
+			if (i === 14) { this.tiles[i].push(tile2); }
+			else if (i%3==0 && j%3 == 0) { this.tiles[i].push(tile1); }
+			else { this.tiles[i].push(tileNull); }
 			
 						
-			/*if (i === 5 && j === 10) {
-				this.tiles[i].push(tile1);
-			} 
-			//else if (i === 14) { this.tiles[i].push(tile2); }
-			else {
-				this.tiles[i].push(tileNull);
-			}*/
+			/*
+			// Single tile
+			if (i === 5 && j === 10) { this.tiles[i].push(tile1); } 
+			//else if (i === 14) { this.tiles[i].push(tile2); } // Floor
+			else { this.tiles[i].push(tileNull); }
+			*/
 						
 		}
 	}
@@ -100,19 +96,25 @@ TileManager.prototype.draw = function() {
 	// Loop through each stored tile and draw to the back buffer
 	
 	for (var i=0; i<15; i++) {
-		for (var j=0; j<20; j++) {			
-			this.tiles[i][j].draw();			
+		for (var j=0; j<20; j++) {
+			if (this.tiles[i][j].typeValue) {
+				this.tiles[i][j].move().draw(); // Is this any better/faster?
+			}
 		}
 	}
 }
 
-TileManager.prototype.move = function() {
-	// Loop through each stored tile and move
+/*TileManager.prototype.move = function() {
+	// TileManager is stored in the gameObjects list, which would call
+	// TileManager.move(), which in turn just loops through
+	// the tiles and calls their move method.
+	// For now, I've chained this in the draw method, not sure
+	// if it's more semantic or efficient yet
 	
+	// Loop through each stored tile and move	
 	for (var i=0; i<15; i++) {
 		for (var j=0; j<20; j++) {			
 			this.tiles[i][j].move();
 		}
 	}
-	
-}
+}*/

@@ -6,8 +6,13 @@ var ctx = canvas.getContext('2d');
 var gameLoop; // Global reference to the game loop
 
 
+//------------------------------------------------------------------------------------
 //---------- INITIALIZE OBJECT MANAGER
+// This approach needs reworking
+// For example, TileManager is set up to add self to gameObjects, but that a bad approach
+// Separate into two levels: background/tiles + gameobjects (in that order)
 var gameObjects = [];
+//------------------------------------------------------------------------------------
 
 
 //---------- SOUND VARIABLES
@@ -35,23 +40,21 @@ var bomb = new Bomb();
 function draw() {
 	// First clear both the buffer and the screen
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	buffer_ctx.clearRect(0, 0, buffer.width, buffer.height);
-	
-	// Where to put background and tile manager?
-	// Separate calls or tileManager called by background.draw()?	
+	buffer_ctx.clearRect(0, 0, buffer.width, buffer.height);		
 	
 	// Loop through and update/draw all registered gameObjects
 	for (var i=0; i<gameObjects.length; i++) {
-		if (gameObjects[i].move) { gameObjects[i].move(); }
-		if (gameObjects[i].draw) { gameObjects[i].draw(); }
+		// This seems like a fairly blunt and logic-independent approach...
+		if (gameObjects[i].move) { gameObjects[i].move(); } // Move if object has a move() method
+		if (gameObjects[i].draw) { gameObjects[i].draw(); } // Draw if object has a draw method()
 	}
 	
-	// Render the buffer to the screen
+	// After the buffer has been loaded, draw it to the screen
 	ctx.drawImage(buffer, 0, 0);
 }
 
 function init() {
-	// Initialize the main draw loop
+	// Set the main draw loop
 	gameLoop = setInterval(draw, 20);	
 }
 

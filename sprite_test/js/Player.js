@@ -6,8 +6,8 @@ function Player() {
 
 	//this.x = 30;
 	//this.y = 130;
-	this.x = 35;
-	this.y = 35;
+	
+	this.x = 35; this.y = 35; // Temp for collision testing
 	
 	this.dir = ""; // LEFT, UP, RIGHT, DOWN
 	
@@ -15,12 +15,7 @@ function Player() {
 	this.dy = 0;
 	
 	this.width = 60;
-	this.height = 30;
-	
-	//this.left = this.x;
-	//this.right = this.x + this.width;
-	//this.top = this.y;
-	//this.bottom = this.y + this.height;
+	this.height = 30;		
 	
 	this.sprite = new Image();
 	this.sprite.src = "images/plane.gif";
@@ -48,7 +43,7 @@ Player.prototype.move = function() {
 			break;
 	};
 	
-	// Don't move if colliding with a canvas edge
+	//-- Don't move if colliding with a canvas edge
 	// Top
 	if (this.y + this.dy < 0) {				
 		this.dy = 0;
@@ -74,7 +69,7 @@ Player.prototype.move = function() {
 	this.y += this.dy;
 };
 
-Player.prototype.draw = function() {				
+Player.prototype.draw = function() {		
 	buffer_ctx.drawImage(this.sprite, this.x, this.y);
 };
 
@@ -118,11 +113,8 @@ Player.prototype.tileCollision = function() {
 }
 
 Player.prototype.dumpAttributes = function() {
-
-	//move_x = this.x + this.dx;
-	//move_y = this.y + this.dy;
-	
-	//log(move_x);
+	// Debug function that can be switched on
+	// Dumps list of player properties (ex x, dir, dy, etc) and their values
 	
 	var output = '';
 	for (property in this) {		
@@ -130,7 +122,6 @@ Player.prototype.dumpAttributes = function() {
 			output += property + ': ' + this[property]+';\n';
 		}
 	}
-	log(output);
-	
+	log(output);	
 	
 }
