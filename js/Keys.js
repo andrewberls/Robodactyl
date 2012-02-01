@@ -44,9 +44,8 @@ $(document).keydown(function(evt) {
 			player.dir = "DOWN";
 			break;
 			
-		case KEY_SPACE:
-			if (debug_mode) { log("Space pressed. Calling bomb.drop()"); }					
-			bomb.drop();
+		case KEY_SPACE:							
+			// Player attack
 			break;
 			
 		case KEY_ENTER:
@@ -68,6 +67,7 @@ $(document).keyup(function(evt) {
 		the player from moving if they're not pressing any of the MOVEMENT keys (defined above)
 		So this checks whether or not the lifted key is one of the movement keys (inArray),
 		and stops the player if it is.
+		See jQuery's inArray() reference for more information.
 	*/
 	
 	if ($.inArray(evt.keyCode, moveKeys) != -1) {			

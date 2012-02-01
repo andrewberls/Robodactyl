@@ -7,9 +7,18 @@
 //---------- GLOBAL VARIABLES
 
 //---------- INITIALIZE CTX VARS
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
-var gameLoop; // Global reference to the game loop
+/*
+	Note:
+	var x;
+	var y;
+	is the same as var x, y;
+	That's what's going on here.
+*/
+var canvas = document.getElementById('canvas'), // Hook to the HTML element
+	  ctx = canvas.getContext('2d'), // Main context variable
+	  C_WIDTH = canvas.width, // Stored width/height references
+	  C_HEIGHT = canvas.height,
+	  gameLoop; // Global reference to the game loop
 
 
 //---------- INITIALIZE OBJECT VARS
@@ -25,7 +34,13 @@ function draw() {
 		not here.
 	*/
 
-	ctx.clearRect(0,0, canvas.width, canvas.height); // Clear the canvas every frame
+	ctx.clearRect(0,0, C_WIDTH, C_HEIGHT); // Clear the canvas every frame
+	
+	
+	/* 
+		Can you imagine that calling each objects methods individually gets
+		inefficient once we have a bunch of objects? This will change eventually
+	*/
 	
 	player.move();
 	player.draw();
