@@ -1,4 +1,27 @@
+/*
+	Class File: Player.js	
+	
+	Attributes:
+		x
+		y
+		height
+		width
+		dx
+		dy
+	
+	Method Signatures:
+		move()
+		draw()
+	
+*/
+
 function Player() {
+
+	/*
+		Eventually most of these attributes should be put in a generic
+		gameObject class that this inherits from.
+	*/
+	
 	this.x = 10;
 	this.y = 10;
 	
@@ -10,6 +33,14 @@ function Player() {
 }
 
 Player.prototype.move = function() {
+
+	/*
+		This gets called before the draw() function every frame.
+		It serves to modify the player's position on the screen,
+		thus faking the appearance of continuous movement.
+		Here, we're switching through the player's dir attribute (a string),
+		and setting the appropriate dx or dy attribute based on its value.
+	*/
 
 	switch(this.dir) {
 		case "LEFT":
@@ -43,15 +74,14 @@ Player.prototype.move = function() {
 	if (this.y + this.height + this.dy > canvas.height) {
 		this.dy = 0;
 	}
-	
-			
+				
 	// Finally, if no collisions detected, move the player			
 	this.x += this.dx;
 	this.y += this.dy;
 };
 	
-Player.prototype.draw = function() {				
+Player.prototype.draw = function() {
+	// Render the actual box or sprite to the screen
 	ctx.fillRect(this.x, this.y, 30, 30);
 }
 
-var player = new Player();
