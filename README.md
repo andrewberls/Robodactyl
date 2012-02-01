@@ -19,5 +19,8 @@ Once you've read over that, the best way to learn is to dive in and try it out. 
 That guy uses jQuery, an extremely popular JavaScript library. We'll probably end up using it for at least a few things, so you can read up on the basics of it here if you want: [Beginner jQuery](http://docs.jquery.com/Tutorials:Getting_Started_with_jQuery) 
 
 
+### Intro to Object Oriented JavaScript
+In our game we'll be making classes and objects just like any C++ application, but instead of 'classes', we'll be instantiating functions. JavaScript uses what's called prototypal inheritance, which can be a little offputting at first but isn't hard to pick up. [This short article](https://developer.mozilla.org/en/Introduction_to_Object-Oriented_JavaScript) is a great intro to what I'm talking about.
+
 ### Eloquent JavaScript
 If you find yourself really wanting to learn more about JavaScript, then you can try flipping through the freely available book, [Eloquent JavaScript](http://eloquentjavascript.net/contents.html). To be honest, it's not very interesting but it's functional at least.
