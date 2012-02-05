@@ -1,15 +1,11 @@
 /*
 	Class File: Player.js	
-	Inherits from: 
+	Inherits from:
 	Attributes:
-		x
-		y
-		height
-		width
-		dx
-		dy
+		
 	
 	Method Signatures:
+		setDirection()
 		move()
 		draw()
 	
@@ -17,11 +13,7 @@
 
 function Player() {
 
-	/*
-		Eventually most or all of these attributes should be put in a generic
-		gameObject class that this inherits from.
-	*/
-	
+	// Is this the best way to initialize inherited attributes?	
 	this.x = 10;
 	this.y = 10;
 	
@@ -30,7 +22,14 @@ function Player() {
 	
 	this.dx = 0;
 	this.dy = 0;
+	
+	// this.health = 0;
+	
+	
 }
+
+//Player.prototype = new GameObject(); // Inherit from GameObject
+//Player.prototype.constructor = Player; // Correct the constructor to use this, not GameObject
 
 Player.prototype.setDirection = function() {
 
