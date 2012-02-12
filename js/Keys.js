@@ -26,36 +26,54 @@ $(document).keydown(function(evt) {
 		If it matches one our predefined keys (ex arrow keys or spacebar),
 		take the appropriate action.
 	*/
-			
-	switch(evt.keyCode) {
-		case KEY_LEFT:
-			player.dir = "LEFT";
-			break;
-			
-		case KEY_RIGHT:
-			player.dir = "RIGHT";
-			break;
-			
-		case KEY_UP:
-			player.dir = "UP";
-			break;
-			
-		case KEY_DOWN:
-			player.dir = "DOWN";
-			break;
-			
-		case KEY_SPACE:							
-			// Player attack
-			break;
-			
-		case KEY_ENTER:
-			// Do whatever
-			break;
-			
-		default:
-			player.dir = "";
-			break;
-	};
+	if (menuActive) {
+		/* Are we in menu mode? */
+		switch(evt.keyCode) {
+			case KEY_UP:
+				currentMenu.selected--;				
+				break;
+				
+			case KEY_DOWN:
+				currentMenu.selected++;				
+				break;
+				
+			case KEY_ENTER:
+				currentMenu.execute(currentMenu.selected);				
+				break;
+		};
+	} else {
+		/* Gameplay mode */
+		switch(evt.keyCode) {
+			case KEY_LEFT:
+				player.dir = "LEFT";
+				console.log("gameplay left");
+				break;
+				
+			case KEY_RIGHT:
+				player.dir = "RIGHT";
+				break;
+				
+			case KEY_UP:
+				player.dir = "UP";
+				break;
+				
+			case KEY_DOWN:
+				player.dir = "DOWN";
+				break;
+				
+			case KEY_SPACE:							
+				// Player attack
+				break;
+				
+			case KEY_ENTER:
+				// Do whatever
+				break;
+				
+			default:
+				player.dir = "";
+				break;
+		};
+	}
 });
 
 $(document).keyup(function(evt) {

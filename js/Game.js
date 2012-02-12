@@ -16,13 +16,17 @@
 */
 var canvas = document.getElementById('canvas'), // Hook to the HTML element
 	  ctx = canvas.getContext('2d'), // Main context variable
-	  C_WIDTH = canvas.width, // Stored width/height references
+	  C_WIDTH = canvas.width, // Stored constant width/height references
 	  C_HEIGHT = canvas.height,
 	  gameLoop; // Global reference to the game loop
 
 
 //---------- INITIALIZE OBJECT VARS
 var player = new Player();
+//var menu_1 = new Menu(["Start Game"]);
+var menu_1 = new Menu(["Start Level 1"], function() {	
+	menuActive = false;
+});
 
 
 //---------- CONTROLLERS + LOOPS
@@ -35,15 +39,22 @@ function draw() {
 	*/
 
 	ctx.clearRect(0,0, C_WIDTH, C_HEIGHT); // Clear the canvas every frame
+		
+	/*
+		This stuff works, but it's very temporary. Ideally, we want to be able to 
+		abstract it to the highest level - ex, render_current_menu or
+		render_current_level or something like that.
+		
+		Idea: the end of each level has a callback that triggers the next menu
+	*/	
 	
+	if (menuActive) {
+		currentMenu.draw();
+	} else {
+		player.move();
+		player.draw();
+	}
 	
-	/* 
-		Can you imagine that calling each objects methods individually gets
-		inefficient once we have a bunch of objects? This will change eventually
-	*/
-	
-	player.move();
-	player.draw();
 }
 
 function init() {	

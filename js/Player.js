@@ -82,7 +82,7 @@ Player.prototype.move = function() {
 	// Left/Right
 	if (this.x + this.dx < 0 || this.x + this.dx + this.width > C_WIDTH) {
 		this.dx = 0;
-	}			
+	}
 	// Bottom
 	if (this.y + this.height + this.dy > C_HEIGHT) {
 		this.dy = 0;
