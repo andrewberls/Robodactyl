@@ -26,8 +26,8 @@ $(document).keydown(function(evt) {
 			player.dir = "DOWN";
 			break;
 		case KEY_SPACE:
-			if (debug_mode) { log("Space pressed. Calling bomb.drop()"); }					
-			bomb.drop();
+			if (debug_mode) { log("Space pressed. Calling player.attack()"); }					
+			player.attack();
 			break;
 		case KEY_ENTER: // Trigger a debug logger
 			player.dumpAttributes();

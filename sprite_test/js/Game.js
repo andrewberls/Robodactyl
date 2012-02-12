@@ -33,7 +33,6 @@ buffer_ctx = buffer.getContext('2d');
 var background = new Background();
 var tileManager = new TileManager();
 var player = new Player();
-var bomb = new Bomb();		
 
 
 //---------- CONTROLLERS + LOOPS

@@ -112,6 +112,14 @@ Player.prototype.tileCollision = function() {
 	// return (collisionX || collisionY) ? true : false;	
 }
 
+Player.prototype.attack = function () {
+    //calls instance of bomb at player location
+    
+    var playerBomb = new Bomb(this.x, this.y);
+    playerBomb.drop();
+}
+
+
 Player.prototype.dumpAttributes = function() {
 	// Debug function that can be switched on
 	// Dumps list of player properties (ex x, dir, dy, etc) and their values
