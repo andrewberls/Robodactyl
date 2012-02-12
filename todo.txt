@@ -4,6 +4,11 @@
 
 [ ] Menus/Game states
 
+[ ] player attacking
+
+[ ] enemies
+
+[ ] basic collision detection
 
 
 
