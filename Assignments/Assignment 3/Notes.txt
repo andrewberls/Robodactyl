@@ -1,0 +1,36 @@
+GameObject
+	:Character
+		- Player
+		- Enemy
+			= StationaryEnemy
+				> Turret, etc
+			= MovingEnemy
+				> Scientist
+				> Hunter
+		
+	:Projectile
+	:Powerup
+	:Checkpoint
+	:HUDObject
+	:SoundManager
+	:Menu
+	:Obstacle
+	
+Level
+
+-------------------------------------------------------------------------------------------
+show menu	
+	precondition: browser supports all necessary technologies
+	postcondition: instance of menu shown to user with choices available
+	
+start game
+	precondition: player has made a selection on the menu
+	postcondition: first level renders and game begins according to rules
+	
+play level
+	precondition: player has indicated choice on menu
+	postcondition: current level has been rendered and player control begins
+	
+display end menu
+	precondition: player has died or reached end of current level/game
+	postcondition: instance of menu shown to user with score and choices available
