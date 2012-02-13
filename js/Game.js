@@ -7,25 +7,26 @@
 //---------- GLOBAL VARIABLES
 
 //---------- INITIALIZE CTX VARS
-/*
-	Note:
-	var x;
-	var y;
-	is the same as var x, y;
-	That's what's going on here.
-*/
+// Mass variable initialization
 var canvas = document.getElementById('canvas'), // Hook to the HTML element
 	  ctx = canvas.getContext('2d'), // Main context variable
 	  C_WIDTH = canvas.width, // Stored constant width/height references
 	  C_HEIGHT = canvas.height,
+    C_MIDX = canvas.width/2,
+    C_MIDY = canvas.height/2,
+    gamePaused = false,
 	  gameLoop; // Global reference to the game loop
 
 
 //---------- INITIALIZE OBJECT VARS
 var player = new Player();
-//var menu_1 = new Menu(["Start Game"]);
-var menu_1 = new Menu(["Start Level 1"], function() {	
-	menuActive = false;
+
+var menu1 = new Menu("Robodactyl Escape", ["Start Level 1", "Exit"], function(option) {
+  if (option == 0) { 
+    menuActive = false;
+  }	else if (option == 1) {
+    endGame();
+  }
 });
 
 
@@ -42,19 +43,40 @@ function draw() {
 		
 	/*
 		This stuff works, but it's very temporary. Ideally, we want to be able to 
-		abstract it to the highest level - ex, render_current_menu or
-		render_current_level or something like that.
-		
-		Idea: the end of each level has a callback that triggers the next menu
-	*/	
-	
+		abstract it to the highest level.		
+		Idea: the end of each level has a callback that creates the next menu
+	*/
+  
+  if (gamePaused) {
+    // Are we paused?
+    var menu1 = new Menu("Game Paused", ["Resume"], function(option) {
+      if (option == 0) {
+        menuActive = false;
+        gamePaused = false;
+      }
+    });
+  }
+  
 	if (menuActive) {
+    // Are we in menu mode?
 		currentMenu.draw();
-	} else {
+	} 
+  else {
+    // Gameplay mode!
 		player.move();
 		player.draw();
 	}
 	
+}
+
+function endGame() {
+  // Temporary function to test menus
+  // We can keep this or something like it around if you want
+  // Stops the animation loop and displays text on a blank screen
+  clearInterval(gameLoop);
+  ctx.clearRect(0,0, C_WIDTH, C_HEIGHT);
+  ctx.font = "25px Times New Roman";
+  ctx.fillText("Game Exited", C_MIDX, C_MIDY);
 }
 
 function init() {	

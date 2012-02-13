@@ -4,11 +4,15 @@
 	
 */
 
-function Menu(options, callback) {
-	ctx.font = "50px Times New Roman"
+function Menu(description, options, callback) {
+  this.fontSize = "40px"; // Note this is a string - used in interpolation only
+	ctx.font = this.fontSize + " Times New Roman"
+  this.textPadding = 20; // How much space is in between items
+  ctx.textAlign = "center";
 	
+  this.desc = description;
 	this.options = options;
-	this.callback = callback;
+	this.callback = callback;  
 	this.selected = 0;
 	
 	menuActive = true;
@@ -28,20 +32,35 @@ Menu.prototype.normalizeSelection = function() {
 	}
 }
 
-Menu.prototype.renderText = function() {
+Menu.prototype.renderDesc = function() {
+  ctx.save();	
+  ctx.fillStyle = "white";
+  // Slightly smaller font calculated from the base font size
+  ctx.font = (parseInt(this.fontSize)/1.2) + "px Times New Roman"
+  ctx.fillText(this.desc, C_MIDX, 50);
+  ctx.restore();
+}
+
+Menu.prototype.renderOptions = function() {
 	ctx.save();	
 	
 	this.normalizeSelection();
-	
+    
+  var y = (C_HEIGHT - (parseInt(this.fontSize) * this.options.length))/2;
+  var y_offset = 0;
+  
 	for (var i=0; i<this.options.length; ++i) {
-		var text = this.options[i];
-		if (i == this.selected) {
+    // Current selection is yellow, others are white
+    var text = this.options[i];
+		if (i == this.selected) {      
 			ctx.fillStyle = "yellow";
 		} else {
 			ctx.fillStyle = "white";
 		}
-		ctx.fillText(text, 275, C_HEIGHT/2-25);
+		ctx.fillText(text, C_MIDX, y + y_offset); // (text,x,y): this.options[i] is text
+    y_offset += parseInt(this.fontSize) + this.textPadding;
 	}
+  
 	ctx.restore();
 }
 
@@ -49,7 +68,8 @@ Menu.prototype.execute = function(option) {
 	this.callback(option);
 }
 
-Menu.prototype.draw = function() {	
-	ctx.fillRect(0,0,C_WIDTH, C_HEIGHT);	
-	this.renderText();
+Menu.prototype.draw = function() {    
+	ctx.fillRect(0,0,C_WIDTH, C_HEIGHT); 
+	this.renderDesc();
+  this.renderOptions();
 }

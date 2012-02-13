@@ -11,7 +11,8 @@ var KEY_LEFT = 37,
 	  KEY_UP = 38,
 	  KEY_DOWN = 40,
 	  KEY_SPACE = 32,
-	  KEY_ENTER = 13;
+	  KEY_ENTER = 13,
+    KEY_ESC = 27;
 	  
 // An array of keys that are used for movement (as opposed to attacking, etc)
 // This is explained/used in the keyup() function below.
@@ -67,6 +68,10 @@ $(document).keydown(function(evt) {
 				
 			case KEY_ENTER:
 				// Do whatever
+				break;
+        
+      case KEY_ESC:
+				gamePaused = true;
 				break;
 				
 			default:
