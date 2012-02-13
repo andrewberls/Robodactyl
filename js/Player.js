@@ -1,6 +1,6 @@
 /*
 	Class File: Player.js	
-	Inherits from:
+	Inherits from: GameObject
 	Attributes:
 		
 	
@@ -15,10 +15,14 @@ function Player() {
 
 	// Is this the best way to initialize inherited attributes?	
 	this.x = 10;
-	this.y = 10;
+	this.y = 10;    
 	
 	this.height = 30;
 	this.width = 30;
+  
+  // Convenience attributes for enemy targeting
+  this.midx = this.x + this.width/2;
+  this.midy = this.y + this.height/2;
 	
 	this.dx = 0;
 	this.dy = 0;

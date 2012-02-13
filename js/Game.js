@@ -19,8 +19,9 @@ var canvas = document.getElementById('canvas'), // Hook to the HTML element
 
 
 //---------- INITIALIZE OBJECT VARS
-var player = new Player();
 var background= new Background();
+var player = new Player();
+var enemy = new Enemy(randomFromTo(0,C_WIDTH));
 
 var menu1 = new Menu("Robodactyl Escape", ["Start Level 1", "Exit"], function(option) {
   if (option == 0) { 
@@ -68,6 +69,8 @@ function draw() {
     background.draw();
 		player.move();
 		player.draw();
+    enemy.move();
+    enemy.draw();
 	}
 	
 }
