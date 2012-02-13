@@ -46,8 +46,7 @@ $(document).keydown(function(evt) {
 		/* Gameplay mode */
 		switch(evt.keyCode) {
 			case KEY_LEFT:
-				player.dir = "LEFT";
-				console.log("gameplay left");
+				player.dir = "LEFT";				
 				break;
 				
 			case KEY_RIGHT:
