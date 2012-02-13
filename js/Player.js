@@ -28,8 +28,8 @@ function Player() {
 	
 }
 
-//Player.prototype = new GameObject(); // Inherit from GameObject
-//Player.prototype.constructor = Player; // Correct the constructor to use this, not GameObject
+Player.prototype = new GameObject(); // Inherit from GameObject
+Player.prototype.constructor = Player; // Correct the constructor to use this, not GameObject
 
 Player.prototype.setDirection = function() {
 
@@ -84,7 +84,7 @@ Player.prototype.move = function() {
 		this.dx = 0;
 	}
 	// Bottom
-	if (this.y + this.height + this.dy > C_HEIGHT) {
+	if (this.y + this.height + this.dy > C_HEIGHT - 30) { // FLOOR TILE HEIGHT CURENTLY HARDCODED (30)
 		this.dy = 0;
 	}
 	

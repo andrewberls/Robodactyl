@@ -20,6 +20,7 @@ var canvas = document.getElementById('canvas'), // Hook to the HTML element
 
 //---------- INITIALIZE OBJECT VARS
 var player = new Player();
+var background= new Background();
 
 var menu1 = new Menu("Robodactyl Escape", ["Start Level 1", "Exit"], function(option) {
   if (option == 0) { 
@@ -63,6 +64,8 @@ function draw() {
 	} 
   else {
     // Gameplay mode!
+    background.move();
+    background.draw();
 		player.move();
 		player.draw();
 	}
