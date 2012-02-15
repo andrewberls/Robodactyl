@@ -22,14 +22,16 @@ var canvas = document.getElementById('canvas'), // Hook to the HTML element
 var background= new Background();
 var player = new Player();
 var enemy = new Enemy(randomFromTo(0,C_WIDTH));
+var projectiles = [];
 
-var menu1 = new Menu("Robodactyl Escape", ["Start Level 1", "Exit"], function(option) {
+menuActive = false;
+/*var menu1 = new Menu("Robodactyl Escape", ["Start Level 1", "Exit"], function(option) {
   if (option == 0) { 
     menuActive = false;
   }	else if (option == 1) {
     endGame();
   }
-});
+});*/
 
 
 //---------- CONTROLLERS + LOOPS
@@ -71,6 +73,12 @@ function draw() {
 		player.draw();
     enemy.move();
     enemy.draw();
+    
+    projectiles.map(function(proj) {
+      proj.move();
+      proj.draw();
+    });
+    
 	}
 	
 }

@@ -4,8 +4,7 @@
 	Attributes:
 		
 	
-	Method Signatures:
-		setDirection()
+	Method Signatures:		
 		move()
     fire()
 		draw()
@@ -13,8 +12,7 @@
 */
 
 function Enemy(x) {
-
-	// Is this the best way to initialize inherited attributes?	
+	
 	this.x = x;
 	this.y = C_HEIGHT-60;
 	
@@ -24,11 +22,22 @@ function Enemy(x) {
   this.midx = this.x + this.width/2;
   this.midy = this.y + this.height/2;
 	
-	this.dx = 0.8;  
-	//this.dy = 0;
+	this.dx = 0.8;    
 	
-	// this.health = 0;
-  var fireLoop = setInterval(this.fire,2000);	
+	// this.health = 0;  
+  
+  this.fireRate = 2500;
+  
+  // This looks super funky, but all it's doing is calling
+  // the fire() method every second. The craziness
+  // is necessary to preserve the correct 'this' context
+  // (Defaults to DOMWindow otherwise)
+  // Essentially equal to setInterval(this.fire, this.fireRate)
+  this.fireLoop = setInterval((function(self) {
+    return function() {
+      self.fire();
+    } 
+  })(this), this.fireRate); 
 	
 }
 
@@ -50,11 +59,18 @@ Enemy.prototype.move = function() {
 
 Enemy.prototype.fire = function() {  
   
-  ctx.save();    
-  //ctx.moveTo(this.midx,this.midy);  
-  //ctx.lineTo(player.midx, player.midy);  
-  //ctx.stroke();
-  ctx.restore();
+  /*
+    This will end up being a pretty complex function as we need to calculate
+    a vector between the enemy and the player, calculate the dx and dy from that
+    vector, and fire the bullet in that direction. In addition, the bullet has to
+    move at a consistent speed regardless of how far away the player is, so the 
+    dx and dy calculations could get fairly complicated.
+    Available helpers: this.midx, this.midy, player.midx, player.midy
+  */    
+  
+  // Temporary stuff
+  var proj = new Projectile(this.x, this.y, 0.2, -0.2); // Params: (x,y,dx,dy)
+  projectiles.push(proj); // [TEMPORARY] Push to global projectile tracking array for rendering
     
 }
 
@@ -63,7 +79,7 @@ Enemy.prototype.draw = function() {
   ctx.fillStyle = "#00ffcc";
   ctx.fillRect(this.x, this.y, 30, 30);
   
-  this.fire(); // TEMPORARY IMPLEMENTATION
+  //this.fire(); // TEMPORARY IMPLEMENTATION
   
   ctx.restore();
 }
