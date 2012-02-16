@@ -17,11 +17,10 @@ var canvas = document.getElementById('canvas'), // Hook to the HTML element
     gamePaused = false,
 	  gameLoop; // Global reference to the game loop
 
-
 //---------- INITIALIZE OBJECT VARS
 // Manager arrays to track objects
 var environment = [], 
-    characters  = [],
+    enemies     = [],
     playerProjectiles = [],
     enemyProjectiles  = [];
 
@@ -32,18 +31,6 @@ var background = new Background();
 var player = new Player();
 var enemy = new Enemy(randomFromTo(0,C_WIDTH));
 
-
-//---------- MENU STATES AND INITIALIZATION
-var menuActive = false;
-
-var menu1 = new Menu("Robodactyl Escape", ["Start Level 1", "Exit"], function(option) {
-  if (option == 0) { 
-    menuActive = false;
-  }	else if (option == 1) {
-    game.end();
-  }
-});
-
 function Game() {
 	this.paused = false;
 }
@@ -51,12 +38,14 @@ function Game() {
 Game.prototype.draw = function() {
 	if (this.paused) {
 		// Are we paused?
-		var pauseMenu = new Menu("Game Paused", ["Resume"], function(option) {
-		  if (option == 0) {
-			menuActive = false;
-			gamePaused = false;
-		  }
-		});
+		var pauseMenu = new Menu(
+      "Game Paused", 
+      ["Resume"], function(option) {
+		    if (option == 0) {
+			    menuActive = false;
+			    gamePaused = false;
+		    }
+		  });
 	}
 	
 	if (menuActive) {
@@ -68,18 +57,23 @@ Game.prototype.draw = function() {
 		// Gameplay mode!
 		// Loop through all environments, characters, and projectiles,
 		// calling their move() and draw() methods
-		
+    		
 		environment.map(function(env) {
 		  env.move();
 		  env.draw();
 		});
+    
+    player.move();
+    player.draw();
 		
-		characters.map(function(character) {
-		  character.move();
-		  character.draw();
+		enemies.map(function(enemy) {
+		  enemy.move();
+		  enemy.draw();
 		});
 		
 		playerProjectiles.map(function(proj) {
+      // are we colliding with an enemy? do something
+      // else 
 		  proj.move();
 		  proj.draw();
 		});
@@ -107,93 +101,18 @@ Game.prototype.end = function() {
 function init() {
 	var game = new Game();
 	gameLoop = setInterval(game.draw, 20);
+  
+  
+  var startMenu = new Menu(
+    "Robodactyl Escape", // Description
+    ["Start Level 1", "Exit"], // Options
+    function(option) { // Callback triggered by enter
+      if (option == 0) { 
+        menuActive = false;
+      }	else if (option == 1) {
+        game.end();
+      }
+    });
 }
 
 window.onload = init;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-//---------- CONTROLLERS + LOOPS
-function draw() {
-	
-		//This master function gets called every 20ms by the gameLoop interval.
-		//Its purpose is to loop through the game objects and call their move and draw methods
-		//In other words, actual rendering of sprites to the screen is handled by the individual objects,
-		//not here.
-	
-
-	ctx.clearRect(0,0, C_WIDTH, C_HEIGHT); // Clear the canvas every frame
-  
-  if (gamePaused) {
-    // Are we paused?
-    var menu1 = new Menu("Game Paused", ["Resume"], function(option) {
-      if (option == 0) {
-        menuActive = false;
-        gamePaused = false;
-      }
-    });
-  }
-  
-	if (menuActive) {
-    // Are we in menu mode?
-		currentMenu.draw();
-	} 
-  else {
-    // Gameplay mode!
-    // Loop through all environments, characters, and projectiles,
-    // calling their move() and draw() methods
-    environment.map(function(env) {
-      env.move();
-      env.draw();
-    });
-    
-    characters.map(function(character) {
-      character.move();
-      character.draw();
-    });
-    
-    projectiles.map(function(proj) {
-      proj.move();
-      proj.draw();
-    });
-    
-	}	
-}
-
-function endGame() {
-  // Temporary function to test menus
-  // We can keep this or something like it around if you want
-  // Stops the animation loop and displays text on a blank screen
-  clearInterval(gameLoop);
-  ctx.clearRect(0,0, C_WIDTH, C_HEIGHT);
-  ctx.font = "25px Times New Roman";
-  ctx.fillText("Game Exited", C_MIDX, C_MIDY);
-}
-
-function init() {	
-	// Start the main game draw loop
-	gameLoop = setInterval(draw, 20); 
-}
-
-window.onload = init; // Call the init function immediately when the page loads.
-*/

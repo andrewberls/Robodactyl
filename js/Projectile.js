@@ -10,11 +10,12 @@
 	
 */
 
-function Projectile(x,y,dx,dy) {
+function Projectile(x,y,dx,dy,src) {
   this.x = x;
   this.y = y;
   this.dx = dx;
-  this.dy = dy;    
+  this.dy = dy;
+  //this.sprite.src = src;
   
 }
 

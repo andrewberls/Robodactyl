@@ -18,11 +18,7 @@ function Player() {
 	this.y = 10;    
 	
 	this.height = 30;
-	this.width  = 30;
-  
-  // Convenience midpoint methods
-  this.midx = this.x + this.width/2;
-  this.midy = this.y + this.height/2;
+	this.width  = 30;    
 	
 	this.dx = 0;
 	this.dy = 0;
@@ -70,6 +66,10 @@ Player.prototype.move = function() {
 		
 	*/
 
+  // Convenience midpoint methods
+  this.midx = this.x + this.width/2;
+  this.midy = this.y + this.height/2;
+  
 	this.setDirection();
 	
 	
@@ -99,16 +99,14 @@ Player.prototype.move = function() {
 	
 Player.prototype.draw = function() {
 	// Render the actual box or sprite to the screen
-	ctx.fillRect(this.x, this.y, 30, 30);
+	ctx.fillRect(this.x, this.y, this.width, this.height);
 }
 
 Player.prototype.attack = function () {
-    //if bomb object in playerProjectiles, do not create new one
-        
-    log(this.midx)
+    //if bomb object in playerProjectiles, do not create new one            
     
     if (playerProjectiles.length == 0) {
-        var Bomb = new Projectile(this.midx, this.y + this.height, 0, 6);
+        var Bomb = new Projectile(this.midx-this.width/4, this.y + this.height, 0, 6);
         playerProjectiles.push(Bomb);
     }
     else if (playerProjectiles.length == 1) {
