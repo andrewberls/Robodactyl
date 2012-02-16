@@ -19,6 +19,10 @@ function Player() {
 	
 	this.height = 30;
 	this.width  = 30;
+  
+  // Convenience midpoint methods
+  this.midx = this.x + this.width/2;
+  this.midy = this.y + this.height/2;
 	
 	this.dx = 0;
 	this.dy = 0;
@@ -100,16 +104,15 @@ Player.prototype.draw = function() {
 
 Player.prototype.attack = function () {
     //if bomb object in playerProjectiles, do not create new one
+        
+    log(this.midx)
     
-    
-    if(playerProjectiles.length == 0) {
+    if (playerProjectiles.length == 0) {
         var Bomb = new Projectile(this.midx, this.y + this.height, 0, 6);
         playerProjectiles.push(Bomb);
     }
-    else if(playerProjectiles.length == 1) {
-        //do nothing if SPACE pressed
-        
-    }
-    
+    else if (playerProjectiles.length == 1) {
+        //do nothing if SPACE pressed        
+    }    
 }
 

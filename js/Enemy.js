@@ -39,7 +39,7 @@ function Enemy(x) {
     } 
   })(this), this.fireRate);
   
-  characters.push(this); // Add self to character manager array
+  enemies.push(this); // Add self to character manager array
 	
 }
 
