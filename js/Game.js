@@ -20,9 +20,10 @@ var canvas = document.getElementById('canvas'), // Hook to the HTML element
 
 //---------- INITIALIZE OBJECT VARS
 // Manager arrays to track objects
-var environment = [];
-var characters = []
-var projectiles = [];
+var environment = [], 
+    characters  = [],
+    playerProjectiles = [],
+    enemyProjectiles  = [];
 
 // Environment
 var background = new Background();
@@ -39,27 +40,104 @@ var menu1 = new Menu("Robodactyl Escape", ["Start Level 1", "Exit"], function(op
   if (option == 0) { 
     menuActive = false;
   }	else if (option == 1) {
-    endGame();
+    game.end();
   }
 });
 
+function Game() {
+	this.paused = false;
+}
 
+Game.prototype.draw = function() {
+	if (this.paused) {
+		// Are we paused?
+		var pauseMenu = new Menu("Game Paused", ["Resume"], function(option) {
+		  if (option == 0) {
+			menuActive = false;
+			gamePaused = false;
+		  }
+		});
+	}
+	
+	if (menuActive) {
+		// Are we in menu mode?
+		currentMenu.draw();
+	}
+	
+	else {
+		// Gameplay mode!
+		// Loop through all environments, characters, and projectiles,
+		// calling their move() and draw() methods
+		
+		environment.map(function(env) {
+		  env.move();
+		  env.draw();
+		});
+		
+		characters.map(function(character) {
+		  character.move();
+		  character.draw();
+		});
+		
+		projectiles.map(function(proj) {
+		  proj.move();
+		  proj.draw();
+		});
+    
+	}
+}
+
+Game.prototype.end = function() {
+	// Temporary function to test menus
+	// We can keep this or something like it around if you want
+	// Stops the animation loop and displays text on a blank screen
+	clearInterval(gameLoop);
+	ctx.clearRect(0,0, C_WIDTH, C_HEIGHT);
+	ctx.font = "25px Times New Roman";
+	ctx.fillText("Game Exited", C_MIDX, C_MIDY);
+}
+
+
+
+function init() {
+	var game = new Game();
+	gameLoop = setInterval(game.draw, 20);
+}
+
+window.onload = init;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 //---------- CONTROLLERS + LOOPS
 function draw() {
-	/*
-		This master function gets called every 20ms by the gameLoop interval.
-		Its purpose is to loop through the game objects and call their move and draw methods
-		In other words, actual rendering of sprites to the screen is handled by the individual objects,
-		not here.
-	*/
+	
+		//This master function gets called every 20ms by the gameLoop interval.
+		//Its purpose is to loop through the game objects and call their move and draw methods
+		//In other words, actual rendering of sprites to the screen is handled by the individual objects,
+		//not here.
+	
 
 	ctx.clearRect(0,0, C_WIDTH, C_HEIGHT); // Clear the canvas every frame
-		
-	/*
-		This stuff works, but it's very temporary. Ideally, we want to be able to 
-		abstract it to the highest level.		
-		Idea: the end of each level has a callback that creates the next menu
-	*/
   
   if (gamePaused) {
     // Are we paused?
@@ -94,8 +172,7 @@ function draw() {
       proj.draw();
     });
     
-	}
-	
+	}	
 }
 
 function endGame() {
@@ -114,3 +191,4 @@ function init() {
 }
 
 window.onload = init; // Call the init function immediately when the page loads.
+*/

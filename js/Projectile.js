@@ -14,9 +14,7 @@ function Projectile(x,y,dx,dy) {
   this.x = x;
   this.y = y;
   this.dx = dx;
-  this.dy = dy;
-  
-  projectiles.push(this); // Add self to projectile manager array
+  this.dy = dy;    
   
 }
 

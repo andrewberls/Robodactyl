@@ -82,7 +82,7 @@ Enemy.prototype.fire = function() {
     bulletDY = deltaY/150;
         
     var proj = new Projectile(this.x, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
-    projectiles.push(proj); // [TEMPORARY] Push to global projectile tracking array for rendering
+    enemyProjectiles.push(proj); // [TEMPORARY] Push to global projectile tracking array for rendering
   }
   
     
