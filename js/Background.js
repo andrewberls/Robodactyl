@@ -2,7 +2,7 @@
 	Class File: Background.js	
 	Inherits from: GameObject
 	Attributes:
-		
+		moveSpeed
 	
 	Method Signatures:		
 		move()

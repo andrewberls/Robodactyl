@@ -1,35 +1,7 @@
 /*
 	File: Game.js
-	Description: Initialize global variables and handle main game loops + controllers
+	Description: Container for main game rendering
 */
-
-
-//---------- GLOBAL VARIABLES
-
-//---------- INITIALIZE CTX VARS
-// Mass variable initialization
-var canvas = document.getElementById('canvas'), // Hook to the HTML element
-	  ctx = canvas.getContext('2d'), // Main context variable
-	  C_WIDTH = canvas.width, // Stored constant width/height references
-	  C_HEIGHT = canvas.height,
-    C_MIDX = canvas.width/2,
-    C_MIDY = canvas.height/2,
-    gamePaused = false,
-	  gameLoop; // Global reference to the game loop
-
-//---------- INITIALIZE OBJECT VARS
-// Manager arrays to track objects
-var environment = [], 
-    enemies     = [],
-    playerProjectiles = [],
-    enemyProjectiles  = [];
-
-// Environment
-var background = new Background();
-
-// Characters
-var player = new Player();
-var enemy = new Enemy(randomFromTo(0,C_WIDTH));
 
 function Game() {
 	this.paused = false;
@@ -73,7 +45,8 @@ Game.prototype.draw = function() {
 		
 		playerProjectiles.map(function(proj) {
       // are we colliding with an enemy? do something
-      // else 
+      // ex: if (proj.y >= canvas.height-30) { action_here }
+      // else { move, draw}
 		  proj.move();
 		  proj.draw();
 		});
@@ -95,24 +68,3 @@ Game.prototype.end = function() {
 	ctx.font = "25px Times New Roman";
 	ctx.fillText("Game Exited", C_MIDX, C_MIDY);
 }
-
-
-
-function init() {
-	var game = new Game();
-	gameLoop = setInterval(game.draw, 20);
-  
-  
-  var startMenu = new Menu(
-    "Robodactyl Escape", // Description
-    ["Start Level 1", "Exit"], // Options
-    function(option) { // Callback triggered by enter
-      if (option == 0) { 
-        menuActive = false;
-      }	else if (option == 1) {
-        game.end();
-      }
-    });
-}
-
-window.onload = init;
