@@ -17,22 +17,25 @@ function Enemy(x) {
 	this.width = 2*TILE_SIZE;  
   
 	this.x = x;
-	this.y = C_HEIGHT-this.height-TILE_SIZE;	
-  
-  
+	this.y = C_HEIGHT-this.height-TILE_SIZE;	    
 	
-	this.dx = 0.8;    
+	this.dx = 0.8;
 	
 	// this.health = 0;  
   
   this.fireRate = 2500;
   
   // Randomly select the sprite source
-  if (randomFromTo(1,10)%2 == 0) {
-    this.sprite.src = "images/scientist_1.png";    
+  //console.log(srcSeed);
+  /*if (srcSeed%2 == 0) {
+    this.sprite.src = "images/scientist_1.png";
+    console.log("even, sci1 chosen");
   } else {
     this.sprite.src = "images/scientist_2.png";    
-  }    
+    console.log("odd, sci2 chosen");
+  }*/
+  
+  this.sprite.src = "images/scientist_1.png";
   
   // This looks super funky, but all it's doing is calling
   // the fire() method every second. The craziness
@@ -79,20 +82,20 @@ Enemy.prototype.fire = function() {
     move at a consistent speed regardless of how far away the player is, so the 
     dx and dy calculations could get fairly complicated.
     Available helpers: this.midx, this.midy, player.midx, player.midy
-  */    
+  */
   
   // Temporary stuff
   // Only fire if the player is on the same screen as the enemy
   if (this.x >= 0 && this.x < C_WIDTH) {
     
     var deltaX = player.midx - this.x;
-    var deltaY = player.midy - this.y;
+    var deltaY = player.midy - this.y;        
     //var distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));    
     
-    bulletDX = deltaX/150;
-    bulletDY = deltaY/150;
+    var bulletDX = deltaX/150;
+    var bulletDY = deltaY/150;
         
-    var proj = new Projectile(this.midx, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
+    var proj = new Projectile(this.x + this.width/2, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
     enemyProjectiles.push(proj); // [TEMPORARY] Push to global projectile tracking array for rendering
   }
   

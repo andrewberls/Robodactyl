@@ -38,7 +38,7 @@ Game.prototype.draw = function() {
     player.draw();
 		
 		enemies.map(function(enemy) {
-		  enemy.move();
+		  //enemy.move();
 		  enemy.draw();
 		});
 		
@@ -54,7 +54,7 @@ Game.prototype.draw = function() {
       }  
 		});
     
-    enemyProjectiles.map(function(proj) {
+    enemyProjectiles.map(function(proj) {      
 		  proj.move();
 		  proj.draw();
 		});

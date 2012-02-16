@@ -13,6 +13,8 @@ var canvas     = document.getElementById('canvas'), // Hook to the HTML element
     TILE_SIZE  = 30,
     gamePaused = false,
 	  gameLoop;
+    
+var menuActive = false;
 
 // Manager arrays to track objects
 var environment = [], 
@@ -25,19 +27,22 @@ var background = new Background();
 
 // Characters
 var player = new Player();
-var enemy = new Enemy(randomFromTo(0,C_WIDTH-TILE_SIZE));
+//var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE), randomFromTo(1,50));
+var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
+
 
 function init() {
 	var game = new Game();
 	gameLoop = setInterval(game.draw, 20);
-    
+  
+  /*
   var startMenu = new Menu(
     "Robodactyl Escape",        // Description
     ["Start Level 1", "Exit"],  // Options
     function(option) {          // Function triggered by enter key
       if (option == 0) { menuActive = false; }
       else if (option == 1) { game.end(); }
-    });
+    });*/
 }
 
 window.onload = init;

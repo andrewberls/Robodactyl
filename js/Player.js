@@ -104,9 +104,9 @@ Player.prototype.move = function() {
 		this.dy = 0;
 	}
     
-	if (IsColliding(player,enemy)) {
+	//if (IsColliding(player,enemy)) {
 		//this.dx = 0;
-  }
+  //}
 		
 	// Finally, if no collisions detected, move the player			
 	this.x += this.dx;
@@ -114,8 +114,8 @@ Player.prototype.move = function() {
 	
 };
 	
-Player.prototype.draw = function() {
-	// Render the actual box or sprite to the screen
-	//ctx.fillRect(this.x, this.y, this.width, this.height);
+Player.prototype.draw = function() {	
+  // Draw the box model around the sprite (don't delete!)
+	ctx.fillRect(this.x, this.y, this.width, this.height);
   ctx.drawImage(this.sprite, this.x, this.y)
 }
