@@ -25,10 +25,10 @@ function GameObject() {
 	
 	// Box model
 	this.width = 0;
-	this.height = 0;
+	this.height = 0;      
 	
 	// Sprite
 	this.sprite = new Image();
-	this.sprite.src = "";
+	this.sprite.src = "";  
 	
 }
