@@ -10,7 +10,8 @@ Game.prototype.draw = function() {
 		// Are we paused?
 		var pauseMenu = new Menu(
       "Game Paused", 
-      ["Resume"], function(option) {
+      ["Resume"], 
+      function(option) {
 		    if (option == 0) {
 			    menuActive = false;
 			    gamePaused = false;
