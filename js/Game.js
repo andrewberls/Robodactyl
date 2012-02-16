@@ -3,12 +3,10 @@
 	Description: Container for main game rendering
 */
 
-function Game() {
-	this.paused = false;
-}
+function Game() {}
 
 Game.prototype.draw = function() {
-	if (this.paused) {
+	if (gamePaused) {
 		// Are we paused?
 		var pauseMenu = new Menu(
       "Game Paused", 

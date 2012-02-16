@@ -4,12 +4,12 @@
 */
 
 // Mass variable initialization
-var canvas = document.getElementById('canvas'), // Hook to the HTML element
-	  ctx = canvas.getContext('2d'), // Main context variable
-	  C_WIDTH = canvas.width, // Stored constant width/height references
-	  C_HEIGHT = canvas.height,
-    C_MIDX = canvas.width/2,
-    C_MIDY = canvas.height/2,
+var canvas     = document.getElementById('canvas'), // Hook to the HTML element
+	  ctx        = canvas.getContext('2d'), // Main context variable
+	  C_WIDTH    = canvas.width, // Stored constant width/height references
+	  C_HEIGHT   = canvas.height,
+    C_MIDX     = canvas.width/2,
+    C_MIDY     = canvas.height/2,
     gamePaused = false,
 	  gameLoop; // Global reference to the game loop
 
