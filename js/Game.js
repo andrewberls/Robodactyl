@@ -23,15 +23,15 @@ var background= new Background();
 var player = new Player();
 var enemy = new Enemy(randomFromTo(0,C_WIDTH));
 var projectiles = [];
+var menuActive = false;
 
-menuActive = false;
-/*var menu1 = new Menu("Robodactyl Escape", ["Start Level 1", "Exit"], function(option) {
+var menu1 = new Menu("Robodactyl Escape", ["Start Level 1", "Exit"], function(option) {
   if (option == 0) { 
     menuActive = false;
   }	else if (option == 1) {
     endGame();
   }
-});*/
+});
 
 
 //---------- CONTROLLERS + LOOPS

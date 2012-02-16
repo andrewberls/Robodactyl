@@ -6,7 +6,7 @@
 
 function Menu(description, options, callback) {
   this.fontSize = "40px"; // Note this is a string - used in interpolation only
-	ctx.font = this.fontSize + " Times New Roman"
+	ctx.font = this.fontSize + " Times New Roman";
   this.textPadding = 20; // How much space is in between items
   ctx.textAlign = "center";
 	
