@@ -29,6 +29,9 @@ var background = new Background();
 var player = new Player();
 //var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE), randomFromTo(1,50));
 var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
+var enemy2 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
+var enemy3 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
+var enemy4 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 
 
 function init() {

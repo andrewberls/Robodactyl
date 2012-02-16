@@ -38,7 +38,7 @@ Game.prototype.draw = function() {
     player.draw();
 		
 		enemies.map(function(enemy) {
-		  //enemy.move();
+		  enemy.move();
 		  enemy.draw();
 		});
 		

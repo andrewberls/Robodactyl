@@ -27,15 +27,15 @@ function Enemy(x) {
   
   // Randomly select the sprite source
   //console.log(srcSeed);
-  /*if (srcSeed%2 == 0) {
+  if (randomFromTo(1,50)%2 == 0) {
     this.sprite.src = "images/scientist_1.png";
     console.log("even, sci1 chosen");
   } else {
     this.sprite.src = "images/scientist_2.png";    
     console.log("odd, sci2 chosen");
-  }*/
+  }
   
-  this.sprite.src = "images/scientist_1.png";
+  //this.sprite.src = "images/scientist_1.png";
   
   // This looks super funky, but all it's doing is calling
   // the fire() method every second. The craziness
@@ -106,7 +106,7 @@ Enemy.prototype.draw = function() {
   ctx.save();  
   ctx.fillStyle = "#00ffcc";
   // Draw the box model around the sprite (don't delete!)
-  ctx.fillRect(this.x, this.y, this.width, this.height);
+  //ctx.fillRect(this.x, this.y, this.width, this.height);
   ctx.drawImage(this.sprite, this.x, this.y);  
   
   ctx.restore();
