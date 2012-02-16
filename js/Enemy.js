@@ -19,8 +19,7 @@ function Enemy(x) {
 	this.x = x;
 	this.y = C_HEIGHT-this.height-TILE_SIZE;	
   
-  this.midx = this.x + this.width/2;
-  this.midy = this.y + this.height/2;
+  
 	
 	this.dx = 0.8;    
 	
@@ -54,6 +53,11 @@ Enemy.prototype = new GameObject(); // Inherit from GameObject
 Enemy.prototype.constructor = Enemy; // Correct the constructor to use this, not GameObject
 
 Enemy.prototype.move = function() {
+  
+  // Convenience midpoint methods
+  this.midx = this.x + this.width/2;
+  this.midy = this.y + this.height/2;
+  
   // Change direction if colliding with a canvas edge
 	if (this.x + this.dx < 0 || this.x + this.dx + this.width > C_WIDTH) {
 		this.dx *= -1;
@@ -81,14 +85,14 @@ Enemy.prototype.fire = function() {
   // Only fire if the player is on the same screen as the enemy
   if (this.x >= 0 && this.x < C_WIDTH) {
     
-    var deltaX = player.x - this.x;
-    var deltaY = player.y - this.y;
+    var deltaX = player.midx - this.x;
+    var deltaY = player.midy - this.y;
     //var distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));    
     
     bulletDX = deltaX/150;
     bulletDY = deltaY/150;
         
-    var proj = new Projectile(this.x, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
+    var proj = new Projectile(this.midx, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
     enemyProjectiles.push(proj); // [TEMPORARY] Push to global projectile tracking array for rendering
   }
   
@@ -99,7 +103,7 @@ Enemy.prototype.draw = function() {
   ctx.save();  
   ctx.fillStyle = "#00ffcc";
   // Draw the box model around the sprite (don't delete!)
-  //ctx.fillRect(this.x, this.y, this.width, this.height);
+  ctx.fillRect(this.x, this.y, this.width, this.height);
   ctx.drawImage(this.sprite, this.x, this.y);  
   
   ctx.restore();

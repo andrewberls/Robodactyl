@@ -16,12 +16,10 @@ function Player() {
 
 	// Is this the best way to initialize inherited attributes?	
 	this.x = 10;
-	this.y = 10;    
-	
-	//this.height = TILE_SIZE;
-	//this.width  = TILE_SIZE;    
+	this.y = 10;
   
-  this.height = 3*TILE_SIZE; this.width = 4.5*TILE_SIZE;
+  this.height = 3*TILE_SIZE; 
+  this.width = 4.5*TILE_SIZE;
 	
 	this.dx = 0;
 	this.dy = 0;
@@ -107,11 +105,9 @@ Player.prototype.move = function() {
 	}
     
 	if (IsColliding(player,enemy)) {
-		this.dx = 0;
-		}
-	
-	
-				
+		//this.dx = 0;
+  }
+		
 	// Finally, if no collisions detected, move the player			
 	this.x += this.dx;
 	this.y += this.dy;
