@@ -46,8 +46,13 @@ Game.prototype.draw = function() {
       // are we colliding with an enemy? do something
       // ex: if (proj.y >= canvas.height-30) { action_here }
       // else { move, draw}
-		  proj.move();
-		  proj.draw();
+		  if(proj.y >= canvas.height - 45) {
+            playerProjectiles = [];
+          }
+          else {
+            proj.move();
+            proj.draw();
+          }  
 		});
     
     enemyProjectiles.map(function(proj) {
