@@ -27,37 +27,35 @@ Game.prototype.draw = function() {
 	else {
 		// Gameplay mode!
 		// Loop through all environments, characters, and projectiles,
-		// calling their move() and draw() methods
-    		
-		environment.map(function(env) {
-		  env.move();
-		  env.draw();
-		});
+		// calling their move() and draw() methods    		
+		
+    $.each(environment,function(i, env){
+      env.move();
+      env.draw();
+    });
     
     player.move();
-    player.draw();
+    player.draw();		
 		
-		enemies.map(function(enemy) {
-		  enemy.move();
-		  enemy.draw();
-		});
-		
-		playerProjectiles.map(function(proj) {
-      // Is the projectile colliding with the floor?
-		  if(proj.y >= canvas.height - (TILE_SIZE + proj.height)) {
-            playerProjectiles = [];
+    $.each(enemies,function(i, enemy){
+      enemy.move();
+      enemy.draw();
+    });
+				
+    $.each(playerProjectiles, function(i, proj){
+      if (proj.y >= canvas.height - (TILE_SIZE + proj.height)) {
+        playerProjectiles = [];
       }
-      // To do: is the projectile colliding with an enemy?
       else {
         proj.move();
         proj.draw();
-      }  
-		});
-    
-    enemyProjectiles.map(function(proj) {      
-		  proj.move();
-		  proj.draw();
-		});
+      }
+    });
+        
+    $.each(enemyProjectiles, function(i, proj){
+      proj.move();
+      proj.draw();
+    });
     
 	}
 }
