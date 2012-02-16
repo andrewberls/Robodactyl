@@ -13,8 +13,8 @@
 
 function Enemy(x) {
 	
-  this.height = TILE_SIZE;
-	this.width = TILE_SIZE;  
+  this.height = 3*TILE_SIZE;
+	this.width = 2*TILE_SIZE;  
   
 	this.x = x;
 	this.y = C_HEIGHT-this.height-TILE_SIZE;	
@@ -28,6 +28,13 @@ function Enemy(x) {
   
   this.fireRate = 2500;
   
+  // Randomly select the sprite source
+  if (randomFromTo(1,10)%2 == 0) {
+    this.sprite.src = "images/scientist_1.png";    
+  } else {
+    this.sprite.src = "images/scientist_2.png";    
+  }    
+  
   // This looks super funky, but all it's doing is calling
   // the fire() method every second. The craziness
   // is necessary to preserve the correct 'this' context
@@ -35,7 +42,7 @@ function Enemy(x) {
   // Essentially equal to setInterval(this.fire, this.fireRate)
   this.fireLoop = setInterval((function(self) {
     return function() {
-      self.fire();
+      self.fire();      
     } 
   })(this), this.fireRate);
   
@@ -91,9 +98,9 @@ Enemy.prototype.fire = function() {
 Enemy.prototype.draw = function() {
   ctx.save();  
   ctx.fillStyle = "#00ffcc";
-  ctx.fillRect(this.x, this.y, this.width, this.height);
-  
-  //this.fire(); // TEMPORARY IMPLEMENTATION
+  // Draw the box model around the sprite (don't delete!)
+  //ctx.fillRect(this.x, this.y, this.width, this.height);
+  ctx.drawImage(this.sprite, this.x, this.y);  
   
   ctx.restore();
 }

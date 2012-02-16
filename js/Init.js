@@ -25,7 +25,7 @@ var background = new Background();
 
 // Characters
 var player = new Player();
-var enemy = new Enemy(randomFromTo(0,C_WIDTH));
+var enemy = new Enemy(randomFromTo(0,C_WIDTH-TILE_SIZE));
 
 function init() {
 	var game = new Game();

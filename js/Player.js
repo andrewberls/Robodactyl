@@ -17,8 +17,10 @@ function Player() {
 	this.x = 10;
 	this.y = 10;    
 	
-	this.height = TILE_SIZE;
-	this.width  = TILE_SIZE;    
+	//this.height = TILE_SIZE;
+	//this.width  = TILE_SIZE;    
+  
+  this.height = 2*TILE_SIZE; this.width = 3.5*TILE_SIZE;
 	
 	this.dx = 0;
 	this.dy = 0;
