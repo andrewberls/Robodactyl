@@ -16,8 +16,8 @@ function Projectile(x,y,dx,dy,src) {
   this.dx = dx;
   this.dy = dy;
   //this.sprite.src = src;
-  this.height = 15;
-  this.width = 15;
+  this.height = TILE_SIZE/2;
+  this.width = TILE_SIZE/2;
   
 }
 

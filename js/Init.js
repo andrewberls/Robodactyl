@@ -10,8 +10,9 @@ var canvas     = document.getElementById('canvas'), // Hook to the HTML element
 	  C_HEIGHT   = canvas.height,
     C_MIDX     = canvas.width/2,
     C_MIDY     = canvas.height/2,
+    TILE_SIZE  = 30,
     gamePaused = false,
-	  gameLoop; // Global reference to the game loop
+	  gameLoop;
 
 // Manager arrays to track objects
 var environment = [], 

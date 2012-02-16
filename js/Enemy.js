@@ -13,11 +13,11 @@
 
 function Enemy(x) {
 	
+  this.height = TILE_SIZE;
+	this.width = TILE_SIZE;  
+  
 	this.x = x;
-	this.y = C_HEIGHT-60;
-	
-	this.height = 30;
-	this.width = 30;
+	this.y = C_HEIGHT-this.height-TILE_SIZE;	
   
   this.midx = this.x + this.width/2;
   this.midy = this.y + this.height/2;
@@ -91,7 +91,7 @@ Enemy.prototype.fire = function() {
 Enemy.prototype.draw = function() {
   ctx.save();  
   ctx.fillStyle = "#00ffcc";
-  ctx.fillRect(this.x, this.y, 30, 30);
+  ctx.fillRect(this.x, this.y, this.width, this.height);
   
   //this.fire(); // TEMPORARY IMPLEMENTATION
   
