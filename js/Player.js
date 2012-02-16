@@ -18,18 +18,12 @@ function Player() {
 	this.y = 10;    
 	
 	this.height = 30;
-	this.width = 30;
-  
-  // Convenience attributes for enemy targeting
-  this.midx = this.x + this.width/2;
-  this.midy = this.y + this.height/2;
+	this.width  = 30;
 	
 	this.dx = 0;
 	this.dy = 0;
 	
-	// this.health = 0;
-	
-	characters.push(this); // Add self to character manager array
+	this.health = 5;		
 }
 
 Player.prototype = new GameObject(); // Inherit from GameObject
