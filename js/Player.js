@@ -91,6 +91,11 @@ Player.prototype.move = function() {
 	if (this.y + this.height + this.dy > C_HEIGHT - 30) { // FLOOR TILE HEIGHT CURENTLY HARDCODED (30)
 		this.dy = 0;
 	}
+    
+	if (IsColliding(player,enemy)) {
+		this.dx = 0;
+		}
+	
 	
 				
 	// Finally, if no collisions detected, move the player			
