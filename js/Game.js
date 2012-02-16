@@ -19,10 +19,20 @@ var canvas = document.getElementById('canvas'), // Hook to the HTML element
 
 
 //---------- INITIALIZE OBJECT VARS
-var background= new Background();
+// Manager arrays to track objects
+var environment = [];
+var characters = []
+var projectiles = [];
+
+// Environment
+var background = new Background();
+
+// Characters
 var player = new Player();
 var enemy = new Enemy(randomFromTo(0,C_WIDTH));
-var projectiles = [];
+
+
+//---------- MENU STATES AND INITIALIZATION
 var menuActive = false;
 
 var menu1 = new Menu("Robodactyl Escape", ["Start Level 1", "Exit"], function(option) {
@@ -67,12 +77,17 @@ function draw() {
 	} 
   else {
     // Gameplay mode!
-    background.move();
-    background.draw();
-		player.move();
-		player.draw();
-    enemy.move();
-    enemy.draw();
+    // Loop through all environments, characters, and projectiles,
+    // calling their move() and draw() methods
+    environment.map(function(env) {
+      env.move();
+      env.draw();
+    });
+    
+    characters.map(function(character) {
+      character.move();
+      character.draw();
+    });
     
     projectiles.map(function(proj) {
       proj.move();

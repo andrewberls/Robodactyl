@@ -37,7 +37,9 @@ function Enemy(x) {
     return function() {
       self.fire();
     } 
-  })(this), this.fireRate); 
+  })(this), this.fireRate);
+  
+  characters.push(this); // Add self to character manager array
 	
 }
 
@@ -70,8 +72,16 @@ Enemy.prototype.fire = function() {
   
   // Temporary stuff
   // Only fire if the player is on the same screen as the enemy
-  if (this.x >= 0 && this.x < C_WIDTH) {    
-    var proj = new Projectile(this.x, this.y, 0.2, -0.2); // Params: (x,y,dx,dy)
+  if (this.x >= 0 && this.x < C_WIDTH) {
+    
+    var deltaX = player.x - this.x;
+    var deltaY = player.y - this.y;
+    //var distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));    
+    
+    bulletDX = deltaX/150;
+    bulletDY = deltaY/150;
+        
+    var proj = new Projectile(this.x, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
     projectiles.push(proj); // [TEMPORARY] Push to global projectile tracking array for rendering
   }
   

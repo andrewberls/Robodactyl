@@ -29,7 +29,7 @@ function Player() {
 	
 	// this.health = 0;
 	
-	
+	characters.push(this); // Add self to character manager array
 }
 
 Player.prototype = new GameObject(); // Inherit from GameObject
