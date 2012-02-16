@@ -79,7 +79,12 @@ Game.prototype.draw = function() {
 		  character.draw();
 		});
 		
-		projectiles.map(function(proj) {
+		playerProjectiles.map(function(proj) {
+		  proj.move();
+		  proj.draw();
+		});
+    
+    enemyProjectiles.map(function(proj) {
 		  proj.move();
 		  proj.draw();
 		});
