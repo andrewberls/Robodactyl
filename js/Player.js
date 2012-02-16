@@ -6,6 +6,7 @@
 	
 	Method Signatures:
 		setDirection()
+    attack()
 		move()
 		draw()
 	
@@ -20,23 +21,23 @@ function Player() {
 	//this.height = TILE_SIZE;
 	//this.width  = TILE_SIZE;    
   
-  this.height = 2*TILE_SIZE; this.width = 3.5*TILE_SIZE;
+  this.height = 3*TILE_SIZE; this.width = 4.5*TILE_SIZE;
 	
 	this.dx = 0;
 	this.dy = 0;
 	
-	this.health = 5;		
+	this.health = 5;
+  
+  this.sprite.src = "images/robo_test.png";
 }
 
 Player.prototype = new GameObject(); // Inherit from GameObject
 Player.prototype.constructor = Player; // Correct the constructor to use this, not GameObject
 
 Player.prototype.setDirection = function() {
-
-	/*
-		Here, we're switching through the player's dir attribute (a string),
-		and setting the appropriate dx or dy attribute based on its value.
-	*/
+	
+	// Here, we're switching through the player's dir attribute (a string),
+	// and setting the appropriate dx or dy attribute based on its value.	
 
 	switch(this.dir) {
 		case "LEFT":
@@ -55,8 +56,21 @@ Player.prototype.setDirection = function() {
 			this.dx = 0;
 			this.dy = 0;
 			break;
-	};
-	
+	};	
+}
+
+Player.prototype.attack = function () {
+  // Don't create a new bomb if there's already a bomb
+  // in the playerProjectiles array
+  
+  if (playerProjectiles.length == 0) {
+    var Bomb = new Projectile(this.midx-TILE_SIZE/2, this.y + this.height, 0, 6);
+    playerProjectiles.push(Bomb);
+  }
+  else if (playerProjectiles.length == 1) {
+    // Do nothing
+    return;
+  }
 }
 
 Player.prototype.move = function() {
@@ -101,18 +115,6 @@ Player.prototype.move = function() {
 	
 Player.prototype.draw = function() {
 	// Render the actual box or sprite to the screen
-	ctx.fillRect(this.x, this.y, this.width, this.height);
+	//ctx.fillRect(this.x, this.y, this.width, this.height);
+  ctx.drawImage(this.sprite, this.x, this.y)
 }
-
-Player.prototype.attack = function () {
-    //if bomb object in playerProjectiles, do not create new one            
-    
-    if (playerProjectiles.length == 0) {
-        var Bomb = new Projectile(this.midx-this.width/4, this.y + this.height, 0, 6);
-        playerProjectiles.push(Bomb);
-    }
-    else if (playerProjectiles.length == 1) {
-        //do nothing if SPACE pressed        
-    }    
-}
-
