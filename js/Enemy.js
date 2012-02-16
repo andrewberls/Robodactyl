@@ -13,11 +13,11 @@
 
 function Enemy(x) {
 	
+  this.height = TILE_SIZE;
+	this.width = TILE_SIZE;  
+  
 	this.x = x;
-	this.y = C_HEIGHT-60;
-	
-	this.height = 30;
-	this.width = 30;
+	this.y = C_HEIGHT-this.height-TILE_SIZE;	
   
   this.midx = this.x + this.width/2;
   this.midy = this.y + this.height/2;
@@ -37,7 +37,9 @@ function Enemy(x) {
     return function() {
       self.fire();
     } 
-  })(this), this.fireRate); 
+  })(this), this.fireRate);
+  
+  enemies.push(this); // Add self to character manager array
 	
 }
 
@@ -70,9 +72,17 @@ Enemy.prototype.fire = function() {
   
   // Temporary stuff
   // Only fire if the player is on the same screen as the enemy
-  if (this.x >= 0 && this.x < C_WIDTH) {    
-    var proj = new Projectile(this.x, this.y, 0.2, -0.2); // Params: (x,y,dx,dy)
-    projectiles.push(proj); // [TEMPORARY] Push to global projectile tracking array for rendering
+  if (this.x >= 0 && this.x < C_WIDTH) {
+    
+    var deltaX = player.x - this.x;
+    var deltaY = player.y - this.y;
+    //var distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));    
+    
+    bulletDX = deltaX/150;
+    bulletDY = deltaY/150;
+        
+    var proj = new Projectile(this.x, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
+    enemyProjectiles.push(proj); // [TEMPORARY] Push to global projectile tracking array for rendering
   }
   
     
@@ -81,7 +91,7 @@ Enemy.prototype.fire = function() {
 Enemy.prototype.draw = function() {
   ctx.save();  
   ctx.fillStyle = "#00ffcc";
-  ctx.fillRect(this.x, this.y, 30, 30);
+  ctx.fillRect(this.x, this.y, this.width, this.height);
   
   //this.fire(); // TEMPORARY IMPLEMENTATION
   

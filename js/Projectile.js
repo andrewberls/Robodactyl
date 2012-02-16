@@ -10,13 +10,14 @@
 	
 */
 
-function Projectile(x,y,dx,dy) {
+function Projectile(x,y,dx,dy,src) {
   this.x = x;
   this.y = y;
   this.dx = dx;
   this.dy = dy;
-  
-  
+  //this.sprite.src = src;
+  this.height = TILE_SIZE/2;
+  this.width = TILE_SIZE/2;
   
 }
 
@@ -34,6 +35,6 @@ Projectile.prototype.move = function() {
 Projectile.prototype.draw = function() {  
   ctx.save();
   ctx.fillStyle = "#f00";
-  ctx.fillRect(this.x, this.y, 15, 15);
+  ctx.fillRect(this.x, this.y, this.width, this.height);
   ctx.restore();
 }

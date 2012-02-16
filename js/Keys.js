@@ -62,7 +62,9 @@ $(document).keydown(function(evt) {
 				break;
 				
 			case KEY_SPACE:							
-				// Player attack
+				// Player attack                
+        player.attack();
+        console.log("SPACE pressed, player.attack()");                
 				break;
 				
 			case KEY_ENTER:
@@ -70,7 +72,7 @@ $(document).keydown(function(evt) {
 				break;
         
       case KEY_ESC:
-				gamePaused = true;
+				gamePaused = true;        
 				break;
 				
 			default:

@@ -115,8 +115,20 @@ Player.prototype.tileCollision = function() {
 Player.prototype.attack = function () {
     //calls instance of bomb at player location
     
-    var playerBomb = new Bomb(this.x, this.y);
-    playerBomb.drop();
+    for(x = 0; x < 10; x++) {
+        var playerBomb = new Bomb(this.x, this.y);
+    }
+    
+    if (!playerBomb.isDropping) { 
+        playerBomb.drop();
+    }
+    else if(playerBomb.isDropping = true) {
+        //do nothing if player presses space while bomb is dropping
+        if(debug_mode) {
+        console.log("Bomb is dropping, please wait");
+        }
+        return;
+    }
 }
 
 
