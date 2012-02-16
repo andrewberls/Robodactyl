@@ -69,8 +69,12 @@ Enemy.prototype.fire = function() {
   */    
   
   // Temporary stuff
-  var proj = new Projectile(this.x, this.y, 0.2, -0.2); // Params: (x,y,dx,dy)
-  projectiles.push(proj); // [TEMPORARY] Push to global projectile tracking array for rendering
+  // Only fire if the player is on the same screen as the enemy
+  if (this.x >= 0 && this.x < C_WIDTH) {    
+    var proj = new Projectile(this.x, this.y, 0.2, -0.2); // Params: (x,y,dx,dy)
+    projectiles.push(proj); // [TEMPORARY] Push to global projectile tracking array for rendering
+  }
+  
     
 }
 
