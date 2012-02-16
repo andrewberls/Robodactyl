@@ -63,6 +63,10 @@ $(document).keydown(function(evt) {
 				
 			case KEY_SPACE:							
 				// Player attack
+                
+                player.attack();
+                console.log("SPACE pressed, player.attack()");
+                
 				break;
 				
 			case KEY_ENTER:

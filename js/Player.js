@@ -98,3 +98,18 @@ Player.prototype.draw = function() {
 	ctx.fillRect(this.x, this.y, 30, 30);
 }
 
+Player.prototype.attack = function () {
+    //if bomb object in playerProjectiles, do not create new one
+    
+    
+    if(playerProjectiles.length == 0) {
+        var Bomb = new Projectile(this.midx, this.y + this.height, 0, 6);
+        playerProjectiles.push(Bomb);
+    }
+    else if(playerProjectiles.length == 1) {
+        //do nothing if SPACE pressed
+        
+    }
+    
+}
+
