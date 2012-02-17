@@ -61,10 +61,8 @@ $(document).keydown(function(evt) {
 				player.dir = "DOWN";
 				break;
 				
-			case KEY_SPACE:							
-				// Player attack                
-        player.attack();
-        console.log("SPACE pressed, player.attack()");                
+			case KEY_SPACE:				               
+        player.attack();                      
 				break;
 				
 			case KEY_ENTER:
