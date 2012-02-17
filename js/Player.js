@@ -116,6 +116,6 @@ Player.prototype.move = function() {
 	
 Player.prototype.draw = function() {	
   // Draw the box model around the sprite (don't delete!)
-	//ctx.fillRect(this.x, this.y, this.width, this.height);
+	ctx.fillRect(this.x, this.y, this.width, this.height);
   ctx.drawImage(this.sprite, this.x, this.y)
 }

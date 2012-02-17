@@ -26,13 +26,25 @@ Game.prototype.draw = function() {
 	
 	else {
 		// Gameplay mode!
-		// Loop through all environments, characters, and projectiles,
-		// calling their move() and draw() methods    		
+		/*
+      collectables = [],
+      enemies     = [],
+      playerProjectiles = [],
+      enemyProjectiles  = [];
+    */		
 		
-    $.each(environment,function(i, env){
-      env.move();
-      env.draw();
+    background.move();
+    background.draw();
+    
+    $.each(collectables,function(i, item){
+      if (intersecting(player, item)) {
+        console.log("player/block collision detected");
+      }
+      item.move();
+      item.draw();
     });
+    
+    
     
     player.move();
     player.draw();		

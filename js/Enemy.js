@@ -29,10 +29,10 @@ function Enemy(x) {
   //console.log(srcSeed);
   if (randomFromTo(1,50)%2 == 0) {
     this.sprite.src = "images/scientist_1.png";
-    console.log("even, sci1 chosen");
+    //console.log("even, sci1 chosen");
   } else {
     this.sprite.src = "images/scientist_2.png";    
-    console.log("odd, sci2 chosen");
+    //console.log("odd, sci2 chosen");
   }
   
   //this.sprite.src = "images/scientist_1.png";

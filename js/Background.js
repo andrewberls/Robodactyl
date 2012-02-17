@@ -16,7 +16,7 @@ function Background() {
   this.moveSpeed = 0.4;
   this.width = 780;
   
-  environment.push(this); // Add self to environment manager array
+  //environment.push(this); // Add self to environment manager array
 }
 
 Background.prototype = new GameObject(); // Inherit from GameObject
