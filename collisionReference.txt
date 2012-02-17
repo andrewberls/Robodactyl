@@ -1,0 +1,49 @@
+From: http://stackoverflow.com/questions/8017541/javascript-canvas-collision-detection
+
+rect_collision = function(x1, y1, size1, x2, y2, size2) {
+  var bottom1, bottom2, left1, left2, right1, right2, top1, top2;
+  left1 = x1 - size1;
+  right1 = x1 + size1;
+  top1 = y1 - size1;
+  bottom1 = y1 + size1;
+  left2 = x2 - size2;
+  right2 = x2 + size2;
+  top2 = y2 - size2;
+  bottom2 = y2 + size2;
+  return !(left1 > right2 || left2 > right1 || top1 > bottom2 || top2 > bottom1);
+};
+
+This determines whether two squares, centered at (x1, y1) and (x2, y2), with side lengths 2*size1 and 2*size2, respectively, are overlapping. It should be easy enough to alter the definitions of left1, right1, etc. to deal with general rectangles rather than just squares and to use a different data format.
+
+Specifically, left1 is the left side of the the first square, right1 the right side, etc. Note that, in my coordinate system, the y-axis is inverted (top1 < bottom1).
+
+----------------------------------------------------------------------------------------
+From: http://stackoverflow.com/questions/2440377/javascript-collision-detection
+
+Here's a very simple bounding rectangle routine. It expects both a and b to be objects with x, y, width and height properties:
+
+function isCollide(a, b) {
+    return !(
+        ((a.y + a.height) < (b.y)) ||
+        (a.y > (b.y + b.height)) ||
+        ((a.x + a.width) < b.x) ||
+        (a.x > (b.x + b.width))
+    );
+}
+
+----------------------------------------------------------------------------------------
+From: http://stackoverflow.com/questions/8017541/javascript-canvas-collision-detection
+
+// returns true if there is any overlap
+// params: x,y,w,h of two rectangles
+function intersects(x1, y1, w1, h1, x2, y2, w2, h2) {
+    w2 += x2;
+    w1 += x1;
+    if (x2 > w1 || x1 > w2) return false;
+    h2 += y2;
+    h1 += y1;
+    if (y2 > h1 || y1 > h2) return false;
+  return true;
+}
+
+----------------------------------------------------------------------------------------
