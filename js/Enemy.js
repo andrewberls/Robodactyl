@@ -88,8 +88,8 @@ Enemy.prototype.fire = function() {
   // Only fire if the player is on the same screen as the enemy
   if (this.x >= 0 && this.x < C_WIDTH) {
     
-    var deltaX = player.midx - this.x;
-    var deltaY = player.midy - this.y;        
+    var deltaX = player.midx - this.midx;
+    var deltaY = player.midy - this.midy;        
     //var distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));    
     
     var bulletDX = deltaX/150;
