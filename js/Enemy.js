@@ -21,9 +21,10 @@ function Enemy(x) {
 	
 	this.dx = 0.8;
 	
-	// this.health = 0;  
+ // this.health = 0;  
   
   this.fireRate = 2500;
+  
   
   // Randomly select the sprite source
   //console.log(srcSeed);
