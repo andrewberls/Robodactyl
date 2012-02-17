@@ -66,10 +66,6 @@ Player.prototype.attack = function () {
     playerProjectiles.push(Bomb);
     laser1.play();
   }
-  else if (playerProjectiles.length == 1) {
-    // Do nothing
-    return;
-  }
 }
 
 Player.prototype.move = function() {
