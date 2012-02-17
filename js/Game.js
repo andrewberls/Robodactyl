@@ -24,7 +24,7 @@ Game.prototype.draw = function() {
 		currentMenu.draw();
 	}
 	
-	else {
+	else {    
 		// Gameplay mode!
 		/*
       collectables = [],
@@ -39,17 +39,17 @@ Game.prototype.draw = function() {
     $.each(collectables,function(i, item){
       if (intersecting(player, item)) {
         console.log("player/block collision detected");
-      }
-      item.move();
-      item.draw();
+        //endGame();
+      } //else {
+        item.move();
+        item.draw();
+      //}      
     });
-    
-    
-    
+            
     player.move();
     player.draw();		
 		
-    $.each(enemies,function(i, enemy){
+    $.each(enemies,function(i, enemy){      
       enemy.move();
       enemy.draw();
     });
@@ -72,12 +72,20 @@ Game.prototype.draw = function() {
 	}
 }
 
-Game.prototype.end = function() {
+var endGame = function() {
 	// Temporary function to test menus
 	// We can keep this or something like it around if you want
 	// Stops the animation loop and displays text on a blank screen
-	clearInterval(gameLoop);
+	window.clearInterval(gameLoop);
+  console.log("interval cleared")
+  player = null;
+  var managers = [background, collectables, playerProjectiles, enemyProjectiles]
+  $.each(managers, function(i, manager) {
+    manager = [];
+    console.log("clearing manager");
+  });
 	ctx.clearRect(0,0, C_WIDTH, C_HEIGHT);
 	ctx.font = "25px Times New Roman";
 	ctx.fillText("Game Exited", C_MIDX, C_MIDY);
+  return;
 }
