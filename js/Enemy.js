@@ -8,7 +8,7 @@
 		move()
     fire()
 		draw()
-	
+	  kill()
 */
 
 function Enemy(x) {
@@ -21,22 +21,18 @@ function Enemy(x) {
 	
 	this.dx = 0.8;
 	
- // this.health = 0;  
+ this.health = 1;  
   
   this.fireRate = 2500;
   
   
   // Randomly select the sprite source
-  //console.log(srcSeed);
+  // NEEDS DEBUGGING
   if (randomFromTo(1,50)%2 == 0) {
-    this.sprite.src = "images/scientist_1.png";
-    //console.log("even, sci1 chosen");
+    this.sprite.src = "images/scientist_1.png";    
   } else {
-    this.sprite.src = "images/scientist_2.png";    
-    //console.log("odd, sci2 chosen");
-  }
-  
-  //this.sprite.src = "images/scientist_1.png";
+    this.sprite.src = "images/scientist_2.png";        
+  }    
   
   // This looks super funky, but all it's doing is calling
   // the fire() method every second. The craziness
@@ -95,20 +91,25 @@ Enemy.prototype.fire = function() {
     
     var bulletDX = deltaX/150;
     var bulletDY = deltaY/150;
-        
-    var proj = new Projectile(this.x + this.width/2, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
-    enemyProjectiles.push(proj); // [TEMPORARY] Push to global projectile tracking array for rendering
+    
+    // Is the enemy alive?
+    if (this.in(enemies)) {
+      var proj = new Projectile(this.x + this.width/2, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
+      enemyProjectiles.push(proj);
+    }
   }
   
     
 }
 
 Enemy.prototype.draw = function() {
-  ctx.save();  
-  ctx.fillStyle = "#00ffcc";
+  //ctx.save();  
+  //ctx.fillStyle = "#00ffcc";
   // Draw the box model around the sprite (don't delete!)
   //ctx.fillRect(this.x, this.y, this.width, this.height);
-  ctx.drawImage(this.sprite, this.x, this.y);  
-  
-  ctx.restore();
+  ctx.drawImage(this.sprite, this.x, this.y);    
+  //ctx.restore();
+}
+Enemy.prototype.kill = function() {
+  enemies.remove(this);
 }

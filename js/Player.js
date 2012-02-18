@@ -13,8 +13,7 @@
 */
 
 function Player() {
-
-	// Is this the best way to initialize inherited attributes?	
+	
 	this.x = 10;
 	this.y = 10;
   
@@ -58,9 +57,7 @@ Player.prototype.setDirection = function() {
 }
 
 Player.prototype.attack = function () {
-  // Don't create a new bomb if there's already a bomb
-  // in the playerProjectiles array
-  
+  // Don't create a new bomb if there's already a bomb dropping  
   if (playerProjectiles.length == 0) {
     var Bomb = new Projectile(this.midx-TILE_SIZE/2, this.y + this.height, 0, 6);
     playerProjectiles.push(Bomb);
@@ -69,13 +66,6 @@ Player.prototype.attack = function () {
 }
 
 Player.prototype.move = function() {
-
-	/*
-		This gets called before the draw() function every frame.
-		It serves to modify the player's position on the screen,
-		thus faking the appearance of continuous movement.
-		
-	*/
 
   // Convenience midpoint methods
   this.midx = this.x + this.width/2;
@@ -100,12 +90,7 @@ Player.prototype.move = function() {
 	if (this.y + this.height + this.dy > C_HEIGHT - 30) { // FLOOR TILE HEIGHT CURENTLY HARDCODED (30)
 		this.dy = 0;
 	}
-    
-	//if (IsColliding(player,enemy)) {
-		//this.dx = 0;
-  //}
-		
-	// Finally, if no collisions detected, move the player			
+			
 	this.x += this.dx;
 	this.y += this.dy;
 	

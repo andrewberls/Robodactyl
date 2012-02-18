@@ -32,3 +32,9 @@ function GameObject() {
 	this.sprite.src = "";  
 	
 }
+
+GameObject.prototype.in = function(array) {
+  // Return true if a given GameObject is in an array
+  // Ex: powerup.in(collectables) -> returns true or false
+  return ($.inArray(this, array) != -1) ? true : false;
+}
