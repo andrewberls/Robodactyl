@@ -23,11 +23,12 @@ function intersecting(a, b) {
   
   // Takes two GameObjects and returns true if they're overlapping.
   // Adapted from http://stackoverflow.com/questions/2440377/javascript-collision-detection
-  
-  return !(
-        ((a.y + a.height) < (b.y)) ||
-        (a.y > (b.y + b.height))   ||
-        ((a.x + a.width) < b.x)    ||
-        (a.x > (b.x + b.width))
-    );
+  if (!(typeof a === "undefined" || typeof b === "undefined")) {
+    return !(
+          ((a.y + a.height) < (b.y)) ||
+          (a.y > (b.y + b.height))   ||
+          ((a.x + a.width) < b.x)    ||
+          (a.x > (b.x + b.width))
+      );
+  }
 }
