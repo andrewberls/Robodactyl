@@ -7,6 +7,9 @@
 	Method Signatures:
 		setDirection()
     attack()
+    damage()
+    kill()
+    displayHealth()
 		move()
 		draw()
 	
@@ -17,7 +20,7 @@ function Player() {
 	this.x = 10;
 	this.y = 10;
   
-  this.height = 3*TILE_SIZE; 
+  this.height = 3*TILE_SIZE - 5; // Little hack to make for empty space at sprite bottom 
   this.width = 4.5*TILE_SIZE;
 	
 	this.dx = 0;
@@ -65,6 +68,35 @@ Player.prototype.attack = function () {
   }
 }
 
+Player.prototype.damage = function(dmg) {
+  console.log("player has " + this.health.toString() + " health");
+  this.health -= dmg;  
+  console.log("applying " + dmg.toString() + " damage");
+  console.log("player now has " + this.health.toString() + " health");
+  console.log("");
+  
+  if (this.health === 0) {
+    this.kill();
+  }
+}
+
+Player.prototype.kill = function() {
+  console.log("kill() called");
+  this.health = 5;
+}
+
+Player.prototype.displayHealth = function() {
+  ctx.save();
+  ctx.fillStyle = "#0fc";
+  var offset = 0;
+  var x_start = C_WIDTH-150;
+  for (var i=0; i<this.health; ++i) {
+    ctx.fillRect(x_start+offset, 10, 25, 25);
+    offset += 30;
+  }
+  ctx.restore();
+}
+
 Player.prototype.move = function() {
 
   // Convenience midpoint methods
@@ -73,11 +105,7 @@ Player.prototype.move = function() {
   
 	this.setDirection();
 	
-	
-	// This block should probably be put into a function eventually
-	// ex checkCanvasCollisions() or something
-	// ------------------------------------------
-	//-- Don't move if colliding with a canvas edge
+	// Don't move if colliding with a canvas edge
 	// Top
 	if (this.y + this.dy < 0) {				
 		this.dy = 0;
@@ -87,7 +115,7 @@ Player.prototype.move = function() {
 		this.dx = 0;
 	}
 	// Bottom
-	if (this.y + this.height + this.dy > C_HEIGHT - 30) { // FLOOR TILE HEIGHT CURENTLY HARDCODED (30)
+	if (this.y + this.height + this.dy > C_HEIGHT - TILE_SIZE) {
 		this.dy = 0;
 	}
 			
@@ -98,6 +126,6 @@ Player.prototype.move = function() {
 	
 Player.prototype.draw = function() {	
   // Draw the box model around the sprite (don't delete!)
-	ctx.fillRect(this.x, this.y, this.width, this.height);
-  ctx.drawImage(this.sprite, this.x, this.y)
+	//ctx.fillRect(this.x, this.y, this.width, this.height); 
+  ctx.drawImage(this.sprite, this.x, this.y);  
 }
