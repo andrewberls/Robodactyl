@@ -17,7 +17,7 @@ var canvas     = document.getElementById('canvas'), // Hook to the HTML element
     
 // Manager arrays to track objects
 var collectables = [], // Powerups, etc
-    //blocks       = [],
+    blocks       = [],
     enemies      = [],
     playerProjectiles = [],
     enemyProjectiles  = [];
@@ -29,16 +29,17 @@ var background = new Background();
 var player = new Player();
 
 var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
-var enemy2 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
-var enemy3 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
-var enemy4 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
+//var enemy2 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
+//var enemy3 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
+//var enemy4 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 
 
 function TestBlock(x,y) {
   this.x = x; this.y = y;
   this.width = 2*TILE_SIZE;
   this.height = 2*TILE_SIZE;
-  collectables.push(this);
+  //blocks.push(this);
+  blocks.push(this);
 }
 TestBlock.prototype = new GameObject();
 TestBlock.prototype.constructor = TestBlock;
@@ -50,7 +51,7 @@ TestBlock.prototype.draw = function() {
   ctx.restore();
 }
 TestBlock.prototype.kill = function() { collectables.remove(this); }
-var block = new TestBlock(200,75);
+var block = new TestBlock(200,375);
 
 
 
