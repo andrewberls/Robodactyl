@@ -27,8 +27,12 @@ function Player() {
 	this.dy = 0;
 	
 	this.health = 5;
+	this.lives = 3;
+	this.shieldCounter = 0;
+	this.RageDactyl = false;
+	this.ShieldDactyl = false;
   
-  this.sprite.src = "images/robo_test.png";
+	this.sprite.src = "images/robo_test.png";
 }
 
 Player.prototype = new GameObject(); // Inherit from GameObject
@@ -69,10 +73,14 @@ Player.prototype.attack = function () {
 }
 
 Player.prototype.damage = function(dmg) {
-  this.health -= dmg;
+  if (this.shieldCounter > 0) {
+		this.shieldCounter -= 1;
+  else 
+		this.health -= dmg;
   
   if (this.health <= 0) {
     this.kill();
+	this.lives -= 1;
   }
 }
 

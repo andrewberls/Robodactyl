@@ -97,6 +97,7 @@ Game.prototype.draw = function() {
     $.each(enemies,function(i, enemy){
       if (defined(enemy)) {
         if (intersecting(enemy, player)) {
+			if (player.rageDactyl = true) {
           debug("Player hit an enemy");
           enemy.kill();
         } else {
