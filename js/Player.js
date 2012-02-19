@@ -162,6 +162,11 @@ Player.prototype.move = function() {
 };
 	
 Player.prototype.draw = function() {	
+	if (this.shieldCounter > 0) {
+		this.sprite.src = "images/player/shield.png";
+		}
+	else 
+		this.sprite.src = "images/player/robo.png";
   // Draw the box model around the sprite (don't delete!)
 	ctx.fillRect(this.x, this.y, this.width, this.height); 
   ctx.drawImage(this.sprite, this.x, this.y);  
