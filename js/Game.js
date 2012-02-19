@@ -30,6 +30,7 @@ Game.prototype.draw = function() {
       Available object manager arrays:
       collectables
       blocks
+      checkpoints
       enemies
       playerProjectiles
       enemyProjectiles
@@ -85,6 +86,20 @@ Game.prototype.draw = function() {
     });
     
     
+    /* CHECKPOINTS
+    /----------------------------------*/
+    $.each(checkpoints, function(i, checkpoint) {
+      if (intersecting(checkpoint, player)) {
+        debug("Player passed a checkpoint");
+        debug("Player's current checkpoint was: " + player.current_checkpoint.toString());        
+        player.current_checkpoint = checkpoint.x;
+        debug("Player's current checkpoint is now: " + player.current_checkpoint.toString());
+        checkpoints.remove(checkpoint);
+      }      
+      checkpoint.draw();
+    });
+    
+    
     /* PLAYER
     /----------------------------------*/
     player.displayHealth(); // HUD
@@ -97,15 +112,23 @@ Game.prototype.draw = function() {
     $.each(enemies,function(i, enemy){
       if (defined(enemy)) {
         if (intersecting(enemy, player)) {
-			if (player.rageDactyl = true) {
-          debug("Player hit an enemy");
-          enemy.kill();
+          // Is the player touching the enemy?
+			    if (player.rageDactyl === true) {
+            // If player has RageDactyl, kill the enemy
+            debug("RageDactyl hit an enemy");
+            enemy.kill();
+          } else {
+            // Else damage the player
+            debug("Player hit an enemy");
+            // Todo: damage and move player back
+          }
         } else {
           enemy.move();        
           enemy.draw();
         }
       }
     });
+  
     
 				
     /* PLAYER PROJECTILES
