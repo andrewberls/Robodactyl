@@ -75,7 +75,7 @@ Player.prototype.damage = function(dmg) {
   console.log("player now has " + this.health.toString() + " health");
   console.log("");
   
-  if (this.health === 0) {
+  if (this.health <= 0) {
     this.kill();
   }
 }
