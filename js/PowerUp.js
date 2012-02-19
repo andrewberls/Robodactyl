@@ -24,17 +24,17 @@ function PowerUp() {
 	
 	}
 	
-PowerUp.prototype.RageDactyl(player) {
+PowerUp.prototype.RageDactyl = function(player) {
 	
 	//Running into enemies kills them, no player damage. Lasts 10 seconds.
-	this.sprite.src = "images/RageDactyl.png";
-	this.rageDactyl = true;
-	SetTimeout(EndRage() {
+	this.sprite.src = "images/player/rage.png";
+	this.RageDactyl = true;
+	SetTimeout(function() {
 		this.rageDactyl = false;
-		this.sprite.src = "images/robo_test.png";
+		this.sprite.src = "images/player/robo.png";
 	}, 10000);
 	
-PowerUp.prototype.ApplyHealth(player) {
+PowerUp.prototype.ApplyHealth = function(player) {
 
 	//Restores one heart of health to the player
 	
@@ -42,7 +42,7 @@ PowerUp.prototype.ApplyHealth(player) {
 	
 	}
 	
-PowerUp.prototype.ExtraHealth(player) {
+PowerUp.prototype.ExtraHealth = function(player) {
 
 	//Grants one extra life to the player
 	
@@ -50,7 +50,7 @@ PowerUp.prototype.ExtraHealth(player) {
 	
 	}
 
-PowerUp.prototype.ShieldDactyl(player) {
+PowerUp.prototype.ShieldDactyl = function(player) {
 
 	//Robodactyl gets awesome bubble shield
 	
