@@ -60,14 +60,14 @@ Game.prototype.draw = function() {
     $.each(blocks, function(i, block) {
       
       if (intersecting(block, player)) {
-        // Is the player hitting the block?
-        console.log("player hitting a block");        
+        // Is the player hitting the block?               
+        debug("player hitting a block");
       }
       
       $.each(enemyProjectiles, function(i, proj) {
         // Is an enemy projectile hitting the block?
-        if (intersecting(block, proj)) {
-          console.log("Enemy projectile hit a block");
+        if (intersecting(block, proj)) {         
+          debug("Enemy projectile hit a block");
           enemyProjectiles.remove(proj);
         }        
       });
@@ -75,7 +75,7 @@ Game.prototype.draw = function() {
       $.each(playerProjectiles, function(i, proj) {
         // Is a player projectile hitting the block?
         if (intersecting(block, proj)) {
-          console.log("Player projectile hit a block");
+          debug("Player projectile hit a block");
           playerProjectiles.remove(proj);
         } 
       });
@@ -97,7 +97,7 @@ Game.prototype.draw = function() {
     $.each(enemies,function(i, enemy){
       if (defined(enemy)) {
         if (intersecting(enemy, player)) {
-          console.log("Player hit an enemy");
+          debug("Player hit an enemy");
           enemy.kill();
         } else {
           enemy.move();        
@@ -119,7 +119,7 @@ Game.prototype.draw = function() {
         // Is the proj hitting an enemy?
         $.each(enemies,function(i, enemy){
           if (intersecting(proj, enemy)) {
-            console.log("Player projectile hit an enemy");
+            debug("Player projectile hit an enemy");
             enemy.kill();
             playerProjectiles.remove(proj);
           }
@@ -139,7 +139,7 @@ Game.prototype.draw = function() {
       if (defined(proj)) {
         if (intersecting(proj, player)) {
           // Is the proj hitting the player?
-          console.log("Enemy projectile hit the player")
+          debug("Enemy projectile hit the player")
           player.damage(1);
           enemyProjectiles.remove(proj);
         }

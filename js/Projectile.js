@@ -24,9 +24,7 @@ function Projectile(x,y,dx,dy,src) {
 Projectile.prototype = new GameObject(); // Inherit from GameObject
 Projectile.prototype.constructor = Projectile; // Correct the constructor to use this, not GameObject
 
-Projectile.prototype.move = function() {
-  
-  // To do: check for collisions with player, canvas edges, etc
+Projectile.prototype.move = function() {   
   
   this.x += this.dx;
   this.y += this.dy;

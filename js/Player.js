@@ -69,11 +69,7 @@ Player.prototype.attack = function () {
 }
 
 Player.prototype.damage = function(dmg) {
-  console.log("player has " + this.health.toString() + " health");
-  this.health -= dmg;  
-  console.log("applying " + dmg.toString() + " damage");
-  console.log("player now has " + this.health.toString() + " health");
-  console.log("");
+  this.health -= dmg;
   
   if (this.health <= 0) {
     this.kill();
@@ -81,7 +77,7 @@ Player.prototype.damage = function(dmg) {
 }
 
 Player.prototype.kill = function() {
-  console.log("kill() called");
+  debug("kill() called");
   this.health = 5;
 }
 

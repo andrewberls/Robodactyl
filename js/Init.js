@@ -10,10 +10,12 @@ var canvas     = document.getElementById('canvas'), // Hook to the HTML element
 	  C_HEIGHT   = canvas.height,
     C_MIDX     = canvas.width/2,
     C_MIDY     = canvas.height/2,
-    TILE_SIZE  = 30,
+    TILE_SIZE  = 30,    
     gamePaused = false,
     menuActive = false,
 	  gameLoop;
+    
+var DEBUG_MODE = true; // Set to true to enable debug messages in the console
     
 // Manager arrays to track objects
 var collectables = [], // Powerups, etc
@@ -60,6 +62,7 @@ var block = new TestBlock(200,375);
 
 
 function init() {
+    
 	var game = new Game();
 	gameLoop = setInterval(game.draw, 20);
   

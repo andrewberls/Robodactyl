@@ -1,6 +1,8 @@
 TO DO
 ===============
 
+[ ] powerups
+
 [ ] improve enemy bullet tracking
 
 [ ] player lives and hud display
