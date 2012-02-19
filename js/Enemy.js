@@ -28,9 +28,9 @@ function Enemy(x) {
   // Randomly select the sprite source
   this.sprite = new Image();
   if (randomFromTo(1,50)%2 == 0) {
-    this.sprite.src = "images/scientist_1.png";    
+    this.sprite.src = "images/enemy/scientist_1.png";    
   } else {
-    this.sprite.src = "images/scientist_2.png";        
+    this.sprite.src = "images/enemy/scientist_2.png";        
   }    
   
   // This looks super funky, but all it's doing is calling
@@ -94,7 +94,7 @@ Enemy.prototype.fire = function() {
     
     // Is the enemy alive?
     if (this.in(enemies)) {
-      var proj = new Projectile(this.x + this.width/2, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
+      var proj = new Projectile(this.x + this.width/2, this.y, bulletDX, bulletDY, 1); // Params: (x,y,dx,dy)
       enemyProjectiles.push(proj);
     }
   }

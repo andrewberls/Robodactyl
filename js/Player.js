@@ -26,9 +26,10 @@ function Player() {
 	this.dx = 0;
 	this.dy = 0;
 	
+  this.max_health = 5;
 	this.health = 5;
   
-  this.sprite.src = "images/robo_test.png";
+  this.sprite.src = "images/player/robo.png";
 }
 
 Player.prototype = new GameObject(); // Inherit from GameObject
@@ -62,7 +63,7 @@ Player.prototype.setDirection = function() {
 Player.prototype.attack = function () {
   // Don't create a new bomb if there's already a bomb dropping  
   if (playerProjectiles.length == 0) {
-    var Bomb = new Projectile(this.midx-TILE_SIZE/2, this.y + this.height, 0, 6);
+    var Bomb = new Projectile(this.midx-TILE_SIZE/2, this.y + this.height, 0, 6, 0);
     playerProjectiles.push(Bomb);
     laser1.play();
   }
@@ -77,19 +78,39 @@ Player.prototype.damage = function(dmg) {
 }
 
 Player.prototype.kill = function() {
-  debug("kill() called");
+  debug("Player killed");
+  /*if (this.lives >= 1) {
+    this.respawn();
+  } else {
+    // end game
+    debug("Game over");
+  }*/
+}
+
+Player.prototype.respawn = function() {
+  debug("Player died; respawning");
+  // Todo: spawn player at last checkpoint
+  // Todo: regenerate enemies
   this.health = 5;
 }
 
 Player.prototype.displayHealth = function() {
   ctx.save();
-  ctx.fillStyle = "#0fc";
+  
+  var health_sprite = new Image();
+  health_sprite.src = "images/hud/heart.png";    
   var offset = 0;
   var x_start = C_WIDTH-150;
-  for (var i=0; i<this.health; ++i) {
-    ctx.fillRect(x_start+offset, 10, 25, 25);
+  
+  for (var i=0; i<this.max_health; ++i) {
+    ctx.globalAlpha = 0.5; // Faded heart
+    if (i<this.health) {
+      ctx.globalAlpha = 1; // Full heart
+    }
+    ctx.drawImage(health_sprite, x_start+offset, 10);    
     offset += 30;
   }
+  
   ctx.restore();
 }
 

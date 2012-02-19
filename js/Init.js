@@ -53,7 +53,7 @@ TestBlock.prototype.draw = function() {
   ctx.restore();
 }
 TestBlock.prototype.kill = function() { collectables.remove(this); }
-var block = new TestBlock(200,375);
+var block = new TestBlock(400,100);
 
 
 
