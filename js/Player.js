@@ -101,6 +101,7 @@ Player.prototype.kill = function() {
   } else {
     // end game
     debug("Game over");
+    endGame();
   }
 }
 
@@ -109,7 +110,7 @@ Player.prototype.respawn = function() {
   debug("Player now has " + this.lives.toString()  + " lives.");
   // Todo: spawn player at last checkpoint
   
-  // Todo: regenerate enemies
+  // Todo: rewind the level/randomly regenerate environment. FFFFUUUUUUUUUUUU
   this.health = 5;
 }
 
