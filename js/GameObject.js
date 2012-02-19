@@ -20,7 +20,9 @@ function GameObject() {
 	this.y = 0;
 	
 	// Direction
-	this.dx = 0;
+  // Set dx to a default value so that all objects move
+  // at the same rate
+	this.dx = 0;  
 	this.dy = 0;
 	
 	// Box model
