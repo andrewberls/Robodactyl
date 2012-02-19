@@ -32,3 +32,8 @@ function intersecting(a, b) {
       );
   }
 }
+
+function defined(item) {
+  // Returns true if a given object is defined
+  return !(typeof item === "undefined")
+}
