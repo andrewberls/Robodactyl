@@ -1,16 +1,29 @@
-[ ] Implement back buffers (see sprite_test/js/Game.js for an example)
+TO DO
+===============
 
-[ ] Menus/Game states
+[ ] improve enemy bullet tracking
 
-[ ] player attacking
+[ ] player lives and hud display
 
-[ ] enemies
+[ ] finished player.kill function()
 
-[ ] basic collision detection
+[ ] basic checkpoint system
 
+[ ] (Maybe) prevent enemies from colliding with each other
+
+[ ] (Low priority) Implement back buffers (see sprite_test/js/Game.js for an example)
 
 
 COMPLETED
-==========
+===============
+
+[X] Menus/Game states
+
+[X] player attacking
+
+[X] enemies
+
+[X] basic collision detection
+
 [X] Implement GameObject abstract class
 
