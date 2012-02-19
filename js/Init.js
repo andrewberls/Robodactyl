@@ -3,7 +3,8 @@
 	Description: Initialize global variables and begin the game
 */
 
-// Mass variable initialization
+/* MASS VARIABLE INITIALIZATION
+/----------------------------------*/
 var canvas     = document.getElementById('canvas'), // Hook to the HTML element
 	  ctx        = canvas.getContext('2d'), // Main context variable
 	  C_WIDTH    = canvas.width, // Stored constant width/height references
@@ -17,12 +18,23 @@ var canvas     = document.getElementById('canvas'), // Hook to the HTML element
     
 var DEBUG_MODE = true; // Set to true to enable debug messages in the console
     
-// Manager arrays to track objects
+
+/* MANAGER ARRAYS
+/----------------------------------*/
 var collectables = [], // Powerups, etc
     blocks       = [],
+    checkpoints  = [],
     enemies      = [],
     playerProjectiles = [],
     enemyProjectiles  = [];
+
+    
+/* LEVEL OBJECTS
+/----------------------------------*/
+
+/*----------------------------------*/
+  // THIS NEEDS TO BE SPLIT UP BY LEVEL!
+/*----------------------------------*/
 
 // Environment
 var background = new Background();
@@ -30,37 +42,46 @@ var background = new Background();
 // Characters
 var player = new Player();
 
+// Enemies
 var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 //var enemy2 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 //var enemy3 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 //var enemy4 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 
+// Checkpoints
+var checkpoint1 = new Checkpoint(500);
+
+
+
+
 
 function TestBlock(x,y) {
   this.x = x; this.y = y;
-  this.width = 2*TILE_SIZE;
-  this.height = 2*TILE_SIZE;
-  //blocks.push(this);
-  blocks.push(this);
+  this.width = 45;
+  this.height = 50;  
+  this.sprite.src = "images/powerup/shield.png";
+  collectables.push(this);
 }
 TestBlock.prototype = new GameObject();
 TestBlock.prototype.constructor = TestBlock;
 TestBlock.prototype.move = function() {}
-TestBlock.prototype.draw = function() {
+TestBlock.prototype.draw = function() {  
   ctx.save();
   ctx.fillStyle = "orange";
-  ctx.fillRect(this.x, this.y, this.width, this.height);
+  //ctx.fillRect(this.x, this.y, this.width, this.height);
+  ctx.drawImage(this.sprite, this.x, this.y);
   ctx.restore();
 }
 TestBlock.prototype.kill = function() { collectables.remove(this); }
-var block = new TestBlock(400,100);
+//var block = new TestBlock(400,100);
 
 
 
 
 
 
-
+/* MAIN INITIALIZATION
+/----------------------------------*/
 function init() {
     
 	var game = new Game();

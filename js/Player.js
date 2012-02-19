@@ -26,9 +26,15 @@ function Player() {
 	this.dx = 0;
 	this.dy = 0;
 	
+  this.score = 0;
+  
+  // Health/Checkpoint Tracking
   this.max_health = 5;
 	this.health = 5;
 	this.lives = 3;
+  this.current_checkpoint = 10;
+  
+  // Powerup tracking
 	this.shieldCounter = 0;
 	this.RageDactyl = false;
 	this.ShieldDactyl = false;
@@ -75,29 +81,34 @@ Player.prototype.attack = function () {
 
 Player.prototype.damage = function(dmg) {
   if (this.shieldCounter > 0) {
-		this.shieldCounter -= 1;
-  else 
+		this.shieldCounter--;
+  } else {
 		this.health -= dmg;
+  }
   
   if (this.health <= 0) {
     this.kill();
-	this.lives -= 1;
+	  //this.lives--;       
   }
+  
 }
 
 Player.prototype.kill = function() {
   debug("Player killed");
-  /*if (this.lives >= 1) {
+  if (this.lives > 1) {
+    this.lives--;
     this.respawn();
   } else {
     // end game
     debug("Game over");
-  }*/
+  }
 }
 
 Player.prototype.respawn = function() {
   debug("Player died; respawning");
+  debug("Player now has " + this.lives.toString()  + " lives.");
   // Todo: spawn player at last checkpoint
+  
   // Todo: regenerate enemies
   this.health = 5;
 }
@@ -151,6 +162,6 @@ Player.prototype.move = function() {
 	
 Player.prototype.draw = function() {	
   // Draw the box model around the sprite (don't delete!)
-	//ctx.fillRect(this.x, this.y, this.width, this.height); 
+	ctx.fillRect(this.x, this.y, this.width, this.height); 
   ctx.drawImage(this.sprite, this.x, this.y);  
 }
