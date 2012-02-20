@@ -24,7 +24,11 @@ function Projectile(x,y,dx,dy,src) {
   this.sprite = new Image();
   if (this.src === 0) {
     // Player projectile
-    this.sprite.src = "images/player/playerprojectile.png";
+    if (player.RageDactyl) {
+      this.sprite.src = "images/player/playerprojectilerage.png";      
+    } else {
+      this.sprite.src = "images/player/playerprojectile.png";
+    }    
     this.height = 50;
     this.width = 30;
   } else {
