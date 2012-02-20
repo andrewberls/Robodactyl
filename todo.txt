@@ -1,13 +1,11 @@
 TO DO
 ===============
 
+[ ]  healthpowerup2 60x60
+
 [ ] powerups
 
 [ ] improve enemy bullet tracking
-
-[ ] player lives and hud display
-
-[ ] finished player.kill function()
 
 [ ] basic checkpoint system
 
@@ -18,6 +16,10 @@ TO DO
 
 COMPLETED
 ===============
+
+[X] player lives and hud display
+
+[X] finished player.kill function()
 
 [X] Menus/Game states
 
