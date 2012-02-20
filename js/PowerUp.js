@@ -11,6 +11,7 @@
 		ShieldDactyl()
 		ApplyHealth()
 		ExtraLife()
+		Location()
 		draw()
 	
 */
@@ -28,7 +29,7 @@ function PowerUp() {
 	ChoosePowerup();
 	
 	
-	
+	collectibles.push(this);
 	}
 	
 PowerUp.prototype = new GameObject(); // Inherit from GameObject
