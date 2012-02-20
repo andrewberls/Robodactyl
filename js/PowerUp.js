@@ -90,10 +90,10 @@ PowerUp.prototype.ChoosePowerup = function() {
 			this.sprite.src = "images/powerup/rage.png"; 
 			break;
 		case 2:
-			this.sprite.src = "images/powerup/healthpowerup.png";
+			this.sprite.src = "images/powerup/health.png";
 			break;
 		case 3:
-			this.sprite.src = "images/powerup/healthpowerup2.png"; 
+			this.sprite.src = "images/powerup/extralife.png"; 
 			break;
 		case 4:
 			this.sprite.src = "images/powerup/shield.png";
