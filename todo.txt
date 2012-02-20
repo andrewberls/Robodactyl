@@ -1,13 +1,11 @@
 TO DO
 ===============
 
-[ ]  healthpowerup2 60x60
-
-[ ] powerups
-
 [ ] improve enemy bullet tracking
 
-[ ] basic checkpoint system
+[ ] improved player.kill()
+
+[ ] working checkpoint system
 
 [ ] (Maybe) prevent enemies from colliding with each other
 
@@ -16,6 +14,10 @@ TO DO
 
 COMPLETED
 ===============
+
+[X] powerups
+
+[X]  healthpowerup2 60x60
 
 [X] player lives and hud display
 
