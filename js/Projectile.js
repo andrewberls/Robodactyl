@@ -14,18 +14,24 @@ function Projectile(x,y,dx,dy,src) {
   this.x = x;
   this.y = y;
   this.dx = dx;
+  
   this.dy = dy;
+  //this.dy = 0.1;
+  
   this.src = src;
-  this.height = TILE_SIZE/2;
-  this.width = TILE_SIZE/2;
+  
   
   this.sprite = new Image();
   if (this.src === 0) {
     // Player projectile
-    //this.sprite.src = "";    
+    this.sprite.src = "images/player/playerprojectile.png";
+    this.height = 50;
+    this.width = 30;
   } else {
     // Enemy projectile
-    //this.sprite.src = "";
+    this.sprite.src = "images/enemy/scientistprojectile.png";
+    this.height = 20;
+    this.width = 20;
   }
   
 }
@@ -43,9 +49,9 @@ Projectile.prototype.draw = function() {
   
   if (this.src === 0) { ctx.fillStyle = "lime"; }
   else { ctx.fillStyle = "#f00"; }
-  ctx.fillRect(this.x, this.y, this.width, this.height);  
+  //ctx.fillRect(this.x, this.y, this.width, this.height);  
   
-  //ctx.drawImage(this.sprite, this.x, this.y);
+  ctx.drawImage(this.sprite, this.x, this.y);
   
   ctx.restore();
 }
