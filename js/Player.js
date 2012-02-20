@@ -88,7 +88,6 @@ Player.prototype.damage = function(dmg) {
   
   if (this.health <= 0) {
     this.kill();
-	  //this.lives--;       
   }
   
 }
@@ -99,7 +98,7 @@ Player.prototype.kill = function() {
     this.lives--;
     this.respawn();
   } else {
-    // end game
+    // 0 lives; Game Over
     debug("Game over");
     endGame();
   }
