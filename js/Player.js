@@ -33,7 +33,8 @@ function Player() {
   // Health/Checkpoint Tracking
   this.max_health = 5;
 	this.health = this.max_health;
-	this.lives = 3;
+  this.max_lives = 3;
+	this.lives = this.max_lives;
   this.current_checkpoint = 10;
   
   // Powerup tracking
@@ -118,7 +119,24 @@ Player.prototype.respawn = function() {
 }
 
 Player.prototype.displayLives = function() {
+  ctx.save();
   
+  var life_sprite = new Image();
+  life_sprite.src = "images/hud/lives2.png";  
+  var offset = 0;
+  var x_start = C_WIDTH-150;
+  
+  for (var i=0; i<this.max_lives; ++i) {
+    ctx.globalAlpha = 0.5; // Faded head
+    if (i<this.lives) {
+      ctx.globalAlpha = 1; // Full head
+    }    
+    ctx.drawImage(life_sprite, x_start+offset, 10);
+    
+    offset += 50;
+  }
+  
+  ctx.restore();
 }
 
 Player.prototype.displayHealth = function() {
@@ -134,7 +152,7 @@ Player.prototype.displayHealth = function() {
     if (i<this.health) {
       ctx.globalAlpha = 1; // Full heart
     }
-    ctx.drawImage(health_sprite, x_start+offset, 10);    
+    ctx.drawImage(health_sprite, x_start+offset, 50);    
     offset += 30;
   }
   
