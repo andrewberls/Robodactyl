@@ -49,7 +49,7 @@ Game.prototype.draw = function() {
     if (intersecting(player, item)) {
 		ActivatePowerup(player);
         console.log("Player hit a collectable");
-        item.kill(); // TEMPORARY
+        collectibles.Remove(item); // TEMPORARY
       } else {
         item.move();
         item.draw();
