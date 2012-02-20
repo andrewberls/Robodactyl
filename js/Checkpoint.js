@@ -4,7 +4,8 @@
 		
 	
 	Method Signatures:
-		
+		move()
+    draw()
 	
 */
 
