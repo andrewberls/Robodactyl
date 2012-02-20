@@ -2,6 +2,9 @@
 	Class File: PowerUp.js	
 	Inherits from: GameObject
 	Attributes:
+		Type of Power-Up
+		Height/Width
+		Coordinates
 		
 		
 	Method Signatures:
@@ -11,7 +14,7 @@
 		ShieldDactyl()
 		ApplyHealth()
 		ExtraLife()
-		Location()
+		SetLocation()
 		draw()
 	
 */
@@ -24,9 +27,11 @@ function PowerUp() {
 	this.height = 10;
 	this.width = 10;
 	
-	this.random_powerup;
+	this.random_powerup;  //Stores randomly generated key for Power-Up identity
 	
-	ChoosePowerup();
+	ChoosePowerup(); //Picks which Power-Up to use and assigns a skin
+	SetLocation();	//Picks a random location for the Power-Up to spawn
+	
 	
 	
 	collectibles.push(this);
@@ -34,6 +39,16 @@ function PowerUp() {
 	
 PowerUp.prototype = new GameObject(); // Inherit from GameObject
 PowerUp.prototype.constructor = PowerUp; // Correct the constructor to use this, not GameObject
+
+PowerUp.prototype.SetLocation = function() {
+
+	//Randomly sets location of PowerUp on the screen
+	
+	this.x = randomFromTo(10,100);
+	this.y = randomFromTo(10,100);
+	
+	}
+	
 	
 PowerUp.prototype.RageDactyl = function(player) {
 	
