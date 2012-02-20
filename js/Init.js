@@ -54,6 +54,9 @@ var checkpoint1 = new Checkpoint(500);
 // Blocks
 var block = new Block(400,100);
 
+//PowerUp
+var powerup = new PowerUp();
+
 
 
 

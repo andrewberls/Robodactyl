@@ -21,20 +21,20 @@
 
 function PowerUp() {
 
-	this.x = 10;
-	this.y = 10;
+	this.x = 250;
+	this.y = 250;
 	
 	this.height = 10;
 	this.width = 10;
 	
 	this.random_powerup;  //Stores randomly generated key for Power-Up identity
 	
-	ChoosePowerup(); //Picks which Power-Up to use and assigns a skin
-	SetLocation();	//Picks a random location for the Power-Up to spawn
+	this.ChoosePowerup(); //Picks which Power-Up to use and assigns a skin
+	this.SetLocation();	//Picks a random location for the Power-Up to spawn
 	
 	
 	
-	collectibles.push(this);
+	collectables.push(this);
 	}
 	
 PowerUp.prototype = new GameObject(); // Inherit from GameObject
@@ -56,7 +56,7 @@ PowerUp.prototype.RageDactyl = function(player) {
 	
 	player.sprite.src = "images/player/rage.png";
 	player.RageDactyl = true;
-	SetTimeout(function() {
+	setTimeout(function() {
 		player.rageDactyl = false;
 		player.sprite.src = "images/player/robo.png";
 	}, 10000);
@@ -118,16 +118,16 @@ PowerUp.prototype.ActivatePowerup = function() {
 	
 	switch(this.random_powerup) {
 		case 1:
-			RageDactyl(player);
+			this.RageDactyl(player);
 			break;
 		case 2:
-			ApplyHealth(player);
+			this.ApplyHealth(player);
 			break;
 		case 3:
-			ExtraLife(player);
+			this.ExtraLife(player);
 			break;
 		case 4:
-			ShieldDactyl(player);
+			this.ShieldDactyl(player);
 			break;
 		default:
 			break;
