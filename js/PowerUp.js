@@ -40,7 +40,7 @@ PowerUp.prototype.constructor = PowerUp; // Correct the constructor to use this,
 PowerUp.prototype.RageDactyl = function() {
 	//Running into enemies kills them, no player damage. Lasts 10 seconds.
   player.RageDactyl = true;
-  
+  debug(player.dir);
 	if (player.dir === "RIGHT") {
     player.sprite.src = "images/player/rage_right.png";
   } else {
@@ -50,11 +50,12 @@ PowerUp.prototype.RageDactyl = function() {
 	setTimeout(function() {
     // Disable RageDactyl after 10 seconds
 		player.RageDactyl = false;
-    //if (player.dir === "RIGHT") {
-    //  player.sprite.src = "images/player/robo_right.png";
-    //} else {
-    //  player.sprite.src = "images/player/robo_left.png";
-    //}		
+    debug("RageDactyl disabling");
+    if (player.dir === "RIGHT") {
+      player.sprite.src = "images/player/robo_right.png";
+    } else {
+      player.sprite.src = "images/player/robo_left.png";
+    }		
 	}, 10000);
 	
 	debug("BEAST MODE ENGAGED");
