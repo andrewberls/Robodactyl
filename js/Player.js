@@ -30,7 +30,7 @@ function Player() {
   
   // Health/Checkpoint Tracking
   this.max_health = 5;
-	this.health = 5;
+	this.health = this.max_health;
 	this.lives = 3;
   this.current_checkpoint = 10;
   
@@ -163,11 +163,12 @@ Player.prototype.move = function() {
 	
 Player.prototype.draw = function() {	
 	if (this.shieldCounter > 0) {
-		this.sprite.src = "images/player/shield.png";
-		}
-	else 
+		//this.sprite.src = "images/player/shield.png";
+	}
+	else {
 		this.sprite.src = "images/player/robo.png";
-  // Draw the box model around the sprite (don't delete!)
-	ctx.fillRect(this.x, this.y, this.width, this.height); 
+  }
+  
+	//ctx.fillRect(this.x, this.y, this.width, this.height); // Draw box around the sprite
   ctx.drawImage(this.sprite, this.x, this.y);  
 }
