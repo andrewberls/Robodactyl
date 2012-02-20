@@ -179,15 +179,27 @@ var endGame = function() {
 	// Temporary function to test menus
 	// We can keep this or something like it around if you want
 	// Stops the animation loop and displays text on a blank screen
-	window.clearInterval(gameLoop);  
+	//window.clearInterval(gameLoop);
   /*player = null;
   var managers = [background, collectables, playerProjectiles, enemyProjectiles]
   $.each(managers, function(i, manager) {
     manager = [];
     console.log("clearing manager");
   });*/
-	ctx.clearRect(0,0, C_WIDTH, C_HEIGHT);
-	ctx.font = "25px Times New Roman";
-	ctx.fillText("Game Exited", C_MIDX, C_MIDY);
+	//ctx.clearRect(0,0, C_WIDTH, C_HEIGHT);
+	//ctx.font = "25px Times New Roman";
+	//ctx.fillText("Game Exited", C_MIDX, C_MIDY);
+  
+  // Display the end menu
+  var endMenu = new Menu(
+    "Game Over!", // Description
+    ["Restart Game"],   // Options
+    function(option) {   // Function triggered by enter key
+      if (option == 0) {
+        debug("restart; render level 1");
+        //menuActive = false;
+        //themeSong.play();
+      }
+    }, true);
   return;
 }
