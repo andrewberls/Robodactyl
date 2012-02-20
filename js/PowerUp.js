@@ -3,7 +3,7 @@
 	Inherits from: GameObject
 	Attributes:
 		Type of Power-Up
-		Height/Width
+		//Height/Width
 		Coordinates
 		
 		
@@ -14,23 +14,22 @@
 		ShieldDactyl()
 		ApplyHealth()
 		ExtraLife()
-		SetLocation()
 		draw()
 	
 */
 
-function PowerUp() {
+function PowerUp(x,y) {
 
-	this.x = 250;
-	this.y = 250;
+	this.x = x;
+	this.y = y;
 	
-	this.height = 10;
-	this.width = 10;
+	//this.height = 10;
+	//this.width = 10;
 	
 	this.random_powerup;  //Stores randomly generated key for Power-Up identity
 	
 	this.ChoosePowerup(); //Picks which Power-Up to use and assigns a skin
-	this.SetLocation();	//Picks a random location for the Power-Up to spawn
+	
 	
 	
 	
@@ -39,15 +38,6 @@ function PowerUp() {
 	
 PowerUp.prototype = new GameObject(); // Inherit from GameObject
 PowerUp.prototype.constructor = PowerUp; // Correct the constructor to use this, not GameObject
-
-PowerUp.prototype.SetLocation = function() {
-
-	//Randomly sets location of PowerUp on the screen
-	
-	this.x = randomFromTo(10,100);
-	this.y = randomFromTo(10,100);
-	
-	}
 	
 	
 PowerUp.prototype.RageDactyl = function(player) {
