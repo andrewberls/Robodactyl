@@ -55,7 +55,7 @@ Player.prototype.setDirection = function() {
 	switch(this.dir) {
 		case "LEFT":
       if (player.RageDactyl) {
-        this.sprite.src = "images/player/rage.png";
+        this.sprite.src = "images/player/rage_left.png";
       } else {
         this.sprite.src = "images/player/robo_left.png";
       }      
@@ -63,7 +63,7 @@ Player.prototype.setDirection = function() {
 			break;
 		case "RIGHT":
       if (player.RageDactyl) {
-        this.sprite.src = "images/player/rage.png";
+        this.sprite.src = "images/player/rage_right.png";
       } else {
         this.sprite.src = "images/player/robo_right.png";
       }    
