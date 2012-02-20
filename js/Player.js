@@ -37,9 +37,8 @@ function Player() {
   // Powerup tracking
 	this.shieldCounter = 0;
 	this.RageDactyl = false;
-	
-  
-  this.sprite.src = "images/player/robo.png";
+	  
+  this.sprite.src = "images/player/robo_right.png";
 }
 
 Player.prototype = new GameObject(); // Inherit from GameObject
@@ -52,9 +51,13 @@ Player.prototype.setDirection = function() {
 
 	switch(this.dir) {
 		case "LEFT":
+      this.sprite.src = "images/player/robo_left.png";
+      debug("robo left chosen");
 			this.dx = -3;
 			break;
 		case "RIGHT":
+      this.sprite.src = "images/player/robo_right.png";
+      debug("robo right chosen");
 			this.dx = 3;
 			break;
 		case "UP":
@@ -161,12 +164,9 @@ Player.prototype.move = function() {
 };
 	
 Player.prototype.draw = function() {	
-	if (this.shieldCounter > 0) {
-		//this.sprite.src = "images/player/shield.png";
-	}
-	else {
-		this.sprite.src = "images/player/robo.png";
-  }
+	//if (this.shieldCounter > 0) {
+	//	this.sprite.src = "images/player/shield.png";
+	//}	
   
 	//ctx.fillRect(this.x, this.y, this.width, this.height); // Draw box around the sprite
   ctx.drawImage(this.sprite, this.x, this.y);  
