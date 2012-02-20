@@ -37,7 +37,7 @@ function Player() {
   // Powerup tracking
 	this.shieldCounter = 0;
 	this.RageDactyl = false;
-	this.ShieldDactyl = false;
+	
   
   this.sprite.src = "images/player/robo.png";
 }
