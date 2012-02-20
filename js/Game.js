@@ -63,7 +63,8 @@ Game.prototype.draw = function() {
       
       if (intersecting(block, player)) {
         // Is the player hitting the block?               
-        debug("player hitting a block");
+        debug("player hit a block");
+        player.kill();
       }
       
       $.each(enemyProjectiles, function(i, proj) {
@@ -103,6 +104,7 @@ Game.prototype.draw = function() {
     
     /* PLAYER
     /----------------------------------*/
+    player.displayLives(); // HUD
     player.displayHealth(); // HUD
     player.move();
     player.draw();		
