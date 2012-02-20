@@ -39,33 +39,37 @@ PowerUp.prototype.constructor = PowerUp; // Correct the constructor to use this,
 	
 PowerUp.prototype.RageDactyl = function() {
 	//Running into enemies kills them, no player damage. Lasts 10 seconds.
-  player.RageDactyl = true;
-  debug(player.dir);
-	if (player.dir === "RIGHT") {
-    player.sprite.src = "images/player/rage_right.png";
-  } else {
-    player.sprite.src = "images/player/rage_left.png";
-  }
-  
-	setTimeout(function() {
-    // Disable RageDactyl after 10 seconds
-		player.RageDactyl = false;
-    debug("RageDactyl disabling");
-    if (player.dir === "RIGHT") {
-      player.sprite.src = "images/player/robo_right.png";
+  if (!(player.shieldCounter > 0)) {
+    // Can't have Rage and Shield at the same time
+    player.RageDactyl = true;
+    debug(player.dir);
+  	if (player.dir === "RIGHT") {
+      player.sprite.src = "images/player/rage_right.png";
     } else {
-      player.sprite.src = "images/player/robo_left.png";
-    }		
-	}, 10000);
-	
-	debug("BEAST MODE ENGAGED");
+      player.sprite.src = "images/player/rage_left.png";
+    }
+    
+  	setTimeout(function() {
+      // Disable RageDactyl after 10 seconds
+  		player.RageDactyl = false;
+      debug("RageDactyl disabling");
+      if (player.dir === "RIGHT") {
+        player.sprite.src = "images/player/robo_right.png";
+      } else {
+        player.sprite.src = "images/player/robo_left.png";
+      }		
+  	}, 10000);
+  	
+  	debug("BEAST MODE ENGAGED"); 
+  }  
 }
 	
 PowerUp.prototype.ApplyHealth = function() {
 	//Restores one heart of health to the player
   if (player.health < player.max_health) {
     // Max of 5 health
-    player.health++; 
+    player.health++;
+    health_powerup.play();
   }	
 }
 	
@@ -78,9 +82,11 @@ PowerUp.prototype.ExtraLife = function() {
 }
 
 PowerUp.prototype.ShieldDactyl = function() {
-	//Robodactyl gets awesome bubble shield	
-	player.shieldCounter = 2;
-  //player.sprite.src = "";
+	//Robodactyl gets awesome bubble shield
+  if (!(player.RageDactyl)) {
+    // Can't have Rage and Shield at the same time
+    player.shieldCounter = 2;
+  }	  
 }
 	
 PowerUp.prototype.ChoosePowerup = function() {
