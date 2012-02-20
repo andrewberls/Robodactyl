@@ -4,7 +4,7 @@
 	
 */
 
-function Menu(description, options, callback) {
+function Menu(description, options, callback, score) {
   this.fontSize = "40px"; // Note this is a string - use parseInt to treat as number
 	ctx.font = this.fontSize + " Times New Roman";
   this.textPadding = 20; // How much space is in between items
@@ -12,7 +12,8 @@ function Menu(description, options, callback) {
 	
   this.desc = description;
 	this.options = options;
-	this.callback = callback;  
+	this.callback = callback;
+  this.score = score; // Boolean; whether or not to display the score line
 	this.selected = 0;
 	
 	menuActive = true;
@@ -35,9 +36,19 @@ Menu.prototype.normalizeSelection = function() {
 Menu.prototype.renderDesc = function() {
   ctx.save();	
   ctx.fillStyle = "white";
-  // Slightly smaller font calculated from the base font size
-  ctx.font = (parseInt(this.fontSize)/1.2) + "px Times New Roman"
-  ctx.fillText(this.desc, C_MIDX, 50);
+  if (this.score) {
+    // Game Over in bigger text
+    ctx.font = (parseInt(this.fontSize)) + "px Times New Roman"
+  } else {
+    // Slightly smaller font calculated from the base font size
+    ctx.font = (parseInt(this.fontSize)/1.2) + "px Times New Roman"
+  }
+  
+  ctx.fillText(this.desc, C_MIDX, 50);  
+  if (this.score) {
+    scoreText = "Score: " + player.score.toString();
+    ctx.fillText(scoreText, C_MIDX, C_HEIGHT-50);
+  }
   ctx.restore();
 }
 
