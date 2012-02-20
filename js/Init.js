@@ -43,7 +43,7 @@ var background = new Background();
 var player = new Player();
 
 // Enemies
-//var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
+var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 //var enemy2 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 //var enemy3 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 //var enemy4 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
@@ -56,7 +56,7 @@ var block = new Block(400,100);
 
 
 //PowerUp
-var powerup = new PowerUp(400,400);
+var powerup = new PowerUp(200,200);
 
 
 
@@ -68,7 +68,7 @@ function init() {
 	gameLoop = setInterval(game.draw, 20);
   
   // Display the start menu
-  /*
+  
   var startMenu = new Menu(
     "Robodactyl Escape", // Description
     ["Start Level 1"],   // Options
@@ -78,7 +78,7 @@ function init() {
         //themeSong.play();
       }
     });
-  */
+  
 }
 
 window.onload = init;

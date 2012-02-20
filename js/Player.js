@@ -53,28 +53,38 @@ Player.prototype.setDirection = function() {
 	// and setting the appropriate dx or dy attribute based on its value.	
 
 	switch(this.dir) {
+    // Set the sprite based on the current poweurp, if any
+    
 		case "LEFT":
       if (player.RageDactyl) {
         this.sprite.src = "images/player/rage_left.png";
+      } else if (player.shieldCounter > 0) {
+        this.sprite.src = "images/player/shield_left.png";
       } else {
         this.sprite.src = "images/player/robo_left.png";
-      }      
+      }
 			this.dx = -3;
 			break;
+      
 		case "RIGHT":
       if (player.RageDactyl) {
         this.sprite.src = "images/player/rage_right.png";
+      } else if (player.shieldCounter > 0) {
+        this.sprite.src = "images/player/shield_right.png";
       } else {
         this.sprite.src = "images/player/robo_right.png";
       }    
 			this.dx = 3;
 			break;
+      
 		case "UP":
 			this.dy = -3;
 			break;
+      
 		case "DOWN":
 			this.dy = 3;
 			break;
+      
 		default:
 			this.dx = 0;
 			this.dy = 0;
