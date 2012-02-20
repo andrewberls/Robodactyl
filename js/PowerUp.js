@@ -68,9 +68,9 @@ PowerUp.prototype.ApplyHealth = function() {
 	//Restores one heart of health to the player
   if (player.health < player.max_health) {
     // Max of 5 health
-    player.health++;
-    health_powerup.play();
-  }	
+    player.health++;    
+  }
+  health_powerup.play();
 }
 	
 PowerUp.prototype.ExtraLife = function() {
@@ -86,6 +86,11 @@ PowerUp.prototype.ShieldDactyl = function() {
   if (!(player.RageDactyl)) {
     // Can't have Rage and Shield at the same time
     player.shieldCounter = 2;
+    if (player.dir === "RIGHT") {
+      player.sprite.src = "images/player/shield_right.png";
+    } else {
+      player.sprite.src = "images/player/shield_left.png";
+    }
   }	  
 }
 	

@@ -10,6 +10,7 @@ var themeSong = new Audio("audio/theme.mp3");
 // Weapons
 var laser1 = new Audio("audio/laser1.mp3");
 var laser2 = new Audio("audio/laser2.mp3");
+var rage_fire = new Audio("audio/rage_fire1.mp3");
 
 // Hurt/Kill
 var player_hurt = new Audio("audio/player_hurt.mp3");

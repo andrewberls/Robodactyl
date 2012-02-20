@@ -1,6 +1,13 @@
 TO DO
 ===============
 
+[ ] sounds
+	checkpoint
+	enemy firing
+	enemy dying
+	player dying
+	ragedactyl firing
+
 [ ] improve enemy bullet tracking
 
 [ ] improved player.kill()
