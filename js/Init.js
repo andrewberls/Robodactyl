@@ -51,29 +51,8 @@ var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 // Checkpoints
 var checkpoint1 = new Checkpoint(500);
 
-
-
-
-
-function TestBlock(x,y) {
-  this.x = x; this.y = y;
-  this.width = 45;
-  this.height = 50;  
-  this.sprite.src = "images/powerup/shield.png";
-  collectables.push(this);
-}
-TestBlock.prototype = new GameObject();
-TestBlock.prototype.constructor = TestBlock;
-TestBlock.prototype.move = function() {}
-TestBlock.prototype.draw = function() {  
-  ctx.save();
-  ctx.fillStyle = "orange";
-  //ctx.fillRect(this.x, this.y, this.width, this.height);
-  ctx.drawImage(this.sprite, this.x, this.y);
-  ctx.restore();
-}
-TestBlock.prototype.kill = function() { collectables.remove(this); }
-//var block = new TestBlock(400,100);
+// Blocks
+var block = new Block(400,100);
 
 
 

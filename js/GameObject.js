@@ -9,8 +9,10 @@
 		height
 		width
 	
-	Method Signatures:		
-	
+	Method Signatures:
+    inspect()
+	  move()
+    in()
 */
 
 function GameObject() {	
@@ -33,6 +35,26 @@ function GameObject() {
 	this.sprite = new Image();
 	this.sprite.src = "";  
 	
+}
+
+GameObject.prototype.inspect = function() {
+  // Log the properties and values of an object for debugging
+  
+  var output = '';
+	for (property in this) {		
+		if (!(this[property] instanceof Function)) { // Don't log functions
+			output += property + ': ' + this[property]+';\n';
+		}
+	}
+	console.log(output);
+}
+
+GameObject.prototype.move = function() {
+  //if () {
+    this.x += this.dx;
+    this.y += this.dy;
+  //}
+  
 }
 
 GameObject.prototype.in = function(array) {
