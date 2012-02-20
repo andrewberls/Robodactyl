@@ -47,9 +47,9 @@ Game.prototype.draw = function() {
     /----------------------------------*/
     $.each(collectables, function(i, item){
     if (intersecting(player, item)) {
-		item.ActivatePowerup(player);
-        console.log("Player hit a collectable");
-        collectables.remove(item); // TEMPORARY
+		    item.ActivatePowerup();
+        debug("Player hit a collectable");
+        collectables.remove(item);
       } else {
         item.move();
         item.draw();
@@ -116,7 +116,7 @@ Game.prototype.draw = function() {
       if (defined(enemy)) {
         if (intersecting(enemy, player)) {
           // Is the player touching the enemy?
-			    if (player.rageDactyl === true) {
+			    if (player.RageDactyl) {
             // If player has RageDactyl, kill the enemy
             debug("RageDactyl hit an enemy");
             enemy.kill();
@@ -125,10 +125,10 @@ Game.prototype.draw = function() {
             debug("Player hit an enemy");
             // Todo: damage and move player back
           }
-        } else {
+        } //else {
           enemy.move();        
           enemy.draw();
-        }
+        //}
       }
     });
   

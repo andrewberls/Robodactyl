@@ -1,6 +1,8 @@
 TO DO
 ===============
 
+[ ]  healthpowerup2 60x60
+
 [ ] powerups
 
 [ ] improve enemy bullet tracking

@@ -54,12 +54,8 @@ var checkpoint1 = new Checkpoint(500);
 // Blocks
 var block = new Block(400,100);
 
-//PowerUp
-//var powerup = new PowerUp(250,250);
-
-
-
-
+//PowerUps
+var powerup = new PowerUp(250,250);
 
 
 /* MAIN INITIALIZATION
@@ -70,7 +66,7 @@ function init() {
 	gameLoop = setInterval(game.draw, 20);
   
   // Display the start menu
-  var startMenu = new Menu(
+  /*var startMenu = new Menu(
     "Robodactyl Escape", // Description
     ["Start Level 1"],   // Options
     function(option) {   // Function triggered by enter key
@@ -78,7 +74,7 @@ function init() {
         menuActive = false;
         //themeSong.play();
       }
-    });
+    });*/
 }
 
 window.onload = init;

@@ -54,11 +54,19 @@ Player.prototype.setDirection = function() {
 
 	switch(this.dir) {
 		case "LEFT":
-      this.sprite.src = "images/player/robo_left.png";
+      if (player.RageDactyl) {
+        this.sprite.src = "images/player/rage.png";
+      } else {
+        this.sprite.src = "images/player/robo_left.png";
+      }      
 			this.dx = -3;
 			break;
 		case "RIGHT":
-      this.sprite.src = "images/player/robo_right.png";
+      if (player.RageDactyl) {
+        this.sprite.src = "images/player/rage.png";
+      } else {
+        this.sprite.src = "images/player/robo_right.png";
+      }    
 			this.dx = 3;
 			break;
 		case "UP":
@@ -86,6 +94,7 @@ Player.prototype.attack = function () {
 Player.prototype.damage = function(dmg) {
   if (this.shieldCounter > 0) {
 		this.shieldCounter--;
+    debug("shield active/decrementing. now: " + this.shieldCounter.toString());
   } else {
 		this.health -= dmg;
   }
