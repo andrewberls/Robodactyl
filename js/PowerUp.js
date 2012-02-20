@@ -99,10 +99,10 @@ PowerUp.prototype.ChoosePowerup = function() {
 			this.sprite.src = "images/rage.png"; 
 			break;
 		case 2:
-			this.sprite.src = "images/health.png";
+			this.sprite.src = "images/healthpowerup.png";
 			break;
 		case 3:
-			this.sprite.src = "images/life.png"; 
+			this.sprite.src = "images/healthpowerup2.png"; 
 			break;
 		case 4:
 			this.sprite.src = "images/shield.png";
@@ -139,7 +139,7 @@ PowerUp.prototype.ActivatePowerup = function() {
 	
 PowerUp.prototype.draw = function() {
 
-	//draws the powerup at a random location in the game
+	//draws the powerup at (x,y) specified by SetLocation()
 	
 	ctx.drawImage(this.sprite, this.x, this.y);
 	}
