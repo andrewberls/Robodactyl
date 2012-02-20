@@ -47,9 +47,9 @@ Game.prototype.draw = function() {
     /----------------------------------*/
     $.each(collectables, function(i, item){
     if (intersecting(player, item)) {
-		ActivatePowerup(player);
+		item.ActivatePowerup(player);
         console.log("Player hit a collectable");
-        collectibles.Remove(item); // TEMPORARY
+        collectables.remove(item); // TEMPORARY
       } else {
         item.move();
         item.draw();
