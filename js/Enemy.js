@@ -40,7 +40,10 @@ function Enemy(x) {
   // Essentially equal to setInterval(this.fire, this.fireRate)
   this.fireLoop = setInterval((function(self) {
     return function() {
-      self.fire();      
+      if (!menuActive) {
+        // Hack to fix glitch where enemies were firing while menu was on
+        self.fire();
+      }
     } 
   })(this), this.fireRate);
   
