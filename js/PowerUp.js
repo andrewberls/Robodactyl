@@ -60,6 +60,8 @@ PowerUp.prototype.RageDactyl = function(player) {
 		player.rageDactyl = false;
 		player.sprite.src = "images/player/robo.png";
 	}, 10000);
+	
+	console.log("BEAST MODE ENGAGED");
 	}
 	
 PowerUp.prototype.ApplyHealth = function(player) {
@@ -116,13 +118,13 @@ PowerUp.prototype.ActivatePowerup = function() {
 	
 	switch(this.random_powerup) {
 		case 1:
-			RageDactyl(player); 
+			RageDactyl(player);
 			break;
 		case 2:
 			ApplyHealth(player);
 			break;
 		case 3:
-			ExtraLife(player); 
+			ExtraLife(player);
 			break;
 		case 4:
 			ShieldDactyl(player);
