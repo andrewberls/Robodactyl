@@ -27,7 +27,12 @@ function PowerUp() {
 	
 	ChoosePowerup();
 	
+	
+	
 	}
+	
+PowerUp.prototype = new GameObject(); // Inherit from GameObject
+PowerUp.prototype.constructor = PowerUp; // Correct the constructor to use this, not GameObject
 	
 PowerUp.prototype.RageDactyl = function(player) {
 	
