@@ -85,6 +85,14 @@ PowerUp.prototype.ChoosePowerup = function() {
 	this.random_powerup = randomFromTo(1,4);
 	
 	switch(this.random_powerup) {
+    
+    /*
+      1: RageDactyl
+      2: +1 Health
+      3: Extra Life
+      4: Shield
+    */
+    
 		case 1:
 			this.sprite.src = "images/rage.png"; 
 			break;

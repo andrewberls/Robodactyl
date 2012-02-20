@@ -9,6 +9,8 @@
     attack()
     damage()
     kill()
+    respawn()
+    displayLives()
     displayHealth()
 		move()
 		draw()
@@ -52,12 +54,10 @@ Player.prototype.setDirection = function() {
 	switch(this.dir) {
 		case "LEFT":
       this.sprite.src = "images/player/robo_left.png";
-      debug("robo left chosen");
 			this.dx = -3;
 			break;
 		case "RIGHT":
       this.sprite.src = "images/player/robo_right.png";
-      debug("robo right chosen");
 			this.dx = 3;
 			break;
 		case "UP":
@@ -111,16 +111,21 @@ Player.prototype.respawn = function() {
   debug("Player died; respawning");
   debug("Player now has " + this.lives.toString()  + " lives.");
   // Todo: spawn player at last checkpoint
-  
+  this.x = this.current_checkpoint;
+  this.y = 10;
   // Todo: rewind the level/randomly regenerate environment. FFFFUUUUUUUUUUUU
   this.health = 5;
+}
+
+Player.prototype.displayLives = function() {
+  
 }
 
 Player.prototype.displayHealth = function() {
   ctx.save();
   
   var health_sprite = new Image();
-  health_sprite.src = "images/hud/heart.png";    
+  health_sprite.src = "images/hud/heart.png";  
   var offset = 0;
   var x_start = C_WIDTH-150;
   
