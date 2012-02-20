@@ -25,6 +25,8 @@ function PowerUp() {
 	
 	this.random_powerup;
 	
+	ChoosePowerup();
+	
 	}
 	
 PowerUp.prototype.RageDactyl = function(player) {
@@ -107,13 +109,15 @@ PowerUp.prototype.ActivatePowerup = function() {
 		default:
 			break;
 		}
+		
+	}
 	
 	
 	
 PowerUp.prototype.draw = function() {
 
 	//draws the powerup at a random location in the game
-	ChoosePowerup();
+	
 	ctx.drawImage(this.sprite, this.x, this.y);
 	}
 		
