@@ -66,7 +66,7 @@ function init() {
 	gameLoop = setInterval(game.draw, 20);
   
   // Display the start menu
-  /*var startMenu = new Menu(
+  var startMenu = new Menu(
     "Robodactyl Escape", // Description
     ["Start Level 1"],   // Options
     function(option) {   // Function triggered by enter key
@@ -74,7 +74,7 @@ function init() {
         menuActive = false;
         //themeSong.play();
       }
-    });*/
+    });
 }
 
 window.onload = init;
