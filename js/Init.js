@@ -43,7 +43,7 @@ var background = new Background();
 var player = new Player();
 
 // Enemies
-var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
+//var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 //var enemy2 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 //var enemy3 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 //var enemy4 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
