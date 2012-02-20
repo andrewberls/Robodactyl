@@ -54,13 +54,13 @@ PowerUp.prototype.ApplyHealth = function() {
 	//Restores one heart of health to the player
   if (player.health < player.max_health) {
     // Max of 5 health
-    player.health++;
+    player.health++; 
   }	
 }
 	
 PowerUp.prototype.ExtraLife = function() {
 	//Grants one extra life to the player
-  if (player.lives > 3) {
+  if (player.lives < 3) {
     // Max of 3 lives
     player.lives++;
   }
