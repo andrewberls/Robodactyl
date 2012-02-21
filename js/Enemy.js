@@ -99,6 +99,7 @@ Enemy.prototype.fire = function() {
     if (this.in(enemies)) {
       var proj = new Projectile(this.x + this.width/2, this.y, bulletDX, bulletDY, 1); // Params: (x,y,dx,dy)
       enemyProjectiles.push(proj);
+      laser2.play();
     }
   }
   
@@ -114,5 +115,6 @@ Enemy.prototype.draw = function() {
   //ctx.restore();
 }
 Enemy.prototype.kill = function() {
+  enemy_die.play();
   enemies.remove(this);
 }

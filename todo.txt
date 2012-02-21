@@ -1,15 +1,17 @@
 TO DO
 ===============
 
-[ ] sounds
-	checkpoint
-	enemy firing
-	enemy dying
-	player dying
-	ragedactyl firing
-	shield being hit
+SOUNDS
+  [ ] checkpoint
+  [ ] enemy firing
+  [ ] enemy dying
+  [ ] player dying
+  [ ] ragedactyl activating
+  [ ] ragedactyl firing
+  [ ] shield activating
+  [ ] shield deactivating
+  [ ] shield being hit
 
-[ ] set timeout to disable shield sprite even without keys
 
 [ ] improve enemy bullet tracking
 
@@ -24,6 +26,8 @@ TO DO
 
 COMPLETED
 ===============
+
+[X] disable shield sprite after 2 hits
 
 [X] powerups
 

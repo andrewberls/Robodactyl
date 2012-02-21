@@ -92,10 +92,9 @@ Game.prototype.draw = function() {
     /----------------------------------*/
     $.each(checkpoints, function(i, checkpoint) {
       if (intersecting(checkpoint, player)) {
-        debug("Player passed a checkpoint");
-        debug("Player's current checkpoint was: " + player.current_checkpoint.toString());        
+        debug("Player passed a checkpoint");               
         player.current_checkpoint = checkpoint.x;
-        debug("Player's current checkpoint is now: " + player.current_checkpoint.toString());
+        checkpoint_sound.play();
         checkpoints.remove(checkpoint);
       }      
       checkpoint.draw();
