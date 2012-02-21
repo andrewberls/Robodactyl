@@ -12,7 +12,7 @@ SOUNDS
   [ ] shield being hit
   [ ] shield deactivating
   
-
+[ ] score tracking
 
 [ ] Nerf checkpoints? Instead just spawn in corner of current screen after death anim
 

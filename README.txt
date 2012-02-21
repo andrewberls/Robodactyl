@@ -34,3 +34,4 @@ There are a number of powerups and enhancements that can be collected during the
 
 KNOWN BUGS
 ====================
+ - Due to the nature of the collision box model for the player, a collision with a block or item in the upper right corner may be registered even though it does not appear to be touching the sprite
