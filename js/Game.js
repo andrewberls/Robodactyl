@@ -94,7 +94,7 @@ Game.prototype.draw = function() {
       if (intersecting(checkpoint, player)) {
         debug("Player passed a checkpoint");               
         player.current_checkpoint = checkpoint.x;
-        checkpoint_sound.play();
+        //checkpoint_sound.play();
         checkpoints.remove(checkpoint);
       }      
       checkpoint.draw();

@@ -115,6 +115,16 @@ Enemy.prototype.draw = function() {
   //ctx.restore();
 }
 Enemy.prototype.kill = function() {
-  enemy_die.play();
+  switch(randomFromTo(1,3)) {
+    case 1:
+      enemy_death1.play();
+      break;
+    case 2:
+      enemy_death2.play();
+      break;
+    case 3:
+      enemy_death3.play();
+      break;
+  }
   enemies.remove(this);
 }
