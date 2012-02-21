@@ -25,17 +25,19 @@ function Projectile(x,y,dx,dy,src) {
   if (this.src === 0) {
     // Player projectile
     if (player.RageDactyl) {
-      this.sprite.src = "images/player/playerprojectilerage.png";      
+      this.sprite.src = "images/player/playerprojectilerage.png";
+      this.height = 50;
+      this.width = 45;
     } else {
-      this.sprite.src = "images/player/playerprojectile.png";      
+      this.sprite.src = "images/player/playerprojectile.png";
+      this.height = 50;
+      this.width = 30;
     }    
-    this.height = 50;
-    this.width = 30;
   } else {
     // Enemy projectile
     this.sprite.src = "images/enemy/enemyprojectile.png";
-    this.height = 20;
-    this.width = 20;
+    this.height = 25;
+    this.width = 25;
   }
   
 }
@@ -53,7 +55,7 @@ Projectile.prototype.draw = function() {
   
   if (this.src === 0) { ctx.fillStyle = "lime"; }
   else { ctx.fillStyle = "#f00"; }
-  //ctx.fillRect(this.x, this.y, this.width, this.height);  
+  //ctx.fillRect(this.x, this.y, this.width, this.height); // Draw box model
   
   ctx.drawImage(this.sprite, this.x, this.y);
   
