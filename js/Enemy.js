@@ -23,8 +23,6 @@ function Enemy(x) {
 	
   this.health = 1;
   
-  this.fireRate = 2500;
-  
   // Randomly select the sprite source
   this.sprite = new Image();
   if (randomFromTo(1,50)%2 == 0) {
@@ -37,7 +35,6 @@ function Enemy(x) {
   // the fire() method every second. The craziness
   // is necessary to preserve the correct 'this' context
   // (Defaults to DOMWindow otherwise)
-  // Essentially equal to setInterval(this.fire, this.fireRate)
   this.fireLoop = setInterval((function(self) {
     return function() {
       if (!menuActive) {
@@ -45,7 +42,7 @@ function Enemy(x) {
         self.fire();
       }
     } 
-  })(this), this.fireRate);
+  })(this), randomFromTo(1500, 2500)); // Random firing interval
   
   enemies.push(this); // Add self to character manager array
 	
