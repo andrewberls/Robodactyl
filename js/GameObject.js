@@ -1,39 +1,39 @@
 /*
-	Class File: GameObject.js	
-	Inherits from: 
-	Attributes:
-		x
-		y		
-		dx
-		dy
-		height
-		width
+  Class File: GameObject.js
+  Inherits from:
+  Attributes:
+    x
+    y
+    dx
+    dy
+    height
+    width
 	
-	Method Signatures:
+  Method Signatures:
     inspect()
-	  move()
+    move()
     in()
 */
 
-function GameObject() {	
+function GameObject() {
 
-	// Position
-	this.x = 0;
-	this.y = 0;
+  // Position
+  this.x = 0;
+  this.y = 0;
 	
-	// Direction
+  // Direction
   // Set dx to a default value so that all objects move
   // at the same rate
-	this.dx = 0;  
-	this.dy = 0;
+  this.dx = 0;  
+  this.dy = 0;
 	
-	// Box model
-	this.width = 0;
-	this.height = 0;      
+  // Box model
+  this.width = 0;
+  this.height = 0;
 	
-	// Sprite
-	this.sprite = new Image();
-	this.sprite.src = "";  
+  // Sprite
+  this.sprite = new Image();
+  this.sprite.src = "";
 	
 }
 
@@ -41,12 +41,12 @@ GameObject.prototype.inspect = function() {
   // Log the properties and values of an object for debugging
   
   var output = '';
-	for (property in this) {		
-		if (!(this[property] instanceof Function)) { // Don't log functions
-			output += property + ': ' + this[property]+';\n';
-		}
-	}
-	console.log(output);
+  for (property in this) {
+    if (!(this[property] instanceof Function)) { // Don't log functions
+      output += property + ': ' + this[property]+';\n';
+    }
+  }
+  console.log(output);
 }
 
 GameObject.prototype.move = function() {
@@ -54,7 +54,6 @@ GameObject.prototype.move = function() {
     this.x += this.dx;
     this.y += this.dy;
   //}
-  
 }
 
 GameObject.prototype.in = function(array) {

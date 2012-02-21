@@ -1,20 +1,20 @@
 /*
-	File: Init.js
-	Description: Initialize global variables and begin the game
+  File: Init.js
+  Description: Initialize global variables and begin the game
 */
 
 /* MASS VARIABLE INITIALIZATION
 /----------------------------------*/
 var canvas     = document.getElementById('canvas'), // Hook to the HTML element
-	  ctx        = canvas.getContext('2d'), // Main context variable
-	  C_WIDTH    = canvas.width, // Stored constant width/height references
-	  C_HEIGHT   = canvas.height,
+    ctx        = canvas.getContext('2d'), // Main context variable
+    C_WIDTH    = canvas.width, // Stored constant width/height references
+    C_HEIGHT   = canvas.height,
     C_MIDX     = canvas.width/2,
     C_MIDY     = canvas.height/2,
     TILE_SIZE  = 30,    
     gamePaused = false,
     menuActive = false,
-	  gameLoop;
+    gameLoop;
     
 var DEBUG_MODE = true; // Set to true to enable debug messages in the console
     
@@ -63,8 +63,8 @@ var powerup = new PowerUp(200,200);
 /----------------------------------*/
 function init() {
     
-	var game = new Game();
-	gameLoop = setInterval(game.draw, 20);
+  var game = new Game();
+  gameLoop = setInterval(game.draw, 20);
   
   // Display the start menu
   

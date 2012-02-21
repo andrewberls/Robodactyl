@@ -1,6 +1,6 @@
 /*
-	File: Keys.js
-	Description: Track and handle all keyboard input from the user
+  File: Keys.js
+  Description: Track and handle all keyboard input from the user
 */
 
 
@@ -27,58 +27,58 @@ $(document).keydown(function(evt) {
 		If it matches one our predefined keys (ex arrow keys or spacebar),
 		take the appropriate action.
 	*/
-	if (menuActive) {
-		/* Are we in menu mode? */
-		switch(evt.keyCode) {
-			case KEY_UP:
-				currentMenu.selected--;				
-				break;
+  if (menuActive) {
+    /* Are we in menu mode? */
+    switch(evt.keyCode) {
+      case KEY_UP:
+        currentMenu.selected--;
+        break;
 				
-			case KEY_DOWN:
-				currentMenu.selected++;				
-				break;
+      case KEY_DOWN:
+        currentMenu.selected++;
+        break;
 				
-			case KEY_ENTER:
-				currentMenu.execute(currentMenu.selected);				
-				break;
-		};
-	} 
+      case KEY_ENTER:
+        currentMenu.execute(currentMenu.selected);
+        break;
+    };
+  }
   else {
-		/* Gameplay mode */
-		switch(evt.keyCode) {
-			case KEY_LEFT:
-				player.dir = "LEFT";				
-				break;
+    /* Gameplay mode */
+    switch(evt.keyCode) {
+      case KEY_LEFT:
+        player.dir = "LEFT";
+        break;
 				
-			case KEY_RIGHT:
-				player.dir = "RIGHT";
-				break;
+      case KEY_RIGHT:
+        player.dir = "RIGHT";
+        break;
 				
-			case KEY_UP:
-				player.dir = "UP";
-				break;
+      case KEY_UP:
+        player.dir = "UP";
+        break;
 				
-			case KEY_DOWN:
-				player.dir = "DOWN";
-				break;
+      case KEY_DOWN:
+        player.dir = "DOWN";
+        break;
 				
-			case KEY_SPACE:				               
+      case KEY_SPACE:    
         player.attack();                      
-				break;
+        break;
 				
-			case KEY_ENTER:
-				// Do whatever
-				break;
-        
+      case KEY_ENTER:
+        // Do whatever
+        break;
+
       case KEY_ESC:
-				gamePaused = true;        
-				break;
+        gamePaused = true;     
+        break;
 				
-			default:
-				player.dir = "";
-				break;
-		};
-	}
+      default:
+        player.dir = "";
+        break;
+    };
+  }
 });
 
 $(document).keyup(function(evt) {
@@ -94,6 +94,6 @@ $(document).keyup(function(evt) {
 	*/
 	
 	if ($.inArray(evt.keyCode, moveKeys) != -1) {			
-		player.dir = "";
-	}
+    player.dir = "";
+  }
 });

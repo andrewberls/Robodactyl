@@ -1,36 +1,35 @@
 /*
-	Class File: PowerUp.js	
-	Inherits from: GameObject
-	Attributes:
-		Type of Power-Up
-		//Height/Width
-		Coordinates
-		
-		
-	Method Signatures:
-	  ActivatePowerup()
-		ChoosePowerup()
-		RageDactyl()
-		ShieldDactyl()
-		ApplyHealth()
-		ExtraLife()
-		draw()
+  Class File: PowerUp.js
+  Inherits from: GameObject
+  Attributes:
+    Type of Power-Up
+    Height/Width
+    Coordinates
+
+  Method Signatures:
+    ActivatePowerup()
+    ChoosePowerup()
+    RageDactyl()
+    ShieldDactyl()
+    ApplyHealth()
+    ExtraLife()
+    draw()
 	
 */
 
 function PowerUp(x,y) {
 
-	this.x = x;
-	this.y = y;
+  this.x = x;
+  this.y = y;
 	
-	//this.height = 10;
-	//this.width = 10;
+  //this.height = 10;
+  //this.width = 10;
 	
-	//this.random_powerup;  //Stores randomly generated key for Power-Up identity
+  //this.random_powerup;  //Stores randomly generated key for Power-Up identity
 	
-	this.ChoosePowerup(); //Picks which Power-Up to use and assigns a skin
+  this.ChoosePowerup(); //Picks which Power-Up to use and assigns a skin
   
-	collectables.push(this);
+  collectables.push(this);
 }
 	
 PowerUp.prototype = new GameObject(); // Inherit from GameObject
@@ -61,7 +60,7 @@ PowerUp.prototype.RageDactyl = function() {
       }		
   	}, 10000);
   	
-  	debug("BEAST MODE ENGAGED"); 
+    debug("BEAST MODE ENGAGED");
   }  
 }
 	
@@ -109,47 +108,46 @@ PowerUp.prototype.ChoosePowerup = function() {
       4: Shield
     */
     
-		case 1:
-			this.sprite.src = "images/powerup/rage.png"; 
-			break;
-		case 2:
-			this.sprite.src = "images/powerup/health.png";
-			break;
-		case 3:
-			this.sprite.src = "images/powerup/extralife.png"; 
-			break;
-		case 4:
-			this.sprite.src = "images/powerup/shield.png";
-			break;
-		default:
-			break;
-		}
+    case 1:
+      this.sprite.src = "images/powerup/rage.png"; 
+      break;
+    case 2:
+      this.sprite.src = "images/powerup/health.png";
+      break;
+    case 3:
+      this.sprite.src = "images/powerup/extralife.png"; 
+      break;
+    case 4:
+      this.sprite.src = "images/powerup/shield.png";
+      break;
+    default:
+      break;
+  }
 }
 	
 PowerUp.prototype.ActivatePowerup = function() {
 	//Endows Robodactyl with Powerup when collision is detected
-	
-	switch(this.random_powerup) {
-		case 1:
-			this.RageDactyl();
-			break;
-		case 2:
-			this.ApplyHealth();
-			break;
-		case 3:
-			this.ExtraLife();
-			break;
-		case 4:
-			this.ShieldDactyl();
+
+  switch(this.random_powerup) {
+    case 1:
+      this.RageDactyl();
+      break;
+    case 2:
+      this.ApplyHealth();
+      break;    
+    case 3:
+      this.ExtraLife();
+      break;
+    case 4:
+      this.ShieldDactyl();
       debug("Shield powerup activated");
       debug("player.shieldCounter is now: " + player.shieldCounter.toString());
-			break;
-		default:
-			break;
-		}
-		
-	}
+      break;
+    default:
+      break;
+  }
+}
 
 PowerUp.prototype.draw = function() {	
-	ctx.drawImage(this.sprite, this.x, this.y);
+  ctx.drawImage(this.sprite, this.x, this.y);
 }

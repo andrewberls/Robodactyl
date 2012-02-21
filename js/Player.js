@@ -1,45 +1,45 @@
 /*
-	Class File: Player.js	
-	Inherits from: GameObject
-	Attributes:
+  Class File: Player.js
+  Inherits from: GameObject
+  Attributes:
 		
 	
-	Method Signatures:
-		setDirection()
+  Method Signatures:
+    setDirection()
     attack()
     damage()
     kill()
     respawn()
     displayLives()
     displayHealth()
-		move()
-		draw()
+    move()
+    draw()
 	
 */
 
 function Player() {
-	
-	this.x = 10;
-	this.y = 10;
+
+  this.x = 10;
+  this.y = 10;
   
   this.height = 3*TILE_SIZE - 5; // Little hack to make for empty space at sprite bottom 
   this.width = 4.5*TILE_SIZE;
 	
-	this.dx = 0;
-	this.dy = 0;
+  this.dx = 0;
+  this.dy = 0;
 	
   this.score = 0;
   
   // Health/Checkpoint Tracking
   this.max_health = 5;
-	this.health = this.max_health;
+  this.health = this.max_health;
   this.max_lives = 3;
-	this.lives = this.max_lives;
+  this.lives = this.max_lives;
   this.current_checkpoint = 10;
   
   // Powerup tracking
-	this.shieldCounter = 0;
-	this.RageDactyl = false;
+  this.shieldCounter = 0;
+  this.RageDactyl = false;
 	  
   this.sprite.src = "images/player/robo_right.png";
 }
@@ -52,10 +52,10 @@ Player.prototype.setDirection = function() {
 	// Here, we're switching through the player's dir attribute (a string),
 	// and setting the appropriate dx or dy attribute based on its value.	
 
-	switch(this.dir) {
+  switch(this.dir) {
     // Set the sprite based on the current poweurp, if any
     
-		case "LEFT":
+    case "LEFT":
       if (player.RageDactyl) {
         this.sprite.src = "images/player/rage_left.png";
       } else if (player.shieldCounter > 0) {
@@ -63,10 +63,10 @@ Player.prototype.setDirection = function() {
       } else {
         this.sprite.src = "images/player/robo_left.png";
       }
-			this.dx = -3;
-			break;
+      this.dx = -3;
+      break;
       
-		case "RIGHT":
+    case "RIGHT":
       if (player.RageDactyl) {
         this.sprite.src = "images/player/rage_right.png";
       } else if (player.shieldCounter > 0) {
@@ -74,22 +74,22 @@ Player.prototype.setDirection = function() {
       } else {
         this.sprite.src = "images/player/robo_right.png";
       }    
-			this.dx = 3;
-			break;
+      this.dx = 3;
+      break;
       
-		case "UP":
-			this.dy = -3;
-			break;
+    case "UP":
+      this.dy = -3;
+      break;
       
-		case "DOWN":
-			this.dy = 3;
-			break;
+    case "DOWN":
+      this.dy = 3;
+      break;
       
-		default:
-			this.dx = 0;
-			this.dy = 0;
-			break;
-	};	
+    default:
+      this.dx = 0;
+      this.dy = 0;
+      break;
+  };
 }
 
 Player.prototype.attack = function () {
@@ -103,7 +103,7 @@ Player.prototype.attack = function () {
 
 Player.prototype.damage = function(dmg) {
   if (this.shieldCounter > 0) {
-		this.shieldCounter--;
+    this.shieldCounter--;
     debug("shield active/decrementing. now: " + this.shieldCounter.toString());
     if (this.shieldCounter === 0) {
       // Shield is done
@@ -114,13 +114,12 @@ Player.prototype.damage = function(dmg) {
       }
     }
   } else {
-		this.health -= dmg;
+    this.health -= dmg;
   }
   
   if (this.health <= 0) {
     this.kill();
   }
-  
 }
 
 Player.prototype.kill = function() {
@@ -196,28 +195,24 @@ Player.prototype.move = function() {
 	
 	// Don't move if colliding with a canvas edge
 	// Top
-	if (this.y + this.dy < 0) {				
-		this.dy = 0;
-	}
-	// Left/Right
-	if (this.x + this.dx < 0 || this.x + this.dx + this.width > C_WIDTH) {
-		this.dx = 0;
-	}
-	// Bottom
-	if (this.y + this.height + this.dy > C_HEIGHT - TILE_SIZE) {
-		this.dy = 0;
-	}
+  if (this.y + this.dy < 0) {
+    this.dy = 0;
+  }
+  // Left/Right
+  if (this.x + this.dx < 0 || this.x + this.dx + this.width > C_WIDTH) {
+    this.dx = 0;
+  }
+  // Bottom
+  if (this.y + this.height + this.dy > C_HEIGHT - TILE_SIZE) {
+    this.dy = 0;
+  }
 			
-	this.x += this.dx;
-	this.y += this.dy;
+  this.x += this.dx;
+  this.y += this.dy;
 	
 };
 	
-Player.prototype.draw = function() {	
-	//if (this.shieldCounter > 0) {
-	//	this.sprite.src = "images/player/shield.png";
-	//}	
-  
-	//ctx.fillRect(this.x, this.y, this.width, this.height); // Draw box around the sprite
+Player.prototype.draw = function() {
+  //ctx.fillRect(this.x, this.y, this.width, this.height); // Draw box around the sprite
   ctx.drawImage(this.sprite, this.x, this.y);  
 }

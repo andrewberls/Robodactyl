@@ -1,11 +1,11 @@
 /*
-	Class File: Block.js	
-	Inherits from: GameObject
-	Attributes:
+  Class File: Block.js
+  Inherits from: GameObject
+  Attributes:
 		
 	
-	Method Signatures:
-		move()
+  Method Signatures:
+    move()
     draw()
 	
 */

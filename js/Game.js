@@ -1,32 +1,32 @@
 /*
-	File: Game.js
-	Description: Container for main game rendering
+  File: Game.js
+  Description: Container for main game rendering
 */
 
 function Game() {}
 
 Game.prototype.draw = function() {
-	if (gamePaused) {
-		// Are we paused?
-		var pauseMenu = new Menu(
+  if (gamePaused) {
+    // Are we paused?
+    var pauseMenu = new Menu(
       "Game Paused", 
       ["Resume"], 
       function(option) {
-		    if (option == 0) {
-			    menuActive = false;
-			    gamePaused = false;
-		    }
-		  });
-	}
+        if (option == 0) {
+          menuActive = false;
+          gamePaused = false;
+        }
+      });
+  }
 	
-	if (menuActive) {
-		// Are we in menu mode?
-		currentMenu.draw();
-	}
+  if (menuActive) {
+    // Are we in menu mode?
+    currentMenu.draw();
+  }
 	
-	else {    
-		// Gameplay mode!
-		/*
+  else {
+    // Gameplay mode!
+    /*
       Available object manager arrays:
       collectables
       blocks
@@ -47,7 +47,7 @@ Game.prototype.draw = function() {
     /----------------------------------*/
     $.each(collectables, function(i, item){
     if (intersecting(player, item)) {
-		    item.ActivatePowerup();
+        item.ActivatePowerup();
         debug("Player hit a collectable");
         collectables.remove(item);
       } else {
@@ -115,7 +115,7 @@ Game.prototype.draw = function() {
       if (defined(enemy)) {
         if (intersecting(enemy, player)) {
           // Is the player touching the enemy?
-			    if (player.RageDactyl) {
+          if (player.RageDactyl) {
             // If player has RageDactyl, kill the enemy
             debug("RageDactyl hit an enemy");
             enemy.kill();
@@ -174,8 +174,7 @@ Game.prototype.draw = function() {
         proj.draw();
       }
     });
-    
-	}
+  }
 }
 
 var endGame = function() {

@@ -1,10 +1,10 @@
 /*
-	Class File: Player.js		
-	Attributes:
-		
-	
-	Method Signatures:
-		move()
+  Class File: Player.js
+  Attributes:
+
+
+  Method Signatures:
+    move()
     draw()
 	
 */
@@ -26,7 +26,7 @@ Checkpoint.prototype.move = function() {}
 
 Checkpoint.prototype.draw = function() {
   ctx.save();
-  ctx.fillStyle = "yellow"
-  ctx.fillRect(this.x, 0, this.width, this.height);  
+  ctx.fillStyle = "yellow";
+  ctx.fillRect(this.x, 0, this.width, this.height);
   ctx.restore();
 }

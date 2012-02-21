@@ -1,27 +1,27 @@
 /*
-	Class File: Enemy.js	
-	Inherits from: GameObject
-	Attributes:
+  Class File: Enemy.js
+  Inherits from: GameObject
+  Attributes:
 		
 	
-	Method Signatures:		
-		move()
+  Method Signatures:
+    move()
     fire()
-		draw()
-	  kill()
+    draw()
+    kill()
 */
 
 function Enemy(x) {
 	
   this.height = 3*TILE_SIZE;
-	this.width = 2*TILE_SIZE;  
+  this.width = 2*TILE_SIZE;
   
-	this.x = x;
-	this.y = C_HEIGHT-this.height-TILE_SIZE;	    
+  this.x = x;
+  this.y = C_HEIGHT-this.height-TILE_SIZE;
 	
-	this.dx = 0.8;
+  this.dx = 0.8;
 	
- this.health = 1;  
+  this.health = 1;
   
   this.fireRate = 2500;
   
@@ -61,10 +61,10 @@ Enemy.prototype.move = function() {
   this.midy = this.y + this.height/2;
   
   
-	if (this.x + this.dx < 0 || this.x + this.dx + this.width > C_WIDTH) {
+  if (this.x + this.dx < 0 || this.x + this.dx + this.width > C_WIDTH) {
     // Change direction if colliding with a canvas edge
     this.dx *= -1;
-	}
+  }
   if (randomFromTo(1,40) == 1) {
     // Random number testing for pacing back and forth
     // Increase the range for less frequent switches
@@ -114,6 +114,7 @@ Enemy.prototype.draw = function() {
   ctx.drawImage(this.sprite, this.x, this.y);
   //ctx.restore();
 }
+
 Enemy.prototype.kill = function() {
   switch(randomFromTo(1,3)) {
     case 1:

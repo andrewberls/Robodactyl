@@ -1,12 +1,12 @@
 /*
-	Class File: Background.js	
-	Inherits from: GameObject
-	Attributes:
-		moveSpeed
+  Class File: Background.js
+  Inherits from: GameObject
+  Attributes:
+    moveSpeed
 	
-	Method Signatures:		
-		move()
-		draw()
+  Method Signatures:
+    move()
+    draw()
 	
 */
 
@@ -17,7 +17,6 @@ function Background() {
   
   // This needs to be parameterized or something
   this.sprite.src = "images/bg/lvl1/lvl1_base.png";
-  
 }
 
 Background.prototype = new GameObject(); // Inherit from GameObject
@@ -25,9 +24,9 @@ Background.prototype.constructor = Background; // Correct the constructor to use
 
 Background.prototype.move = function() {
   // Scroll the background
-	if (Math.abs(this.x) <= this.width-C_WIDTH) { // Stop when we reach the end of the image		
-		this.x -= this.moveSpeed;
-	}
+  if (Math.abs(this.x) <= this.width-C_WIDTH) { // Stop when we reach the end of the image
+    this.x -= this.moveSpeed;
+  }
 }
 
 Background.prototype.draw = function() {
