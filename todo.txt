@@ -4,7 +4,7 @@ TO DO
 SOUNDS
   [ ] checkpoint
   [ ] enemy firing
-  [ ] enemy dying
+  [X] enemy dying
   [ ] player dying
   [ ] ragedactyl activating
   [ ] ragedactyl firing
