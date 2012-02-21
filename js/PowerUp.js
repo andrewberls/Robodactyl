@@ -43,20 +43,20 @@ PowerUp.prototype.RageDactyl = function() {
     // Can't have Rage and Shield at the same time
     player.RageDactyl = true;
     debug(player.dir);
-  	if (player.dir === "RIGHT") {
-      player.sprite.src = "images/player/rage_right.png";
-    } else {
+  	if (player.dir === "LEFT") {
       player.sprite.src = "images/player/rage_left.png";
+    } else {
+      player.sprite.src = "images/player/rage_right.png";
     }
     
   	setTimeout(function() {
       // Disable RageDactyl after 10 seconds
   		player.RageDactyl = false;
       debug("RageDactyl disabling");
-      if (player.dir === "RIGHT") {
-        player.sprite.src = "images/player/robo_right.png";
-      } else {
+      if (player.dir === "LEFT") {
         player.sprite.src = "images/player/robo_left.png";
+      } else {
+        player.sprite.src = "images/player/robo_right.png";
       }		
   	}, 10000);
   	
@@ -86,10 +86,10 @@ PowerUp.prototype.ShieldDactyl = function() {
   if (!(player.RageDactyl)) {
     // Can't have Rage and Shield at the same time
     player.shieldCounter = 2;
-    if (player.dir === "RIGHT") {
-      player.sprite.src = "images/player/shield_right.png";
-    } else {
+    if (player.dir === "LEFT") {
       player.sprite.src = "images/player/shield_left.png";
+    } else {
+      player.sprite.src = "images/player/shield_right.png";
     }
   }	  
 }

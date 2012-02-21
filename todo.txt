@@ -7,6 +7,9 @@ TO DO
 	enemy dying
 	player dying
 	ragedactyl firing
+	shield being hit
+
+[ ] set timeout to disable shield sprite even without keys
 
 [ ] improve enemy bullet tracking
 

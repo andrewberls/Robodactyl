@@ -105,6 +105,14 @@ Player.prototype.damage = function(dmg) {
   if (this.shieldCounter > 0) {
 		this.shieldCounter--;
     debug("shield active/decrementing. now: " + this.shieldCounter.toString());
+    if (this.shieldCounter === 0) {
+      // Shield is done
+      if (this.dir === "LEFT") {
+        this.sprite.src = "images/player/robo_left.png";        
+      } else {
+        this.sprite.src = "images/player/robo_right.png";
+      }
+    }
   } else {
 		this.health -= dmg;
   }
