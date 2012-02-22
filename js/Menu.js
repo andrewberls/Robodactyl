@@ -13,7 +13,8 @@ function Menu(description, options, callback, score) {
   this.desc = description;
   this.options = options;
   this.callback = callback;
-  this.score = Math.floor(player.score); // Boolean; whether or not to display the score line
+  this.score = score;
+  this.points = Math.floor(player.score); // Boolean; whether or not to display the score line
   this.selected = 0;
 	
   menuActive = true;
@@ -46,7 +47,7 @@ Menu.prototype.renderDesc = function() {
   
   ctx.fillText(this.desc, C_MIDX, 50);  
   if (this.score) {
-    scoreText = "Score: " + this.score.toString();
+    scoreText = "Score: " + this.points.toString();
     ctx.fillText(scoreText, C_MIDX, C_HEIGHT-50);
   }
   ctx.restore();
