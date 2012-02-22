@@ -74,7 +74,7 @@ function init() {
     function(option) {   // Function triggered by enter key
       if (option == 0) {
         menuActive = false;
-        themeSong.play();
+        //themeSong.play();
       }
     });
   
