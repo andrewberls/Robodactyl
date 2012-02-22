@@ -36,6 +36,7 @@ Game.prototype.draw = function() {
       enemyProjectiles
     */		
 		
+    player.score += 0.05; // Score baseline - increases with time
     
     /* BACKGROUND
     /----------------------------------*/
@@ -105,6 +106,7 @@ Game.prototype.draw = function() {
     /----------------------------------*/
     player.displayLives(); // HUD
     player.displayHealth(); // HUD
+    player.displayScore(); // HUD
     player.move();
     player.draw();		
 		
@@ -147,6 +149,7 @@ Game.prototype.draw = function() {
           if (intersecting(proj, enemy)) {
             debug("Player projectile hit an enemy");
             enemy.kill();
+            player.score += 10;
             playerProjectiles.remove(proj);
           }
         });

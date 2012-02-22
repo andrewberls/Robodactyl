@@ -185,6 +185,14 @@ Player.prototype.displayHealth = function() {
   ctx.restore();
 }
 
+Player.prototype.displayScore = function() {
+  ctx.save();
+  ctx.font = "20px Times New Roman";
+  ctx.fillStyle = "#ffffff";
+  ctx.fillText("Score: " + Math.floor(this.score), C_WIDTH-60, C_HEIGHT-10);
+  ctx.restore();
+}
+
 Player.prototype.move = function() {
 
   // Convenience midpoint methods
