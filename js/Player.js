@@ -31,9 +31,9 @@ function Player() {
   this.score = 0;
   
   // Health/Checkpoint Tracking
-  this.max_health = 1;
+  this.max_health = 5;
   this.health = this.max_health;
-  this.max_lives = 1;
+  this.max_lives = 3;
   this.lives = this.max_lives;
   this.current_checkpoint = 10;
   
