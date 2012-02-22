@@ -1,5 +1,9 @@
+body {
+  background: #eee url(bg.png);
+}
+
 canvas {
-	border: 1px solid black;
+  /*border: 1px solid black;*/
 	margin: 20px auto;
 	display: block;
 }
