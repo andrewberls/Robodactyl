@@ -20,7 +20,7 @@ var enemy_death3 = new Audio("audio/enemy_death3.mp3");
 
 // Powerups
 var health_powerup = new Audio("audio/health.mp3");
-//var rage_powerup = new Audio("");
+var rage_activate = new Audio("audio/rage_activate.mp3");
 var shield_activate = new Audio("audio/shield_activate.mp3");
 var shield_hit = new Audio("audio/shield_hit2.mp3");
 var shield_deactivate = new Audio("audio/shield_deactivate.mp3");

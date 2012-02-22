@@ -41,7 +41,7 @@ PowerUp.prototype.RageDactyl = function() {
   if (!(player.shieldCounter > 0)) {
     // Can't have Rage and Shield at the same time
     player.RageDactyl = true;
-    //rage_powerup.play();
+    rage_activate.play();
     debug(player.dir);
   	if (player.dir === "LEFT") {
       player.sprite.src = "images/player/rage_left.png";
