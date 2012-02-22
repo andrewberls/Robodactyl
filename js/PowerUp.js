@@ -86,6 +86,7 @@ PowerUp.prototype.ShieldDactyl = function() {
   if (!(player.RageDactyl)) {
     // Can't have Rage and Shield at the same time
     player.shieldCounter = 2;
+    shield_activate.play();
     if (player.dir === "LEFT") {
       player.sprite.src = "images/player/shield_left.png";
     } else {

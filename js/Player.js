@@ -104,9 +104,11 @@ Player.prototype.attack = function () {
 Player.prototype.damage = function(dmg) {
   if (this.shieldCounter > 0) {
     this.shieldCounter--;
+    shield_hit.play();
     debug("shield active/decrementing. now: " + this.shieldCounter.toString());
     if (this.shieldCounter === 0) {
       // Shield is done
+      shield_deactivate.play();
       if (this.dir === "LEFT") {
         this.sprite.src = "images/player/robo_left.png";        
       } else {
