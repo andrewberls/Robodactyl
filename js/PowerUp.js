@@ -129,6 +129,8 @@ PowerUp.prototype.ChoosePowerup = function() {
 PowerUp.prototype.ActivatePowerup = function() {
 	//Endows Robodactyl with Powerup when collision is detected
 
+  player.score += 50;
+  
   switch(this.random_powerup) {
     case 1:
       this.RageDactyl();

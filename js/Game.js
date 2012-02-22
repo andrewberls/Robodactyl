@@ -120,6 +120,7 @@ Game.prototype.draw = function() {
           if (player.RageDactyl) {
             // If player has RageDactyl, kill the enemy
             debug("RageDactyl hit an enemy");
+            player.score += 50;
             enemy.kill();
           } else {
             // Else damage the player

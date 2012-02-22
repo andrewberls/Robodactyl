@@ -102,6 +102,7 @@ Player.prototype.attack = function () {
 }
 
 Player.prototype.damage = function(dmg) {
+      
   if (this.shieldCounter > 0) {
     this.shieldCounter--;
     shield_hit.play();
@@ -116,6 +117,7 @@ Player.prototype.damage = function(dmg) {
       }
     }
   } else {
+    this.score -= 5*dmg;
     this.health -= dmg;
   }
   
@@ -126,6 +128,9 @@ Player.prototype.damage = function(dmg) {
 
 Player.prototype.kill = function() {
   debug("Player killed");
+  
+  this.score -= 75;
+  
   if (this.lives > 1) {
     this.lives--;
     this.respawn();

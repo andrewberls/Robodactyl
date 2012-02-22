@@ -49,7 +49,7 @@ var enemy3 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 var enemy4 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 
 // Checkpoints
-var checkpoint1 = new Checkpoint(500);
+//var checkpoint1 = new Checkpoint(500);
 
 // Blocks
 var block = new Block(400,100);
@@ -74,7 +74,7 @@ function init() {
     function(option) {   // Function triggered by enter key
       if (option == 0) {
         menuActive = false;
-        //themeSong.play();
+        themeSong.play();
       }
     });
   
