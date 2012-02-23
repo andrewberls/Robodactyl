@@ -46,14 +46,12 @@ Game.prototype.draw = function() {
     background.draw();
     
     if (player.RageDactyl) {
+        // Transparent red background in rage mode
         ctx.save();
         ctx.fillStyle = "rgba(200,0,0,0.4)";
         ctx.fillRect(0,0,C_WIDTH,C_HEIGHT);
-        } 
-        
-    else  
         ctx.restore();
-    
+    }    
     
     /* COLLECTABLES
     /----------------------------------*/
