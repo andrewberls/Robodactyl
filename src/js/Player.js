@@ -11,6 +11,8 @@
         respawn()
         displayLives()
         displayHealth()
+        displayScore()
+        displayRageNotice()
         move()
         draw()
 */
@@ -209,6 +211,18 @@ Player.prototype.displayScore = function() {
     ctx.font = "20px Times New Roman";
     ctx.fillStyle = "#ffffff";
     ctx.fillText("Score: " + Math.floor(this.score), C_WIDTH-60, C_HEIGHT-10);
+    ctx.restore();
+    
+}
+
+Player.prototype.displayRageNotice = function() {
+        
+    ctx.save();
+    ctx.font = "20px Times New Roman";
+    ctx.fillStyle = "#ffffff";
+    ctx.textAlign = "center";
+    var text = "Rage Mode enabled! Run over your enemies!";
+    ctx.fillText(text, C_MIDX, C_HEIGHT-10);
     ctx.restore();
     
 }

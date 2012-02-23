@@ -107,6 +107,7 @@ Game.prototype.draw = function() {
     player.displayLives(); // HUD
     player.displayHealth(); // HUD
     player.displayScore(); // HUD
+    if (player.RageDactyl) player.displayRageNotice() // HUD
     player.move();
     player.draw();		
 		
