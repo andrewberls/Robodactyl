@@ -38,10 +38,22 @@ Game.prototype.draw = function() {
 		
     player.score += 0.05; // Score baseline - increases with time
     
+   
+        
+    
     /* BACKGROUND
     /----------------------------------*/
     background.move();
     background.draw();
+    
+    if (player.RageDactyl) {
+        ctx.save();
+        ctx.fillStyle = "rgba(200,0,0,0.4)";
+        ctx.fillRect(0,0,C_WIDTH,C_HEIGHT);
+        } 
+        
+    else  
+        ctx.restore();
     
     
     /* COLLECTABLES

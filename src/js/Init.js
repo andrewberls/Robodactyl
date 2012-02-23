@@ -55,7 +55,7 @@ var enemy3 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 var block = new Block(400,100);
 
 //PowerUp
-var powerup = new PowerUp(200,200, 4);
+var powerup = new PowerUp(200,200, 1);
 
 
 
