@@ -78,11 +78,20 @@ Enemy.prototype.fire = function() {
     // Only fire if the player is on the same screen as the enemy
     if (this.x >= 0 && this.x < C_WIDTH) {
     
+    if (this.x >= player.midx) { //player is to the left of the enemy
     var y = -1 * Math.abs(this.midy-player.midy);
     var x = -1 * Math.abs(this.midx-player.midx);
+    }
+    
+    else if (this.x <= player.midx) { //player is to the right of the enemy
+    var y = -1 * Math.abs(this.midy-player.midy);
+    var x = 1 * Math.abs(this.midx-player.midx);
+    }
+    
     var rad = Math.atan2(y,x);        
     var bulletDX = this.bulletSpeed * Math.cos(rad);
     var bulletDY = this.bulletSpeed * Math.sin(rad);
+    
             
     // Is the enemy alive?
     if (this.in(enemies)) {
