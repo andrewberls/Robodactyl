@@ -93,7 +93,7 @@ $(document).keyup(function(evt) {
 		See jQuery's inArray() reference for more information.
 	*/
 	
-	if ($.inArray(evt.keyCode, moveKeys) != -1) {			
-    player.dir = "";
-  }
+    if ($.inArray(evt.keyCode, moveKeys) != -1) {			
+        player.dir = "";
+    }
 });
