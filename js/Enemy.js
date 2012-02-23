@@ -97,7 +97,7 @@ Enemy.prototype.fire = function() {
     
     // Is the enemy alive?
     if (this.in(enemies)) {
-      var proj = new Projectile(this.x + this.width/2, this.y, bulletDX, bulletDY, 1); // Params: (x,y,dx,dy)
+      var proj = new Projectile(this.x + this.width/2, this.y, bulletDX, bulletDY, 1); // Params: (x,y,dx,dy,src)
       enemyProjectiles.push(proj);
     }
   }

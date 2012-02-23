@@ -57,6 +57,7 @@ var block = new Block(400,100);
 
 //PowerUp
 var powerup = new PowerUp(200,200);
+var powerup = new PowerUp(400,400);
 
 
 
