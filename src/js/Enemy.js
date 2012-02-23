@@ -13,17 +13,17 @@
 
 function Enemy(x) {
 	
-  this.height = 3*TILE_SIZE;
-  this.width = 2*TILE_SIZE;
+    this.height = 3*TILE_SIZE;
+    this.width = 2*TILE_SIZE;
   
-  this.x = x;
-  this.y = C_HEIGHT-this.height-TILE_SIZE;
+    this.x = x;
+    this.y = C_HEIGHT-this.height-TILE_SIZE;
 	
-  this.dx = 0.8;
+    this.dx = 0.8;
 	
-  this.health = 1;
+    this.health = 1;
 
-    this.bulletSpeed = 1;
+    this.bulletSpeed = 2.5;
   
   // Randomly select the sprite source
   this.sprite = new Image();
@@ -92,9 +92,7 @@ Enemy.prototype.fire = function() {
     var rad = Math.atan2(y,x);        
     var bulletDX = this.bulletSpeed * Math.cos(rad);
     var bulletDY = this.bulletSpeed * Math.sin(rad);
-    
-    
-    
+            
     // Is the enemy alive?
     if (this.in(enemies)) {
       var proj = new Projectile(this.x, this.y, bulletDX, bulletDY, 1); // Params: (x,y,dx,dy)
