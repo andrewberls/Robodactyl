@@ -228,6 +228,6 @@ Player.prototype.move = function() {
 };
 	
 Player.prototype.draw = function() {
-  //ctx.fillRect(this.x, this.y, this.width, this.height); // Draw box around the sprite
+  ctx.fillRect(this.x, this.y, this.width, this.height); // Draw box around the sprite
   ctx.drawImage(this.sprite, this.x, this.y);  
 }

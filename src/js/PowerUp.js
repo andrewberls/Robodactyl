@@ -1,5 +1,5 @@
 /*
-  Class File: PowerUp.js
+    Class File: PowerUp.js
   Inherits from: GameObject
   Attributes:
     Type of Power-Up
@@ -41,8 +41,7 @@ PowerUp.prototype.RageDactyl = function() {
   if (!(player.shieldCounter > 0)) {
     // Can't have Rage and Shield at the same time
     player.RageDactyl = true;
-    rage_activate.play();
-    debug(player.dir);
+    rage_activate.play();    
   	if (player.dir === "LEFT") {
       player.sprite.src = "images/player/rage_left.png";
     } else {

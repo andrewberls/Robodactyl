@@ -170,9 +170,9 @@ Game.prototype.draw = function() {
         if (intersecting(proj, player)) {
           // Is the proj hitting the player?
           debug("Enemy projectile hit the player")
-          player.damage(1);
-          player_hurt.play();
-          enemyProjectiles.remove(proj);
+          //player.damage(1);
+          //player_hurt.play();
+          //enemyProjectiles.remove(proj);
         }
         proj.move();
         proj.draw();
