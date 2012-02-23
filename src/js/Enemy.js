@@ -39,7 +39,7 @@ function Enemy(x) {
   // (Defaults to DOMWindow otherwise)
   this.fireLoop = setInterval((function(self) {
     return function() {
-      if (!menuActive) {
+      if (!menuActive && player.isAlive) {
         // Hack to fix glitch where enemies were firing while menu was on
         self.fire();
       }
@@ -97,7 +97,7 @@ Enemy.prototype.fire = function() {
     if (this.in(enemies)) {
       var proj = new Projectile(this.x + this.width/2, this.y, bulletDX, bulletDY, 1); // Params: (x,y,dx,dy,src)
       enemyProjectiles.push(proj);
-      laser2.play();
+      enemy_fire.play();
     }
   } 
 }
