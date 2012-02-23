@@ -1,26 +1,30 @@
-# Git Resources
-I posted a link to the Pro Git book in the dropbox. It gets pretty technical, but the first few pages give a pretty good overview of the basic Git overview. If you're still a little unsure about the whole thing, check out pages 1-20 or so, we won't need anything past that point.
-
-# The Basics
-Before we do anything, you'll need to know at least a tiny tiny bit of HTML for the basic setup. HTML is a joke and can be learned in an hour. There are tons of tutorials online, try skimming through the one here: [HTML Basics](http://www.html.net/tutorials/html/lesson2.php) or the various tutorials here: [Mozilla Dev Network](https://developer.mozilla.org/en-US/learn)
-
-# JavaScript Resources
-### Codecademy
-Free interactive tutorial courses that teach the basics of JavaScript from the very beginning. Very helpful.
-[Codecademy](http://www.codecademy.com/)  
-
-### Mozilla Developer Network
-We'll be doing all of our work using the HTML5 canvas element along with JavaScript. There's a great introduction to canvas and what it's all about here:
-[MDN Canvas Tutorial](https://developer.mozilla.org/en/Canvas_tutorial)  
-There are tons of other resources on that site as well, I highly recommend it. [Mozilla Developer Network](https://developer.mozilla.org/en-US/learn)
-
-Once you've read over that, the best way to learn is to dive in and try it out. I recommend at least reading through this guy's tutorial, and it can't hurt to actually follow along! 
-[Breakout Tutorial](http://billmill.org/static/canvastutorial/)  
-That guy uses jQuery, an extremely popular JavaScript library. We'll probably end up using it for at least a few things, so you can read up on the basics of it here if you want: [Beginner jQuery](http://docs.jquery.com/Tutorials:Getting_Started_with_jQuery) 
+# Robodactyl Escape  
+## Group G8, CS48 Winter 2012  
+* Andrew Berls
+* Billy Galarpe
+* Bryce Filler
 
 
-### Intro to Object Oriented JavaScript
-In our game we'll be making classes and objects just like any C++ application, but instead of 'classes', we'll be instantiating functions. JavaScript uses what's called prototypal inheritance, which can be a little offputting at first but isn't hard to pick up. [This short article](https://developer.mozilla.org/en/Introduction_to_Object-Oriented_JavaScript) is a great intro to what I'm talking about.
+## Build Instructions  
+As JavaScript is a scripting language hosted in a browser, there are no build/compilation instructions for the project. There are no restrictions on OS, and necessary libraries are included in the source files. The only requirement is a browser with JavaScript enabled and support for the HTML5 canvas element. Current versions of Firefox, Chrome, Safari, and Opera support canvas, as well as Internet Explorer 9+. Opening the index.html file in a browser will begin the game process.
 
-### Eloquent JavaScript
-If you find yourself really wanting to learn more about JavaScript, then you can try flipping through the freely available book, [Eloquent JavaScript](http://eloquentjavascript.net/contents.html). To be honest, it's not very interesting but it's functional at least.
+
+## Controls  
+* Enter: make menu selection
+* Arrow keys: move
+* Spacebar: fire
+
+
+## Gameplay  
+As the RoboDactyl, your only objective is to survive! You will be attacked by a variety of enemies, and you must fight your way to the end of each level and escape the lab!
+
+### Powerups  
+There are a number of powerups and enhancements that can be collected during the course of a level.
+* __RageDactyl__: A temporary "rage" enhancement for the player. Flying into enemies will kill them for a short period of time. Icon: red smiley
+* __Health__: Gives one health point to the player, to the maximum of five. Icon: heart
+* __Extra Life__: Gives one life to the player, to the maximum of three. Icon: pterodactyl
+* __Shield__: Protects the player from taking damage for a maximum of two shots. Icon: shield
+
+
+## Known Bugs  
+* Due to the nature of the collision box model for the player, a collision with a block or item in the upper right corner may be registered even though it does not appear to be touching the sprite
