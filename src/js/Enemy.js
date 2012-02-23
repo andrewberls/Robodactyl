@@ -74,19 +74,9 @@ Enemy.prototype.move = function() {
 
 Enemy.prototype.fire = function() {  
   
-  /*
-    This will end up being a pretty complex function as we need to calculate
-    a vector between the enemy and the player, calculate the dx and dy from that
-    vector, and fire the bullet in that direction. In addition, the bullet has to
-    move at a consistent speed regardless of how far away the player is, so the 
-    dx and dy calculations could get fairly complicated.
-    Available helpers: this.midx, this.midy, player.midx, player.midy
-  */
-  
-  // Temporary stuff
-  // Only fire if the player is on the same screen as the enemy
-  if (this.x >= 0 && this.x < C_WIDTH) {
-    
+    // Temporary stuff
+    // Only fire if the player is on the same screen as the enemy
+    if (this.x >= 0 && this.x < C_WIDTH) {
     
     var y = -1 * Math.abs(this.midy-player.midy);
     var x = -1 * Math.abs(this.midx-player.midx);
@@ -100,9 +90,7 @@ Enemy.prototype.fire = function() {
       enemyProjectiles.push(proj);
       laser2.play();
     }
-  }
-  
-    
+  } 
 }
 
 Enemy.prototype.draw = function() {
