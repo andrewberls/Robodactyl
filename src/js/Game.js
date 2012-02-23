@@ -6,12 +6,13 @@
 function Game() {}
 
 Game.prototype.draw = function() {
+    
   if (gamePaused) {
-    // Are we paused?
+    // If paused, create a new Menu
     var pauseMenu = new Menu(
-      "Game Paused", 
-      ["Resume"], 
-      function(option) {
+      "Game Paused",     // Description
+      ["Resume"],        // Options
+      function(option) { // Function triggered by enter key
         if (option == 0) {
           menuActive = false;
           gamePaused = false;
@@ -22,15 +23,13 @@ Game.prototype.draw = function() {
   if (menuActive) {
     // Are we in menu mode?
     currentMenu.draw();
-  }
-	
+  }	
   else {
     // Gameplay mode!
     /*
       Available object manager arrays:
       collectables
-      blocks
-      checkpoints
+      blocks      
       enemies
       playerProjectiles
       enemyProjectiles
@@ -91,15 +90,17 @@ Game.prototype.draw = function() {
     
     /* CHECKPOINTS
     /----------------------------------*/
+    /*
     $.each(checkpoints, function(i, checkpoint) {
       if (intersecting(checkpoint, player)) {
         debug("Player passed a checkpoint");               
         player.current_checkpoint = checkpoint.x;
-        //checkpoint_sound.play();
+        checkpoint_sound.play();
         checkpoints.remove(checkpoint);
       }      
       checkpoint.draw();
     });
+    */
     
     
     /* PLAYER
@@ -179,19 +180,19 @@ Game.prototype.draw = function() {
         proj.draw();
       }
     });
+    
   }
 }
 
 var endGame = function() {
   // Display the end menu
   var endMenu = new Menu(
-    "Game Over!", // Description
-    ["Restart Game"],   // Options
-    function(option) {   // Function triggered by enter key
+    "Game Over!",      // Description
+    ["Restart Game"],  // Options
+    function(option) { // Function triggered by enter key
       if (option == 0) {
         debug("restart; render level 1");
-        //menuActive = false;
-        //themeSong.play();
+        //menuActive = false;        
       }
     }, true);
   return;
