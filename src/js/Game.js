@@ -71,10 +71,10 @@ Game.prototype.draw = function() {
     /----------------------------------*/
     $.each(blocks, function(i, block) {
       
-      if (intersecting(block, player)) {
+      if (intersecting(block, player) && player.isAlive) {
         // Is the player hitting the block?               
         debug("player hit a block");
-        //player.kill();
+        player.kill();
       }
       
       $.each(enemyProjectiles, function(i, proj) {
@@ -179,7 +179,7 @@ Game.prototype.draw = function() {
     /----------------------------------*/
     $.each(enemyProjectiles, function(i, proj) {
       if (defined(proj)) {
-        if (intersecting(proj, player)) {
+        if (intersecting(proj, player) && player.isAlive) {
           // Is the proj hitting the player?
           debug("Enemy projectile hit the player")
           player.damage(1);
@@ -196,14 +196,15 @@ Game.prototype.draw = function() {
 
 var endGame = function() {
   // Display the end menu
-  var endMenu = new Menu(
-    "Game Over!",      // Description
-    ["Restart Game"],  // Options
-    function(option) { // Function triggered by enter key
-      if (option == 0) {
-        debug("restart; render level 1");
-        //menuActive = false;        
-      }
-    }, true);
-  return;
+    setTimeout(function() {
+      var endMenu = new Menu(
+        "Game Over!",      // Description
+        ["Restart Game"],  // Options
+        function(option) { // Function triggered by enter key
+          if (option == 0) {
+            debug("restart; render level 1");
+            //menuActive = false;   
+          }
+        }, true);
+    },player.respawnTime);
 }
