@@ -15,14 +15,7 @@ function Block(x,y) {
     this.width  = 2 * TILE_SIZE;
     this.height = 2 * TILE_SIZE;
 
-    switch (randomFromTo(2,3)) {
-        case 2:
-            this.sprite.src = "images/block/block2.png";
-            break;
-        case 3:
-            this.sprite.src = "images/block/block3.png";
-            break;        
-    };
+    this.sprite.src = "images/block/block3.png";                      
 
     blocks.push(this); // Add self to manager array
 }
