@@ -7,11 +7,11 @@
 //---------- INITIALIZE KEY CODES
 // Variables to hold on to key codes, making them easier to work with.
 var KEY_LEFT  = 37,
-	  KEY_RIGHT = 39,
-	  KEY_UP    = 38,
-	  KEY_DOWN  = 40,
-	  KEY_SPACE = 32,
-	  KEY_ENTER = 13,
+	KEY_RIGHT = 39,
+	KEY_UP    = 38,
+	KEY_DOWN  = 40,
+	KEY_SPACE = 32,
+	KEY_ENTER = 13,
     KEY_ESC   = 27;
 	  
 // An array of keys that are used for movement (as opposed to attacking, etc)
@@ -43,7 +43,7 @@ $(document).keydown(function(evt) {
         break;
     };
   }
-  else {
+  else if (player.isAlive) {
     /* Gameplay mode */
     switch(evt.keyCode) {
       case KEY_LEFT:
