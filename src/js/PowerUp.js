@@ -17,7 +17,7 @@
 	
 */
 
-function PowerUp(x,y) {
+function PowerUp(x,y, type) {
 
   this.x = x;
   this.y = y;
@@ -25,7 +25,7 @@ function PowerUp(x,y) {
   //this.height = 10;
   //this.width = 10;
 	
-  //this.random_powerup;  //Stores randomly generated key for Power-Up identity
+  this.type = type;
 	
   this.ChoosePowerup(); //Picks which Power-Up to use and assigns a skin
   
@@ -98,9 +98,9 @@ PowerUp.prototype.ShieldDactyl = function() {
 PowerUp.prototype.ChoosePowerup = function() {
 	//Chooses a random powerup to spawn
 	
-	this.random_powerup = randomFromTo(1,4);
+	//this.random_powerup = randomFromTo(1,4);
 	
-	switch(this.random_powerup) {
+	switch(this.type) {
     
     /*
       1: RageDactyl
@@ -131,7 +131,7 @@ PowerUp.prototype.ActivatePowerup = function() {
 
   player.score += 50;
   
-  switch(this.random_powerup) {
+  switch(this.type) {
     case 1:
       this.RageDactyl();
       break;
