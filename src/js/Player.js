@@ -4,9 +4,11 @@
     Attributes:
 
     Method Signatures:
+        reset()
         setDirection()
         attack()
         damage()
+        playDeathAnim()
         kill()
         respawn()
         displayLives()
@@ -32,11 +34,14 @@ function Player() {
     this.score = 0;
 
     // Health/Checkpoint Tracking
+    this.isAlive = true;
     this.max_health = 5;
     this.health = this.max_health;
+    //this.health = 1;
     this.max_lives = 3;
     this.lives = this.max_lives;
-    this.current_checkpoint = 10;
+    //this.lives = 1;
+    this.respawnTime = 4000;
 
     // Powerup tracking
     this.shieldCounter = 0;
@@ -47,6 +52,17 @@ function Player() {
 
 Player.prototype = new GameObject(); // Inherit from GameObject
 Player.prototype.constructor = Player; // Correct the constructor to use this, not GameObject
+
+Player.prototype.reset = function() {
+    
+    // Stop the player and disable all powerups
+    this.RageDactyl = false;
+    this.shieldCounter = 0;
+    this.dir = "";
+    this.dx = 0;
+    this.dy = 0;
+    
+}
 
 Player.prototype.setDirection = function() {
 
@@ -100,7 +116,7 @@ Player.prototype.attack = function () {
     if (playerProjectiles.length == 0) {
         var Bomb = new Projectile(this.midx-TILE_SIZE/2, this.y + this.height, 0, 6, 0);
         playerProjectiles.push(Bomb);
-        laser1.play();
+        player_fire.play();
     }
     
 }
@@ -131,18 +147,41 @@ Player.prototype.damage = function(dmg) {
     
 }
 
+Player.prototype.playDeathAnim = function() {
+        
+    this.isAlive = false;
+    this.sprite.src = "";
+    player_death.play();
+    
+    for (var i=1; i<5; ++i) {
+        setTimeout((function(self) { return function() {
+            self.sprite.src = "images/player/robo_right.png";
+            //debug("sprite on");
+        }})(this), (i*250));
+        
+        setTimeout((function(self) { return function() {
+            self.sprite.src = "";
+            //debug("sprite off");
+        }})(this), (i*250)+125);
+    }        
+
+}
+
 Player.prototype.kill = function() {
     
     debug("Player killed");
 
     this.score -= 75;
-
+    this.reset();
+    
     if (this.lives > 1) {
         this.lives--;
+        this.playDeathAnim();
         this.respawn();
     } else {
         // 0 lives; Game Over
-        debug("Game over");
+        this.playDeathAnim();
+        debug("Game over");        
         endGame();
     }
     
@@ -150,13 +189,17 @@ Player.prototype.kill = function() {
 
 Player.prototype.respawn = function() {
     
-    debug("Player died; respawning");
-    debug("Player now has " + this.lives.toString()  + " lives.");
-    // Todo: spawn player at last checkpoint
-    this.x = this.current_checkpoint;
-    this.y = 10;
-    // Todo: rewind the level/randomly regenerate environment. FFFFUUUUUUUUUUUU
-    this.health = 5;
+    setTimeout((function(self) {
+        return function() {
+            debug("Respawning. Now has " + self.lives.toString()  + " lives.");
+            self.isAlive = true;
+            self.sprite.src = "images/player/robo_right.png";
+            self.x = 10;
+            self.y = 10;
+            self.health = self.max_health;
+            player_respawn.play();
+        } 
+    })(this), this.respawnTime);
     
 }
 
