@@ -4,7 +4,6 @@
 */
 
 // Music
-//var themeSong = new Audio("audio/theme.mp3");
 var themeSong = new Audio("audio/theme_soft50.mp3");
 
 // Weapons
@@ -26,4 +25,3 @@ var shield_hit = new Audio("audio/shield_hit2.mp3");
 var shield_deactivate = new Audio("audio/shield_deactivate.mp3");
 
 // Misc
-// checkpoint
