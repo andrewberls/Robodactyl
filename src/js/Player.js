@@ -27,8 +27,8 @@ function Player() {
     this.height = 3*TILE_SIZE - 5; // Little hack to make for empty space at sprite bottom
     this.width = 4.5*TILE_SIZE;
 
-    this.moveSpeed = 3;
-    this.rageMoveSpeed = 4; // Move faster when RageDactyl enabled
+    this.moveSpeed = 3.5; // Old: 3
+    this.rageMoveSpeed = 4.5; // Move faster when RageDactyl enabled
     this.dx = 0;
     this.dy = 0;
 
