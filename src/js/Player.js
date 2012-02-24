@@ -177,6 +177,7 @@ Player.prototype.kill = function() {
 
     this.score -= 75;
     this.reset();
+    enemyProjectiles = []; // Clear enemy bullets
     
     if (this.lives > 1) {
         this.lives--;
