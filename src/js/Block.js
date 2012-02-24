@@ -11,6 +11,7 @@
 */
 
 function Block(x,y) {
+  
     this.x = x;
     this.y = y;
   
@@ -20,12 +21,11 @@ function Block(x,y) {
     this.sprite.src = "images/block/block3.png";                      
 
     blocks.push(this); // Add self to manager array
+    
 }
 
 Block.prototype = new GameObject();
 Block.prototype.constructor = Block;
-
-Block.prototype.move = function() {}
 
 Block.prototype.draw = function() {
     // Draw sprite to the canvas
