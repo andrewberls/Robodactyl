@@ -67,11 +67,12 @@ var powerup = new PowerUp(200,200, 1);
 /* SCREEN 2
 ---780-------------1170---------------1560---*/
 // Enemies
-var e_2_0 = new Enemy(800);
+
 var e_2_1 = new Enemy(905);
 var e_2_2 = new Enemy(1150);
 var e_2_3 = new Enemy(1305);
 var e_2_4 = new Enemy(1430);
+var e_2_5 = new Enemy(1500);
 
 // Blocks
 var b_2_1 = new Block(930,120);
