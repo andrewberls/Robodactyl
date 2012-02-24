@@ -1,11 +1,14 @@
 /*
   File: Game.js
-  Description: Container for main game rendering
+  Description: Container for main game rendering. Loops through object
+    manager arrays, moves/draws all objects, and handles collisions.
 */
 
 function Game() {}
 
 Game.prototype.draw = function() {
+    // Top level game function. Handles pause menus, object rendering,
+    // and collision detection.
     
     if (gamePaused) {
         // If paused, create a new Menu
@@ -37,8 +40,6 @@ Game.prototype.draw = function() {
 		
     player.score += 0.05; // Score baseline - increases with time
     
-   
-        
     
     /* BACKGROUND
     /----------------------------------*/
@@ -52,6 +53,7 @@ Game.prototype.draw = function() {
         ctx.fillRect(0,0,C_WIDTH,C_HEIGHT);
         ctx.restore();
     }
+    
     
     /* COLLECTABLES
     /----------------------------------*/
@@ -126,7 +128,7 @@ Game.prototype.draw = function() {
     /* ENEMIES
     /----------------------------------*/
     $.each(enemies,function(i, enemy){
-        if (defined(enemy)) {
+        if (defined(enemy)) { // Hack for methods being called on dead enemies
             if (intersecting(enemy, player)) {
                 // Is the player touching the enemy?
                 if (player.RageDactyl) {
@@ -134,17 +136,13 @@ Game.prototype.draw = function() {
                     debug("RageDactyl hit an enemy");
                     player.score += 50;
                     enemy.kill();
-                } else {
-                    // Else damage the player
-                    debug("Player hit an enemy");
-                    // Todo: damage and move player back
                 }
-            } //else {
-                enemy.move();
-                enemy.draw();
-                //}
             }
-        });
+                
+            enemy.move();
+            enemy.draw();
+        }
+    });
   
     
 				
@@ -194,8 +192,8 @@ Game.prototype.draw = function() {
 }
 
 var endGame = function() {
+    // Display the end menu after a brief delay for death animation
     
-    // Display the end menu
     setTimeout(function() {
         var endMenu = new Menu(
         "Game Over!",      // Description

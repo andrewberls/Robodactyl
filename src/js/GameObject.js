@@ -1,6 +1,6 @@
 /*
   Class File: GameObject.js
-  Inherits from:
+  Description: A generic object that all screen objects inherit from
   Attributes:
     x
     y

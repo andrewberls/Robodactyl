@@ -1,34 +1,45 @@
-// Place any general functions in object1 file
+// Place any general purpose functions here
 // They will be available in all following files
 
-// Convenience method
-//function log(msg) { console.log(msg); }
-
-function debug(msg) { if (DEBUG_MODE) { console.log(msg); } }
+function debug(msg) {
+    // Log a message to the console only if var DEBUG_MODE
+    // set in Init.js is true
+    // Ex usage: debug("this is a message")
+    
+    if (DEBUG_MODE === true) {
+        console.log(msg);
+    }
+}
 
 function randomFromTo(from, to){
+    // Generate a random integer within range, including bounds
     return Math.floor(Math.random() * (to - from + 1) + from);
 }
 
 Array.prototype.remove = function(item) {
+    
   // Extend the array object to add a remove() method
-  // Ex: collectables.remove(this);
-  
+  // Ex usage: collectables.remove(this);
+
     for(var i=this.length-1; i >= 0; i--){
         if(this[i] == item){
             this.splice(i,1);
         }
     }
+    
 }
 
 function defined(item) {
     // Returns true if a given object is defined
-    return !(typeof item === "undefined")
+    // Ex usage: if ( defined(item)  ) {...}
+    return !(typeof item === "undefined");
 }
 
 function intersecting(a, b) {
+    
     // Takes two GameObjects and returns true if they're overlapping.
     // Adapted from http://stackoverflow.com/questions/2440377/javascript-collision-detection
+    // Ex usage: if ( intersecting(enemy, player) ) {...}
 
     if (defined(a) && defined(b)) {
         return !(
@@ -38,4 +49,5 @@ function intersecting(a, b) {
             (a.x > (b.x + b.width))
         );
     }
+    
 }

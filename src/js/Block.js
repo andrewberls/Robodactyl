@@ -1,9 +1,11 @@
 /*
     Class File: Block.js
     Inherits from: GameObject
-    Attributes:
+    Description: A block object that the player can collide with
+        Running into a block kills the player.
 		
     Method Signatures:
+        Block(x,y)
         move()
         draw()
 */
@@ -26,9 +28,9 @@ Block.prototype.constructor = Block;
 Block.prototype.move = function() {}
 
 Block.prototype.draw = function() {
-    ctx.save();
-    ctx.fillStyle = "orange";
+    // Draw sprite to the canvas
+    
     //ctx.fillRect(this.x, this.y, this.width, this.height); // Box model
     ctx.drawImage(this.sprite, this.x, this.y);
-    ctx.restore();
+    
 }

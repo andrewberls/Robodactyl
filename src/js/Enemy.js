@@ -1,14 +1,15 @@
 /*
   Class File: Enemy.js
   Inherits from: GameObject
-  Attributes:
+  Description: An enemy that fires projectiles at the player
 		
 	
   Method Signatures:
+    Enemy(x)
     move()
     fire()
-    draw()
     kill()
+    draw()
 */
 
 function Enemy(x) {
@@ -33,10 +34,9 @@ function Enemy(x) {
         this.sprite.src = "images/enemy/scientist_2.png";    
     }
  
-    // This looks super funky, but all it's doing is calling
-    // the fire() method every second. The craziness
-    // is necessary to preserve the correct 'this' context
-    // (Defaults to DOMWindow otherwise)
+    // Set the firing loop
+    // This looks super funky, but it's necessary 
+    // to preserve the correct 'this' context - DOMWindow otherwise
     this.fireLoop = setInterval((function(self) {
         return function() {
             if (!menuActive && player.isAlive) {
@@ -54,6 +54,7 @@ Enemy.prototype = new GameObject(); // Inherit from GameObject
 Enemy.prototype.constructor = Enemy; // Correct the constructor to use this, not GameObject
 
 Enemy.prototype.move = function() {
+    // Scroll the enemy with the background and pace back and forth
   
     // Calculate midpoints
     this.midx = this.x + this.width/2;
@@ -75,8 +76,8 @@ Enemy.prototype.move = function() {
 }
 
 Enemy.prototype.fire = function() {  
-  
-    // Temporary stuff
+    // Calculate bullet vectors and fire at the player
+    
     // Only fire if the player is on the same screen as the enemy
     if (this.x >= 0 && this.x < C_WIDTH) {
 
@@ -104,14 +105,8 @@ Enemy.prototype.fire = function() {
 
 }
 
-Enemy.prototype.draw = function() {
-
-  //ctx.fillRect(this.x, this.y, this.width, this.height); // Box model
-  ctx.drawImage(this.sprite, this.x, this.y);
-
-}
-
 Enemy.prototype.kill = function() {
+    // Play a random death sound and delete the instance from manager array
     
     switch(randomFromTo(1,3)) {
         case 1:
@@ -126,5 +121,13 @@ Enemy.prototype.kill = function() {
     };
 
     enemies.remove(this);
+
+}
+
+Enemy.prototype.draw = function() {
+    // Draw sprite to the canvas
+
+  //ctx.fillRect(this.x, this.y, this.width, this.height); // Box model
+  ctx.drawImage(this.sprite, this.x, this.y);
 
 }
