@@ -4,6 +4,7 @@
   <meta charset="utf-8">
 
   <title>RoboDactyl Escape</title>
+  <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -12,10 +13,33 @@
   <canvas id="canvas" width="780px" height="490px">
     <p>Your browser does not support the canvas element.</p>
   </canvas>
+  
+  <div class="wrapper">
+    <div class="column">
+      <h2>RoboDactyl Escape</h2>
+      <ul class="controls">
+        Controls
+        <li>Enter: make menu selection</li>
+        <li>Arrow keys: move</li>
+        <li>Spacebar: fire</li>
+      </ul>
+    </div><!-- .column -->
+    
+    <div class="column large">
+      <ul class="powerups">
+        Powerups
+        <li class="rage">RageDactyl Mode - bonus points for running over enemies</li>
+        <li class="shield">Shield</li>
+        <li class="health">+1 Health</li>
+        <li class="life">Extra Life</li>
+      </ul>
+    </div><!-- .column -->
+
+  </div>
+
 		
   <script type="text/javascript" src="js/lib/jquery.min.js"></script>
   <script type="text/javascript" src="js/Audio.js"></script>
-  <!--<script type="text/javascript" src="js/lib/underscore.min.js"></script>-->
   <script type="text/javascript" src="js/Utils.js"></script>
   <script type="text/javascript" src="js/GameObject.js"></script>
   <script type="text/javascript" src="js/Background.js"></script>
