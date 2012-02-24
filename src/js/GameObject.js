@@ -5,9 +5,11 @@
     x
     y
     dx
-    dy
-    height
+    dy    
     width
+    height
+    sprite
+      src
 	
   Method Signatures:
     inspect()
@@ -22,9 +24,9 @@ function GameObject() {
     this.y = 0;
 
     // Direction
-    // Set dx to a default value so that all objects move
-    // at the same rate
-    this.dx = 0;
+    // Default value so all objects move at the same rate
+    this.dx = -0.5;
+    //this.dx = -3; // Speed things up for testing
     this.dy = 0;
 
     // Box model
@@ -59,6 +61,7 @@ GameObject.prototype.in = function(array) {
     
     // Return true if a given GameObject is in an array
     // Ex: powerup.in(collectables) -> returns true or false
+    
     return ($.inArray(this, array) != -1) ? true : false;
 
 }
