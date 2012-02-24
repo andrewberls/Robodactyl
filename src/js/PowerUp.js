@@ -19,14 +19,16 @@
 
 function PowerUp(x,y, type) {
 
-  this.x = x;
-  this.y = y;
+    this.x = x;
+    this.y = y;
 	
-  this.type = type;
-	
-  this.ChoosePowerup(); //Picks which Power-Up to use and assigns a skin
+    this.type = type;	  
   
-  collectables.push(this);
+    this.sprite = new Image();
+  
+    this.ChoosePowerup(); //Picks which Power-Up to use and assigns a skin
+  
+    collectables.push(this);
 }
 	
 PowerUp.prototype = new GameObject(); // Inherit from GameObject
@@ -103,31 +105,29 @@ PowerUp.prototype.ShieldDactyl = function() {
 	
 PowerUp.prototype.ChoosePowerup = function() {
     
-	//Chooses a random powerup to spawn	
-	
-    switch(this.type) {
-    
-        /*
-          1: RageDactyl
-          2: +1 Health
-          3: Extra Life
-          4: Shield
-        */
-    
-        case 1:
-            this.sprite.src = "images/powerup/rage.png"; 
-            break;
-        case 2:
-            this.sprite.src = "images/powerup/health.png";
-            break;
-        case 3:
-            this.sprite.src = "images/powerup/extralife.png"; 
-            break;
-        case 4:
-            this.sprite.src = "images/powerup/shield.png";
-            break;
-        default:
-            break;
+  //Chooses a random powerup to spawn
+  /*
+    1: RageDactyl
+    2: +1 Health
+    3: Extra Life
+    4: Shield
+  */
+	  
+  switch(this.type) {        
+      case 1:
+          this.sprite.src = "images/powerup/rage.png"; 
+          break;
+      case 2:
+          this.sprite.src = "images/powerup/health.png";
+          break;
+      case 3:
+          this.sprite.src = "images/powerup/extralife.png"; 
+          break;
+      case 4:
+          this.sprite.src = "images/powerup/shield.png";
+          break;
+      default:
+          break;
   };
 
 }
@@ -159,6 +159,6 @@ PowerUp.prototype.ActivatePowerup = function() {
 
 }
 
-PowerUp.prototype.draw = function() {	
+PowerUp.prototype.draw = function() {
     ctx.drawImage(this.sprite, this.x, this.y);
 }
