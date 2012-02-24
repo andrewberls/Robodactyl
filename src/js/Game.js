@@ -193,7 +193,7 @@ var endGame = function() {
         function(option) { // Function triggered by enter key
           if (option == 0) {
             debug("restart; render level 1");            
-            menuActive = false;   
+            //menuActive = false;   
           }
         }, true);
     },player.respawnTime);
