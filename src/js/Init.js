@@ -47,9 +47,9 @@ var player = new Player();
 ----0-------------340--------------780---*/
 // Enemies
 
-var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
-var enemy2 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
-var enemy3 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
+var enemy1 = new Enemy(100);
+var enemy2 = new Enemy(595);
+var enemy3 = new Enemy(635);
 
 // Blocks
 var block1 = new Block(340,0);
