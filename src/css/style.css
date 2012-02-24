@@ -48,7 +48,8 @@ ul {
   }
 
 .powerups li {
-  padding: 5px 25px 5px;  
+/*outline: 1px solid green;*/
+  padding: 4px 25px 4px;  
 }
   .powerups .rage {
     background: url(../images/menu/rage.png) 4px 4px no-repeat;
