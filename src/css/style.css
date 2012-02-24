@@ -1,9 +1,59 @@
+/* LAYOUT
+--------------------------------*/
 body {
   background: #eee url(bg.png);
+  color: #404040;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
 }
 
 canvas {
-  /*border: 1px solid black;*/
-	margin: 20px auto;
-	display: block;
+  display: block;
+	margin: 20px auto 10px;
 }
+
+.wrapper {  
+  margin: 0 auto;
+  /*outline: 1px solid red;*/
+  overflow: auto;
+  width: 780px;
+}
+  .column {
+  /*background-color: red;*/
+    float: left;
+    margin-right: 15px;
+    width: 250px;
+  }
+  .column.large {
+    width: 450px;
+  }
+h2 {
+  font-size: 1.5em;
+}
+ul {
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-top: 5px;
+}
+li {
+/*outline: 1px solid green;*/
+  font-weight: normal;
+  margin: 2px 0 2px 10px;
+  padding: 2px 0;
+}
+
+.powerups li {
+  padding: 5px 25px 5px;  
+}
+  .powerups .rage {
+    background: url(../images/menu/rage.png) 4px 4px no-repeat;
+  }
+  .powerups .shield {
+    background: url(../images/menu/shield.png) 4px 4px no-repeat;
+  }
+  .powerups .health {
+    background: url(../images/menu/health.png) 4px 4px no-repeat;
+  }
+  .powerups .life {
+    background: url(../images/menu/extralife.png) 4px 4px no-repeat;
+  }
