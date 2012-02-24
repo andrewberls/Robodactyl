@@ -27,6 +27,15 @@ Game.prototype.draw = function() {
     // Are we in menu mode?
     currentMenu.draw();
   }	
+  else if (Math.abs(background.x) >= background.width-C_WIDTH && player.x >= 500) { // This seems super hacky. I'm sorry :(
+    // Has the player reached the end?
+    // If so, display a (temporary) menu with their score
+    
+    setTimeout(function() {
+        var endMenu = new Menu("Level One Completed!", [], function() {}, true);
+    }, 2000);
+
+  }
   else {
     // Gameplay mode!
     /*
@@ -62,7 +71,7 @@ Game.prototype.draw = function() {
             item.ActivatePowerup();
             debug("Player hit a collectable");
             collectables.remove(item);
-        } else {
+        } else if (defined(item)) {
             item.move();
             item.draw();
         }
@@ -98,29 +107,14 @@ Game.prototype.draw = function() {
         block.move();
         block.draw();
     });
-    
-    
-    /* CHECKPOINTS
-    /----------------------------------*/
-    /*
-    $.each(checkpoints, function(i, checkpoint) {
-        if (intersecting(checkpoint, player)) {
-            debug("Player passed a checkpoint");
-            player.current_checkpoint = checkpoint.x;
-            checkpoint_sound.play();
-            checkpoints.remove(checkpoint);
-        }
-        checkpoint.draw();
-    });
-    */
-    
-    
+        
+        
     /* PLAYER
     /----------------------------------*/
     player.displayLives(); // HUD
     player.displayHealth(); // HUD
     player.displayScore(); // HUD
-    if (player.RageDactyl) player.displayRageNotice() // HUD
+    if (player.RageDactyl) player.displayRageNotice() // HUD - only if in RageDactyl mode
     player.move();
     player.draw();		
 		
@@ -129,14 +123,11 @@ Game.prototype.draw = function() {
     /----------------------------------*/
     $.each(enemies,function(i, enemy){
         if (defined(enemy)) { // Hack for methods being called on dead enemies
-            if (intersecting(enemy, player)) {
-                // Is the player touching the enemy?
-                if (player.RageDactyl) {
-                    // If player has RageDactyl, kill the enemy
-                    debug("RageDactyl hit an enemy");
-                    player.score += 50;
-                    enemy.kill();
-                }
+            if (intersecting(enemy, player) && player.RageDactyl) {
+                // Kill the enemy if player has RageDactyl and is intersecting
+                debug("RageDactyl hit an enemy");
+                player.score += 50;
+                enemy.kill();                
             }
                 
             enemy.move();
@@ -197,11 +188,12 @@ var endGame = function() {
     setTimeout(function() {
         var endMenu = new Menu(
         "Game Over!",      // Description
-        ["Restart Game"],  // Options
+        //["Restart Game"],  // Options
+        [],
         function(option) { // Function triggered by enter key
           if (option == 0) {
-            debug("restart; render level 1");
-            //menuActive = false;   
+            debug("restart; render level 1");            
+            menuActive = false;   
           }
         }, true);
     },player.respawnTime);
