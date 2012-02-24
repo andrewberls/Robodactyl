@@ -20,11 +20,11 @@ function Enemy(x) {
     this.x = x;
     this.y = C_HEIGHT-this.height-TILE_SIZE;
 	
-    this.dx = 0.8;
+    this.edx = 0.8; // "extra" dx for pacing back and forth
 
     this.health = 1;
 
-    this.bulletSpeed = 2.5;
+    this.bulletSpeed = 2.6; // Old: 2.5
   
     // Randomly select the sprite source
     this.sprite = new Image();
@@ -44,7 +44,7 @@ function Enemy(x) {
                 self.fire();
             }
         }
-    })(this), randomFromTo(1500, 2500)); // Random firing interval
+    })(this), randomFromTo(1500, 3000)); // Random firing interval
   
     enemies.push(this); // Add self to character manager array
 	
@@ -60,22 +60,21 @@ Enemy.prototype.fire = function() {
     // Only fire if the player is on the same screen as the enemy
     if (this.x >= 0 && this.x < C_WIDTH) {
 
-        if (this.x >= player.midx) { //player is to the left of the enemy
+        if (this.x >= player.midx) { // Player is to the left of the enemy
             var y = -1 * Math.abs(this.midy-player.midy);
             var x = -1 * Math.abs(this.midx-player.midx);
         }
 
-        else if (this.x <= player.midx) { //player is to the right of the enemy
+        else if (this.x <= player.midx) { // Player is to the right of the enemy
             var y = -1 * Math.abs(this.midy-player.midy);
             var x = 1 * Math.abs(this.midx-player.midx);
         }
 
-        var rad = Math.atan2(y,x);
-        var bulletDX = this.bulletSpeed * Math.cos(rad);
+        var rad = Math.atan2(y,x); // Angle between enemy and player
+        var bulletDX = this.bulletSpeed * Math.cos(rad); // Velocity vectors
         var bulletDY = this.bulletSpeed * Math.sin(rad);
-
-        // Is the enemy alive?
-        if (this.in(enemies)) {
+        
+        if (this.in(enemies)) { // Is the enemy alive?
             var proj = new Projectile(this.x + this.width/2, this.y, bulletDX, bulletDY, 1); // Params: (x,y,dx,dy,src)
             enemyProjectiles.push(proj);
             enemy_fire.play();
@@ -112,23 +111,30 @@ Enemy.prototype.move = function() {
 
     if (this.x + this.dx < 0 || this.x + this.dx + this.width > C_WIDTH) {
         // Change direction if colliding with a canvas edge
-        this.dx *= -1;
+        this.edx *= -1;
     }
 
     if (randomFromTo(1,40) == 1) {
         // Random number testing for pacing back and forth
         // Increase the range for less frequent switches
-        this.dx *= -1;
+        this.edx *= -1;
     }
 
-    this.x += this.dx;
+    this.x += this.edx; // Pace
+    this.x += this.dx;  // Scroll
 
 }
 
 Enemy.prototype.draw = function() {
     // Draw sprite to the canvas
+    
+    // Remove enemies from manager if offscreen for efficiency
+    if (this.x+this.width < 0) {
+        debug("removing offscreen enemy");
+        enemies.remove(this);
+    }
 
-  //ctx.fillRect(this.x, this.y, this.width, this.height); // Box model
-  ctx.drawImage(this.sprite, this.x, this.y);
+    //ctx.fillRect(this.x, this.y, this.width, this.height); // Box model
+    ctx.drawImage(this.sprite, this.x, this.y);
 
 }
