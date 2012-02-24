@@ -47,7 +47,8 @@ var player = new Player();
 
 /* SCREEN 1
 ----0-------------340--------------780---*/
-// Enemies
+
+
 var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 var enemy2 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 var enemy3 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
@@ -81,11 +82,22 @@ var powerup = new PowerUp(200,200, 1);
 /* SCREEN 4
 ---2340-------------2730---------------3120---*/
 // Enemies
-
+var enemy41 = new Enemy(randomFromTo(2340,2440));
+var enemy42 = new Enemy(randomFromTo(2440,2740));
+var enemy43 = new Enemy(randomFromTo(2740,2900));
+var enemy44 = new Enemy(randomFromTo(2900,3120));
 // Blocks
+var block41 = new Block(((2730+2340)/2),0);
+var block42 = new Block(((2730+2340)/2),60);
+var block43 = new Block(((2730+2340)/2),120);
+var block44 = new Block(((2730+2340)/2),180);
+var block45 = new Block(((3120+2730)/2),0);
+var block46 = new Block(((3120+2730)/2),60);
+var block47 = new Block(((3120+2730)/2),120);
+var block48 = new Block(((3120+2730)/2),180);
 
 // Powerups
-
+var powerup41 = new PowerUp(2730,0, 2);
 
 /* SCREEN 5
 --3120----------------3510--------------3900--*/
