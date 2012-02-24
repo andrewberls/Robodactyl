@@ -20,10 +20,10 @@ As the RoboDactyl, your only objective is to survive! You will be attacked by a 
 
 ### Powerups  
 There are a number of powerups and enhancements that can be collected during the course of a level.
-* __RageDactyl__: A temporary "rage" enhancement for the player. Flying into enemies will kill them for a short period of time. Icon: red smiley
-* __Health__: Gives one health point to the player, to the maximum of five. Icon: heart
-* __Extra Life__: Gives one life to the player, to the maximum of three. Icon: pterodactyl
-* __Shield__: Protects the player from taking damage for a maximum of two shots. Icon: shield
+* __RageDactyl__: A temporary "rage" enhancement for the player. Flying into enemies will kill them for a short period of time. Icon: red smiley  
+* __Health__: Gives one health point to the player, to the maximum of five. Icon: heart  
+* __Extra Life__: Gives one life to the player, to the maximum of three. Icon: pterodactyl  
+* __Shield__: Protects the player from taking damage for a maximum of two shots. Icon: shield  
 
 
 ## Known Bugs  
