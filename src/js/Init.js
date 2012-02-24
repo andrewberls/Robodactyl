@@ -33,7 +33,9 @@ var collectables = [], // Powerups, etc
 /----------------------------------*/
 
 /*----------------------------------*/
+
   // THIS NEEDS TO BE SPLIT UP BY LEVEL!
+
 /*----------------------------------*/
 
 // Environment
@@ -42,6 +44,9 @@ var background = new Background();
 // Characters
 var player = new Player();
 
+
+/* SCREEN 1
+----------------------------------*/
 // Enemies
 var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 var enemy2 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
@@ -53,6 +58,46 @@ var block = new Block(400,100);
 
 //PowerUp
 var powerup = new PowerUp(200,200, 1);
+
+
+/* SCREEN 2
+----------------------------------*/
+// Enemies
+
+// Blocks
+
+// Powerups
+
+
+/* SCREEN 3
+----------------------------------*/
+// Enemies
+
+// Blocks
+
+// Powerups
+
+
+/* SCREEN 4
+----------------------------------*/
+// Enemies
+
+// Blocks
+
+// Powerups
+
+
+/* SCREEN 5
+----------------------------------*/
+// Enemies
+
+// Blocks
+
+// Powerups
+
+
+
+
 
 
 
