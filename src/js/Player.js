@@ -116,7 +116,11 @@ Player.prototype.attack = function () {
     if (playerProjectiles.length == 0) {
         var Bomb = new Projectile(this.midx-TILE_SIZE/2, this.y + this.height, 0, 6, 0);
         playerProjectiles.push(Bomb);
-        player_fire.play();
+        if () {
+          rage_fire.play();
+        } else {
+          player_fire.play();
+        }        
     }
     
 }

@@ -81,6 +81,7 @@ PowerUp.prototype.ExtraLife = function() {
         // Max of 3 lives
         player.lives++;
     }
+    life_powerup.play();
 
 }
 
