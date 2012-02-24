@@ -137,17 +137,14 @@ var p_4_1 = new PowerUp(2730,10, 2); // Health
 var enemy51 = new Enemy(3220);
 var enemy52 = new Enemy(3410);
 var enemy53 = new Enemy(3610);
-var enemy54 = new Enemy(3800);
+
 
 // Blocks
-var block51 = new Block((((3510+3120)/2)-100),60);
 var block52 = new Block((((3510+3120)/2)-100),120);
 var block53 = new Block((((3510+3120)/2)-100),180);
 var block54 = new Block((((3510+3120)/2)-100),240);
+var block51 = new Block((((3510+3120)/2)-100),390);
 
-
-var block56 = new Block((3510),390);
-var block57 = new Block((3510),330);
 var block58 = new Block((3510),270);
 var block59 = new Block((3510),210);
 var block561 = new Block((3510),150);
@@ -156,8 +153,8 @@ var block562 = new Block((3510),90);
 var block563 = new Block((((3510+3900)/2)+100),0);
 var block564 = new Block((((3510+3900)/2)+100),60);
 var block565 = new Block((((3510+3900)/2)+100),120);
-var block566 = new Block((((3510+3900)/2)+100),180);
-var block567 = new Block((((3510+3900)/2)+100),240);
+var block567 = new Block((((3510+3900)/2)+100),330);
+var block567 = new Block((((3510+3900)/2)+100),390);
 
 // Powerups
 var powerup51 = new PowerUp(3220,10,3);
