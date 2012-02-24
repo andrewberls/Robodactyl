@@ -68,9 +68,9 @@ var e_2_3 = new Enemy(1305);
 var e_2_4 = new Enemy(1430);
 
 // Blocks
-var b_2_1 = new Block(975,120);
+var b_2_1 = new Block(930,120);
 var b_2_2 = new Block(1170, 190);
-var b_2_2 = new Block(1365, 120);
+var b_2_2 = new Block(1410, 120);
 
 
 // Powerups

@@ -27,7 +27,7 @@ Game.prototype.draw = function() {
     // Are we in menu mode?
     currentMenu.draw();
   }	
-  else if (Math.abs(background.x) >= background.width-C_WIDTH && player.x >= 500) { // This seems super hacky. I'm sorry :(
+  else if (Math.abs(background.x) >= background.width-C_WIDTH && player.x >= 600) { // This seems super hacky. I'm sorry :(
     // Has the player reached the end?
     // If so, display a (temporary) menu with their score
     
@@ -103,8 +103,11 @@ Game.prototype.draw = function() {
                 playerProjectiles.remove(proj);
             }
         });
-
-        block.move();
+        
+        if (!(Math.abs(background.x) >= background.width-C_WIDTH)) {
+            block.move();
+        }
+        
         block.draw();
     });
         
