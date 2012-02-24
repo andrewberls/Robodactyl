@@ -145,17 +145,19 @@ var block53 = new Block((((3510+3120)/2)-100),160);
 var block54 = new Block((((3510+3120)/2)-100),220);
 var block51 = new Block((((3510+3120)/2)-100),400);
 
-var block58 = new Block((3510),270);
-var block59 = new Block((3510),210);
-var block561 = new Block((3510),150);
-var block562 = new Block((3510),90);
-var block562 = new Block((3510),30);
+var block58 = new Block((3510),240);
+var block59 = new Block((3510),180);
+var block561 = new Block((3510),120);
+var block562 = new Block((3510),60);
+var block563 = new Block((3510),0);
 
+/*
 var block563 = new Block((((3510+3900)/2)+100),0);
 var block564 = new Block((((3510+3900)/2)+100),60);
 var block565 = new Block((((3510+3900)/2)+100),120);
 var block567 = new Block((((3510+3900)/2)+100),330);
 var block568 = new Block((((3510+3900)/2)+100),400);
+*/
 
 // Powerups
 var powerup51 = new PowerUp(3220,10,3);
