@@ -6,9 +6,9 @@
 	
   Method Signatures:
     Enemy(x)
-    move()
     fire()
     kill()
+    move()
     draw()
 */
 
@@ -53,27 +53,6 @@ function Enemy(x) {
 Enemy.prototype = new GameObject(); // Inherit from GameObject
 Enemy.prototype.constructor = Enemy; // Correct the constructor to use this, not GameObject
 
-Enemy.prototype.move = function() {
-    // Scroll the enemy with the background and pace back and forth
-  
-    // Calculate midpoints
-    this.midx = this.x + this.width/2;
-    this.midy = this.y + this.height/2;
-
-    if (this.x + this.dx < 0 || this.x + this.dx + this.width > C_WIDTH) {
-        // Change direction if colliding with a canvas edge
-        this.dx *= -1;
-    }
-
-    if (randomFromTo(1,40) == 1) {
-        // Random number testing for pacing back and forth
-        // Increase the range for less frequent switches
-        this.dx *= -1;
-    }
-
-    this.x += this.dx;
-
-}
 
 Enemy.prototype.fire = function() {  
     // Calculate bullet vectors and fire at the player
@@ -121,6 +100,28 @@ Enemy.prototype.kill = function() {
     };
 
     enemies.remove(this);
+
+}
+
+Enemy.prototype.move = function() {
+    // Scroll the enemy with the background and pace back and forth
+  
+    // Calculate midpoints
+    this.midx = this.x + this.width/2;
+    this.midy = this.y + this.height/2;
+
+    if (this.x + this.dx < 0 || this.x + this.dx + this.width > C_WIDTH) {
+        // Change direction if colliding with a canvas edge
+        this.dx *= -1;
+    }
+
+    if (randomFromTo(1,40) == 1) {
+        // Random number testing for pacing back and forth
+        // Increase the range for less frequent switches
+        this.dx *= -1;
+    }
+
+    this.x += this.dx;
 
 }
 
