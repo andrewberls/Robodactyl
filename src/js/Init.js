@@ -63,25 +63,38 @@ var player = new Player();
 /* SCREEN 2
 ---780-------------1170---------------1560---*/
 // Enemies
+var e_2_1 = new Enemy(905);
+var e_2_2 = new Enemy(1150);
+var e_2_3 = new Enemy(1305);
+var e_2_4 = new Enemy(1430);
 
 // Blocks
+var b_2_1 = new Block(975,0);
+var b_2_2 = new Block(975,60);
+var b_2_3 = new Block(1170,0);
+var b_2_4 = new Block(1170,60);
+var b_2_5 = new Block(1365,0);
+var b_2_6 = new Block(1365,60);
+var b_2_7 = new Block(1365, 275);
 
 // Powerups
+var p_2_1 = new PowerUp(1175, 215, 4); // Shield
 
 
 /* SCREEN 3
 ----1560------------1950--------------2340----*/
 // Enemies
-var e_3_1 = new Enemy(195);
-var e_3_2 = new Enemy(400);
-var e_3_3 = new Enemy(585);
-var e_3_4 = new Enemy(700);
+var e_3_1 = new Enemy(1755);
+var e_3_2 = new Enemy(1960);
+var e_3_3 = new Enemy(2145);
+var e_3_4 = new Enemy(2260);
 
 // Blocks
-
+var b_3_1 = new Block(1750, 125);
+var b_3_1 = new Block(2140, 125);
 
 // Powerups
-
+var p_3_1 = new PowerUp(1945, 100, 4); // Rage
 
 
 /* SCREEN 4
