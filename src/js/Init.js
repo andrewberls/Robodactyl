@@ -48,16 +48,16 @@ var player = new Player();
 /* SCREEN 1
 ----------------------------------*/
 // Enemies
-var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
-var enemy2 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
-var enemy3 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
+//var enemy1 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
+//var enemy2 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
+//var enemy3 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 //var enemy4 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 
 // Blocks
-var block = new Block(400,100);
+//var block = new Block(400,100);
 
 //PowerUp
-var powerup = new PowerUp(200,200, 1);
+//var powerup = new PowerUp(200,200, 1);
 
 
 /* SCREEN 2
@@ -72,10 +72,16 @@ var powerup = new PowerUp(200,200, 1);
 /* SCREEN 3
 ----------------------------------*/
 // Enemies
+var e_3_1 = new Enemy(195);
+var e_3_2 = new Enemy(400);
+var e_3_3 = new Enemy(585);
+var e_3_4 = new Enemy(700);
 
 // Blocks
 
+
 // Powerups
+
 
 
 /* SCREEN 4
