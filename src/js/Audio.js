@@ -1,6 +1,7 @@
 /*
-	File: Audio.js
-	Description: Initialize audio variables
+    File: Audio.js
+    Description: Initialize audio variables to be used in game
+    Ex usage: themeSong.play()
 */
 
 // Music
@@ -18,6 +19,7 @@ var player_respawn = new Audio("audio/respawn.mp3");
 var enemy_death1 = new Audio("audio/enemy_death1.mp3");
 var enemy_death2 = new Audio("audio/enemy_death2.mp3");
 var enemy_death3 = new Audio("audio/enemy_death3.mp3");
+
 
 // Powerups
 var health_powerup = new Audio("audio/health.mp3");
