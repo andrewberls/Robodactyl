@@ -20,6 +20,7 @@
 */
 
 function Player() {
+  
     this.x = 10;
     this.y = 10;
 
@@ -48,6 +49,7 @@ function Player() {
     this.RageDactyl = false;
 
     this.sprite.src = "images/player/robo_right.png";
+    
 }
 
 Player.prototype = new GameObject(); // Inherit from GameObject
@@ -116,7 +118,7 @@ Player.prototype.attack = function () {
     if (playerProjectiles.length == 0) {
         var Bomb = new Projectile(this.midx-TILE_SIZE/2, this.y + this.height, 0, 6, 0);
         playerProjectiles.push(Bomb);
-        if () {
+        if (this.RageDactyl) {
           rage_fire.play();
         } else {
           player_fire.play();
@@ -159,13 +161,11 @@ Player.prototype.playDeathAnim = function() {
     
     for (var i=1; i<5; ++i) {
         setTimeout((function(self) { return function() {
-            self.sprite.src = "images/player/robo_right.png";
-            //debug("sprite on");
+            self.sprite.src = "images/player/robo_right.png";            
         }})(this), (i*250));
         
         setTimeout((function(self) { return function() {
-            self.sprite.src = "";
-            //debug("sprite off");
+            self.sprite.src = "";            
         }})(this), (i*250)+125);
     }        
 
@@ -303,7 +303,7 @@ Player.prototype.move = function() {
 	
 Player.prototype.draw = function() {
     
-    //ctx.fillRect(this.x, this.y, this.width, this.height); // Draw box around the sprite
+    //ctx.fillRect(this.x, this.y, this.width, this.height); // Box model
     ctx.drawImage(this.sprite, this.x, this.y);
     
 }
