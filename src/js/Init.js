@@ -68,6 +68,7 @@ var e_2_3 = new Enemy(1305);
 var e_2_4 = new Enemy(1430);
 */
 // Blocks
+/*
 var b_2_1 = new Block(975,0);
 var b_2_2 = new Block(975,60);
 
@@ -77,9 +78,15 @@ var b_2_4 = new Block(1170,60);
 var b_2_5 = new Block(1365,0);
 var b_2_6 = new Block(1365,60);
 var b_2_7 = new Block(1170, 275);
+*/
+
+var b_2_1 = new Block(975,120);
+var b_2_2 = new Block(1170, 190);
+var b_2_2 = new Block(1365, 120);
+
 
 // Powerups
-var p_2_1 = new PowerUp(1175, 215, 4); // Shield
+var p_2_1 = new PowerUp(1175, 120, 4); // Shield
 
 
 /* SCREEN 3
