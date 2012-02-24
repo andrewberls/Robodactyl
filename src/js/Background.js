@@ -11,23 +11,22 @@
 */
 
 function Background() {
+    
+    this.width = 3900; // 5 screens to start
   
-  this.moveSpeed = 0.4;
-  this.width = 780;
-  
-  // This needs to be parameterized by leve or something
-  this.sprite.src = "images/bg/lvl1/lvl1_base.png";
+    // This needs to be parameterized by leve or something
+    this.sprite.src = "images/bg/lvl1/lvl1.png"; // lvl1_debug.png
 }
 
 Background.prototype = new GameObject(); // Inherit from GameObject
 Background.prototype.constructor = Background; // Correct the constructor to use this, not GameObject
 
 Background.prototype.move = function() {
-  // Scroll the background and stop when we reach the end of the image
-
-  if (Math.abs(this.x) <= this.width-C_WIDTH) { // Stop when 
-    this.x -= this.moveSpeed;
-  }
+    // Scroll the background and stop when we reach the end of the image
+    
+    if (Math.abs(this.x) <= this.width-C_WIDTH) {
+        this.x += this.dx;
+    }
 
 }
 
