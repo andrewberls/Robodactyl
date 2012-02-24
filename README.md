@@ -1,5 +1,5 @@
 # Robodactyl Escape  
-## Group G8, CS48 Winter 2012  
+### Group G8, CS48 Winter 2012  
 * Andrew Berls
 * Billy Galarpe
 * Bryce Filler
@@ -19,7 +19,7 @@ As JavaScript is a scripting language hosted in a browser, there are no build/co
 As the RoboDactyl, your only objective is to survive! You will be attacked by a variety of enemies, and you must fight your way to the end of each level and escape the lab!
 
 ### Powerups  
-There are a number of powerups and enhancements that can be collected during the course of a level.
+There are a number of powerups and enhancements that can be collected during the course of a level.  
 * __RageDactyl__: A temporary "rage" enhancement for the player. Flying into enemies will kill them for a short period of time. Icon: red smiley  
 * __Health__: Gives one health point to the player, to the maximum of five. Icon: heart  
 * __Extra Life__: Gives one life to the player, to the maximum of three. Icon: pterodactyl  
