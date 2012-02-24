@@ -61,25 +61,13 @@ var powerup = new PowerUp(200,200, 1);
 /* SCREEN 2
 ---780-------------1170---------------1560---*/
 // Enemies
-/*
+
 var e_2_1 = new Enemy(905);
 var e_2_2 = new Enemy(1150);
 var e_2_3 = new Enemy(1305);
 var e_2_4 = new Enemy(1430);
-*/
+
 // Blocks
-/*
-var b_2_1 = new Block(975,0);
-var b_2_2 = new Block(975,60);
-
-var b_2_3 = new Block(1170,0);
-var b_2_4 = new Block(1170,60);
-
-var b_2_5 = new Block(1365,0);
-var b_2_6 = new Block(1365,60);
-var b_2_7 = new Block(1170, 275);
-*/
-
 var b_2_1 = new Block(975,120);
 var b_2_2 = new Block(1170, 190);
 var b_2_2 = new Block(1365, 120);
@@ -92,12 +80,12 @@ var p_2_1 = new PowerUp(1175, 120, 4); // Shield
 /* SCREEN 3
 ----1560------------1950--------------2340----*/
 // Enemies
-/*
+
 var e_3_1 = new Enemy(1755);
 var e_3_2 = new Enemy(1960);
 var e_3_3 = new Enemy(2145);
 var e_3_4 = new Enemy(2260);
-*/
+
 
 // Blocks
 var b_3_1 = new Block(1750, 125);
@@ -111,12 +99,12 @@ var p_3_1 = new PowerUp(2150, 400, 1); // Rage
 /* SCREEN 4
 ---2340-------------2730---------------3120---*/
 // Enemies
-/*
+
 var e_4_1 = new Enemy(randomFromTo(2340,2440));
 var e_4_2 = new Enemy(randomFromTo(2440,2740));
 var e_4_3 = new Enemy(randomFromTo(2740,2900));
 var e_4_4 = new Enemy(randomFromTo(2900,3120));
-*/
+
 // Blocks
 var b_4_1 = new Block(((2730+2340)/2),0);
 var b_4_2 = new Block(((2730+2340)/2),60);
