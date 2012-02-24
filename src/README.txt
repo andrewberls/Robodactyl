@@ -8,7 +8,7 @@ Group G8
 
 BUILD INSTRUCTIONS
 ====================
-As JavaScript is a scripting language hosted in a browser, there are no build/compilation instructions for the project. There are no restrictions on OS, and necessary libraries are included in the source files. The only requirement is a browser with JavaScript enabled and support for the HTML5 canvas element. Current versions of Firefox, Chrome, Safari, and Opera support canvas, as well as Internet Explorer 9+. Opening the index.html file in a browser will begin the game process.
+As JavaScript is a scripting language hosted in a browser, there are no build/compilation instructions for the project. There are no restrictions on OS, and necessary libraries are included in the source files. The only requirement is a browser with JavaScript enabled and support for the HTML5 canvas element (we recommend Chrome). Current versions of Firefox, Chrome, Safari, and Opera support canvas, as well as Internet Explorer 9+. Opening the index.html file in a browser will begin the game process.
 
 
 

@@ -16,7 +16,7 @@ var canvas     = document.getElementById('canvas'), // Hook to the HTML element
     menuActive = false,
     gameLoop;
     
-var DEBUG_MODE = true; // Set to true to enable debug messages in the console
+var DEBUG_MODE = false; // Set to true to enable debug messages in the console
     
 
 /* MANAGER ARRAYS

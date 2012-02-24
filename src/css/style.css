@@ -9,7 +9,7 @@ body {
 
 canvas {
   display: block;
-	margin: 20px auto 10px;
+	margin: 5px auto 10px;
 }
 
 .wrapper {  
@@ -63,3 +63,8 @@ ul {
   .powerups .life {
     background: url(../images/menu/extralife.png) 4px 4px no-repeat;
   }
+  
+.noscript {
+  font-size: 1.2em; 
+  margin-bottom: 20px;
+}
