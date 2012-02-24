@@ -55,8 +55,7 @@ var enemy3 = new Enemy(randomFromTo(0,C_WIDTH-2*TILE_SIZE));
 var block1 = new Block(340,0);
 var block2 = new Block(340,60);
 var block3 = new Block(340,120);
-var block4 = new Block(340,140);
-var block1 = new Block(340,320);
+
 var block5 = new Block(340,340);
 var block1 = new Block(340,400);
 
