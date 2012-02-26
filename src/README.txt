@@ -1,4 +1,4 @@
-ROBODACTL ESCAPE
+ROBODACTYL ESCAPE
 CS 48, Winter 2012
 Group G8
   - Andrew Berls
