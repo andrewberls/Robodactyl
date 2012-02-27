@@ -7,6 +7,7 @@
 function Game() {}
 
 Game.prototype.draw = function() {
+
     // Top level game function. Handles pause menus, object rendering,
     // and collision detection.
     
@@ -82,7 +83,7 @@ Game.prototype.draw = function() {
     /----------------------------------*/
     $.each(blocks, function(i, block) {
 
-        if (intersecting(block, player) && player.isAlive) {
+        if (intersecting(block, player) && player.isAlive && !player.isInvincible) {
             // Is the player hitting the block?
             debug("player hit a block");
             player.kill();
