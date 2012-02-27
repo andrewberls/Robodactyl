@@ -8,10 +8,10 @@
 // Variables to hold on to key codes, making them easier to work with.
 var KEY_LEFT  = 37,
 	KEY_RIGHT = 39,
-	KEY_UP    = 38,
-	KEY_DOWN  = 40,
-	KEY_SPACE = 32,
-	KEY_ENTER = 13,
+  	KEY_UP    = 38,
+  	KEY_DOWN  = 40,
+  	KEY_SPACE = 32,
+  	KEY_ENTER = 13,
     KEY_ESC   = 27;
 	  
 // An array of keys that are used for movement (as opposed to attacking, etc)
@@ -66,9 +66,11 @@ $(document).keydown(function(evt) {
         player.attack();                      
         break;
 				
+      /*
       case KEY_ENTER:
         // Do whatever
         break;
+      */
 
       case KEY_ESC:
         gamePaused = true;     
@@ -78,22 +80,24 @@ $(document).keydown(function(evt) {
         player.dir = "";
         break;
     };
+
+    // Prevent the arrow keys from scrolling the browser window if it's too short
+    // Only applies to arrow keys and space.
+    if ($.inArray(evt.keyCode, moveKeys) != -1 || evt.keyCode === KEY_SPACE) {
+      evt.preventDefault();
+    }
+    
   }
 });
 
 $(document).keyup(function(evt) {
-	// If no keys are pressed, player won't move.
+    // If no keys are pressed, player won't move.
 
-	/*
-		We obviously don't want the player to move if they're not pressing any keys.
-		But this function gets called every time ANY key is lifted, and we only want to stop
-		the player from moving if they're not pressing any of the MOVEMENT keys (defined above)
-		So this checks whether or not the lifted key is one of the movement keys (inArray),
-		and stops the player if it is.
-		See jQuery's inArray() reference for more information.
-	*/
-	
-    if ($.inArray(evt.keyCode, moveKeys) != -1) {			
+    // TO DO: Let's say the player is holding left, presses up, and lets go.
+    // This will stop all movement even if they're still holding left.
+
+    if ($.inArray(evt.keyCode, moveKeys) != -1) {
         player.dir = "";
     }
+
 });
