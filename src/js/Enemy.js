@@ -20,7 +20,7 @@ function Enemy(x) {
     this.x = x;
     this.y = C_HEIGHT-this.height-TILE_SIZE;
 	
-    this.edx = 0.8; // "extra" dx for pacing back and forth
+    this.moveSpeed = 0.8; // For pacing back and forth
 
     this.health = 1;
 
@@ -111,16 +111,16 @@ Enemy.prototype.move = function() {
 
     if (this.x + this.dx < 0 || this.x + this.dx + this.width > C_WIDTH) {
         // Change direction if colliding with a canvas edge
-        this.edx *= -1;
+        this.moveSpeed *= -1;
     }
 
     if (randomFromTo(1,40) == 1) {
         // Random number testing for pacing back and forth
         // Increase the range for less frequent switches
-        this.edx *= -1;
+        this.moveSpeed *= -1;
     }
 
-    this.x += this.edx; // Pace
+    this.x += this.moveSpeed; // Pace
     this.x += this.dx;  // Scroll
 
 }
