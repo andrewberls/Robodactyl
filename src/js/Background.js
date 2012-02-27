@@ -15,7 +15,7 @@ function Background() {
     this.width = 3900; // 5 screens to start
   
     // This needs to be parameterized by leve or something
-    this.sprite.src = "images/bg/lvl1/lvl1.png"; // lvl1_debug.png
+    this.sprite.src = "images/bg/lvl1/lvl1.jpg"; // lvl1_debug.png
 }
 
 Background.prototype = new GameObject(); // Inherit from GameObject
