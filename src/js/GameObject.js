@@ -13,8 +13,9 @@
 	
   Method Signatures:
     inspect()
-    move()
     in()
+    move()
+    draw()    
 */
 
 function GameObject() {
@@ -52,16 +53,25 @@ GameObject.prototype.inspect = function() {
 
 }
 
-GameObject.prototype.move = function() {
-    this.x += this.dx;
-    this.y += this.dy;
-}
-
 GameObject.prototype.in = function(array) {
     
     // Return true if a given GameObject is in an array
     // Ex: powerup.in(collectables) -> returns true or false
     
     return ($.inArray(this, array) != -1) ? true : false;
+
+}
+
+GameObject.prototype.move = function() {
+
+    this.x += this.dx;
+    this.y += this.dy;
+    
+}
+
+GameObject.prototype.draw = function() {
+
+    // Draw sprite to the canvas
+    ctx.drawImage(this.sprite, this.x, this.y);
 
 }

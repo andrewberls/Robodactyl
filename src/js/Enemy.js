@@ -121,7 +121,7 @@ Enemy.prototype.move = function() {
     }
 
     this.x += this.moveSpeed; // Pace
-    this.x += this.dx;  // Scroll
+    this.x += this.dx;        // Scroll
 
 }
 

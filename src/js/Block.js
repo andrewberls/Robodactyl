@@ -6,8 +6,6 @@
 		
     Method Signatures:
         Block(x,y)
-        move()
-        draw()
 */
 
 function Block(x,y) {
@@ -26,11 +24,3 @@ function Block(x,y) {
 
 Block.prototype = new GameObject();
 Block.prototype.constructor = Block;
-
-Block.prototype.draw = function() {
-    // Draw sprite to the canvas
-    
-    //ctx.fillRect(this.x, this.y, this.width, this.height); // Box model
-    ctx.drawImage(this.sprite, this.x, this.y);
-    
-}

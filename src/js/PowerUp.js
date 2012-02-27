@@ -12,8 +12,7 @@
     RageDactyl()
     ShieldDactyl()
     ApplyHealth()
-    ExtraLife()
-    draw()
+    ExtraLife()    
 	
 */
 
@@ -157,8 +156,4 @@ PowerUp.prototype.ActivatePowerup = function() {
           break;
     };
 
-}
-
-PowerUp.prototype.draw = function() {
-    ctx.drawImage(this.sprite, this.x, this.y);
 }
