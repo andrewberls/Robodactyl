@@ -164,6 +164,7 @@ Player.prototype.playDeathAnim = function() {
     this.isAlive = false;
     //this.sprite.src = "";
     player_death.play();
+    
     /*
     for (var i=1; i<5; ++i) {
         setTimeout((function(self) { return function() {
@@ -174,8 +175,8 @@ Player.prototype.playDeathAnim = function() {
             self.sprite.src = "images/player/nil.jpg";        
         }})(this), (i*250)+125);
     }
-    */    
-    
+    */
+
 }
 
 Player.prototype.kill = function() {

@@ -182,6 +182,13 @@ Game.prototype.draw = function() {
             proj.draw();
         }
     });
+
+    if (!player.isAlive) {
+        ctx.save();
+        ctx.fillStyle = "rgba(196,196,196, 0.5)";
+        ctx.fillRect(0,0,C_WIDTH, C_HEIGHT);
+        ctx.restore();
+    }
     
   }
 }
