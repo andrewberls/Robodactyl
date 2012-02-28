@@ -29,9 +29,9 @@ function Enemy(x) {
     // Randomly select the sprite source
     this.sprite = new Image();
     if (randomFromTo(1,50)%2 == 0) {
-        this.sprite.src = "images/enemy/scientist_1.png";   
+        this.sprite.src = "images/enemy/scientist_1.jpg";   
     } else {
-        this.sprite.src = "images/enemy/scientist_2.png";    
+        this.sprite.src = "images/enemy/scientist_2.jpg";    
     }
  
     // Set the firing loop
