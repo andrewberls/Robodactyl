@@ -5,9 +5,7 @@
     
     Method Signatures:
         Background()
-        move()
-        draw()
-	
+        move()	
 */
 
 function Background() {
@@ -28,11 +26,4 @@ Background.prototype.move = function() {
         this.x += this.dx;
     }
 
-}
-
-Background.prototype.draw = function() {
-    // Draw sprite to the canvas
-    
-    ctx.drawImage(this.sprite, this.x, this.y);
-    
 }

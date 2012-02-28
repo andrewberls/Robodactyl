@@ -1,7 +1,23 @@
 /*
-  File: Menu.js
-  Description: Render a menu with choices
-	
+    File: Menu.js
+    Description: Render a menu with choices
+    Attributes:
+        fontSize
+        textPadding
+        description
+        options
+        callback
+        score
+        points
+        menuActive
+        currentMenu
+
+    Methods:
+        normalizeSelection()
+        renderDesc()
+        renderOptions()
+        execute()
+        draw()
 */
 
 function Menu(description, options, callback, score) {
@@ -14,8 +30,8 @@ function Menu(description, options, callback, score) {
     this.desc = description;
     this.options = options;
     this.callback = callback;
-    this.score = score;
-    this.points = Math.floor(player.score); // Boolean; whether or not to display the score line
+    this.score = score; // Boolean; whether or not to display the score line
+    this.points = Math.floor(player.score);
     this.selected = 0;
 
     menuActive = true;

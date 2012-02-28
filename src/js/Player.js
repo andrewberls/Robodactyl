@@ -7,7 +7,7 @@
         reset()
         setDirection()        
         attack()
-        damage()
+        damage(dmg)
         playDeathAnim()
         kill()
         respawn()
@@ -15,8 +15,7 @@
         displayHealth()
         displayScore()
         displayRageNotice()
-        move()
-        draw()
+        move()       
 */
 
 function Player() {
@@ -320,15 +319,5 @@ Player.prototype.move = function() {
     this.x += this.dx;
     this.y += this.dy;
     
-};
-	
-Player.prototype.draw = function() {
-    
-    //ctx.fillRect(this.x, this.y, this.width, this.height); // Box model
-    if (!this.sprite || this.sprite.src === "") {
-        debug("nasty sprite errors");
-    } else {
-        ctx.drawImage(this.sprite, this.x, this.y);
-    }
-    
+
 }
