@@ -121,7 +121,7 @@ Player.prototype.attack = function () {
     
     // Don't create a new bomb if there's already a bomb dropping
     if (playerProjectiles.length == 0) {
-        var Bomb = new Projectile(this.midx-TILE_SIZE/2, this.y + this.height, 0, 6, 0);
+        var Bomb = new PlayerProjectile(this.midx-TILE_SIZE/2, this.y + this.height, 0, 6);
         playerProjectiles.push(Bomb);
         if (this.RageDactyl) {
           rage_fire.play();

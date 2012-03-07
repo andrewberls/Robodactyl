@@ -75,7 +75,7 @@ Enemy.prototype.fire = function() {
         var bulletDY = this.bulletSpeed * Math.sin(rad);
         
         if (this.in(enemies)) { // Is the enemy alive?
-            var proj = new Projectile(this.x + this.width/2, this.y, bulletDX, bulletDY, 1); // Params: (x,y,dx,dy,src)
+            var proj = new ScientistProjectile(this.x + this.width/2, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
             enemyProjectiles.push(proj);
             enemy_fire.play();
         }
