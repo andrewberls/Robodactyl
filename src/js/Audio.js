@@ -8,12 +8,12 @@
 var themeSong = new Audio("audio/theme_soft50.ogg");
 
 // Weapons
-var player_fire = new Audio("audio/player_fire.ogg"); // Error
+var player_fire = new Audio("audio/player_fire.ogg");
 var rage_fire = new Audio("audio/rage_fire.ogg");
-var enemy_fire = new Audio("audio/enemy_fire.ogg"); // Error
+var enemy_fire = new Audio("audio/enemy_fire.ogg");
 
 // Hurt/Kill
-var player_hurt = new Audio("audio/player_hurt.ogg"); // Error
+var player_hurt = new Audio("audio/player_hurt.ogg");
 var player_death = new Audio("audio/player_death.ogg");
 var player_respawn = new Audio("audio/respawn.ogg");
 var enemy_death1 = new Audio("audio/enemy_death1.ogg");
@@ -26,7 +26,7 @@ var health_powerup = new Audio("audio/health.ogg");
 var life_powerup = new Audio("audio/life.ogg");
 var rage_activate = new Audio("audio/rage_activate.ogg");
 var shield_activate = new Audio("audio/shield_activate.ogg");
-var shield_hit = new Audio("audio/shield_hit.ogg"); // Error
+var shield_hit = new Audio("audio/shield_hit.ogg");
 var shield_deactivate = new Audio("audio/shield_deactivate.ogg");
 
 
