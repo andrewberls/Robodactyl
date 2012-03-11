@@ -12,43 +12,10 @@
     draw()
 */
 
-function Enemy(x) {
-	
-    this.height = 3*TILE_SIZE;
-    this.width = 2*TILE_SIZE;
-  
-    this.x = x;
-    this.y = C_HEIGHT-this.height-TILE_SIZE;
-	
-    this.moveSpeed = 0.8; // For pacing back and forth
-
-    this.health = 1;
-
-    this.bulletSpeed = 2.6; // Old: 2.5
-  
-    // Randomly select the sprite source
-    this.sprite = new Image();
-    if (randomFromTo(1,50)%2 == 0) {
-        this.sprite.src = "images/enemy/scientist_1.png";   
-    } else {
-        this.sprite.src = "images/enemy/scientist_2.png";    
-    }
- 
-    // Set the firing loop
-    // This looks super funky, but it's necessary 
-    // to preserve the correct 'this' context - DOMWindow otherwise
-    this.fireLoop = setInterval((function(self) {
-        return function() {
-            if (!menuActive && player.isAlive) {
-                // Hack to fix glitch where enemies were firing while menu was on
-                self.fire();
-            }
-        }
-    })(this), randomFromTo(1500, 3000)); // Random firing interval
-  
-    enemies.push(this); // Add self to character manager array
-	
-}
+/*---------------------------------------
+  GENERIC ENEMY
+---------------------------------------*/
+function Enemy(x) {}
 
 Enemy.prototype = new GameObject(); // Inherit from GameObject
 Enemy.prototype.constructor = Enemy; // Correct the constructor to use this, not GameObject
@@ -126,7 +93,7 @@ Enemy.prototype.move = function() {
 }
 
 Enemy.prototype.draw = function() {
-    // Draw sprite to the canvas
+    // Draw sprite to the canvas    
     
     // Remove enemies from manager if offscreen for efficiency
     if (this.x+this.width < 0) {
@@ -138,3 +105,61 @@ Enemy.prototype.draw = function() {
     ctx.drawImage(this.sprite, this.x, this.y);
 
 }
+
+
+/*---------------------------------------
+  SCIENTIST
+---------------------------------------*/
+function Scientist(x) {
+
+    this.height = 3 * TILE_SIZE;
+    this.width = 2 * TILE_SIZE;
+  
+    this.x = x;
+    this.y = C_HEIGHT-this.height-TILE_SIZE; // Game floor
+    
+    this.moveSpeed = 0.8; // For pacing back and forth
+
+    this.health = 1;
+
+    this.bulletSpeed = 2.6; // Old: 2.5
+
+    // Randomly select the sprite source
+    this.sprite = new Image();
+    if (randomFromTo(1,50)%2 == 0) {
+        this.sprite.src = "images/enemy/scientist_1.png";   
+    } else {
+        this.sprite.src = "images/enemy/scientist_2.png";    
+    }
+ 
+    // Set the firing loop
+    // This looks super funky, but it's necessary 
+    // to preserve the correct 'this' context - DOMWindow otherwise
+    this.fireLoop = setInterval((function(self) {
+        return function() {
+            if (!menuActive && player.isAlive) {
+                // Hack to fix glitch where enemies were firing while menu was on
+                self.fire();
+            }
+        }
+    })(this), randomFromTo(1500, 3000)); // Random firing interval
+
+    enemies.push(this); // Add self to manager array
+
+}
+
+Scientist.prototype = new Enemy(); // Inherit from Enemy
+Scientist.prototype.constructor = Scientist; // Correct the constructor to use this, not Enemy
+
+
+
+
+/*---------------------------------------
+  HUNTER
+---------------------------------------*/
+/*function Hunter(x) {
+
+}
+
+Hunter.prototype = new Enemy(); // Inherit from Enemy
+Hunter.prototype.constructor = Hunter; // Correct the constructor to use this, not Enemy*/

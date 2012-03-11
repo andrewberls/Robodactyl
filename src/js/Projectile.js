@@ -7,7 +7,7 @@
 */
 
 /*---------------------------------------
-  GENERIC
+  GENERIC PROJECTILE
 ---------------------------------------*/
 function Projectile(x,y,dx,dy) {
     
@@ -25,7 +25,7 @@ Projectile.prototype.constructor = Projectile; // Correct the constructor to use
 
 
 /*---------------------------------------
-  PLAYER
+  PLAYER PROJECTILE
 ---------------------------------------*/
 function PlayerProjectile(x,y,dx,dy) {
   
@@ -51,7 +51,7 @@ PlayerProjectile.prototype.constructor = PlayerProjectile; // Correct the constr
 
 
 /*---------------------------------------
-  SCIENTIST
+  SCIENTIST PROJECTILE
 ---------------------------------------*/
 function ScientistProjectile(x,y,dx,dy) {
 
@@ -69,8 +69,9 @@ function ScientistProjectile(x,y,dx,dy) {
 ScientistProjectile.prototype = new Projectile(); // Inherit from Projectile
 ScientistProjectile.prototype.constructor = ScientistProjectile; // Correct the constructor to use this, not Projectile
 
+
 /*---------------------------------------
-  HUNTER
+  HUNTER PROJECTILE
 ---------------------------------------*/
 /*
 function HunterProjectile(x,y,dx,dy) {

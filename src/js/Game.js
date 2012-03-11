@@ -17,9 +17,9 @@ Game.prototype.load_level_one = function() {
     /* SCREEN 1
     ----0-------------340--------------780---*/
     // Enemies
-    var enemy1 = new Enemy(100);
-    var enemy2 = new Enemy(595);
-    var enemy3 = new Enemy(635);
+    var enemy1 = new Scientist(100);
+    var enemy2 = new Scientist(595);
+    var enemy3 = new Scientist(635);
 
     // Blocks
     var block1 = new Block(340,0);
@@ -38,11 +38,11 @@ Game.prototype.load_level_one = function() {
     ---780-------------1170---------------1560---*/
     // Enemies
 
-    var e_2_1 = new Enemy(905);
-    var e_2_2 = new Enemy(1150);
-    var e_2_3 = new Enemy(1305);
-    var e_2_4 = new Enemy(1430);
-    var e_2_5 = new Enemy(1500);
+    var e_2_1 = new Scientist(905);
+    var e_2_2 = new Scientist(1150);
+    var e_2_3 = new Scientist(1305);
+    var e_2_4 = new Scientist(1430);
+    var e_2_5 = new Scientist(1500);
 
     // Blocks
     var b_2_1 = new Block(930,120);
@@ -58,10 +58,10 @@ Game.prototype.load_level_one = function() {
     ----1560------------1950--------------2340----*/
     // Enemies
 
-    var e_3_1 = new Enemy(1755);
-    var e_3_2 = new Enemy(1960);
-    var e_3_3 = new Enemy(2145);
-    var e_3_4 = new Enemy(2260);
+    var e_3_1 = new Scientist(1755);
+    var e_3_2 = new Scientist(1960);
+    var e_3_3 = new Scientist(2145);
+    var e_3_4 = new Scientist(2260);
 
 
     // Blocks
@@ -77,10 +77,10 @@ Game.prototype.load_level_one = function() {
     ---2340-------------2730---------------3120---*/
     // Enemies
 
-    var e_4_1 = new Enemy(randomFromTo(2340,2440));
-    var e_4_2 = new Enemy(randomFromTo(2440,2740));
-    var e_4_3 = new Enemy(randomFromTo(2740,2900));
-    var e_4_4 = new Enemy(randomFromTo(2900,3120));
+    var e_4_1 = new Scientist(randomFromTo(2340,2440));
+    var e_4_2 = new Scientist(randomFromTo(2440,2740));
+    var e_4_3 = new Scientist(randomFromTo(2740,2900));
+    var e_4_4 = new Scientist(randomFromTo(2900,3120));
 
     // Blocks
     var b_4_1 = new Block(((2730+2340)/2),0);
@@ -99,9 +99,9 @@ Game.prototype.load_level_one = function() {
     /* SCREEN 5
     --3120----------------3510--------------3900--*/
     // Enemies
-    var enemy51 = new Enemy(3220);
-    var enemy52 = new Enemy(3410);
-    var enemy53 = new Enemy(3610);
+    var enemy51 = new Scientist(3220);
+    var enemy52 = new Scientist(3410);
+    var enemy53 = new Scientist(3610);
 
 
     // Blocks
