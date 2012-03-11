@@ -6,6 +6,9 @@
 
 function Game() {}
 
+/*---------------------------------------
+  LEVEL 1 INIT
+---------------------------------------*/
 Game.prototype.load_level_one = function() {
 
     debug("load_level_one() called");
@@ -118,6 +121,14 @@ Game.prototype.load_level_one = function() {
 
 } // load_level_one()
 
+
+/*---------------------------------------
+  LEVEL 2 INIT
+---------------------------------------*/
+Game.prototype.load_level_two = function() {
+
+} // load_level_two()
+
 Game.prototype.draw = function() {
 
     // Top level game function. Handles pause menus, object rendering,
@@ -139,7 +150,7 @@ Game.prototype.draw = function() {
   if (menuActive) {
     // Are we in menu mode?
     currentMenu.draw();
-  }	
+  }
   else if (Math.abs(background.x) >= background.width-C_WIDTH && player.x >= 600) { // This seems super hacky. I'm sorry :(
     // Has the player reached the end?
     // If so, display a (temporary) menu with their score
