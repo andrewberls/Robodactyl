@@ -5,6 +5,7 @@
     
     Method Signatures:
         Background()
+        hard_reset();
         move()	
 */
 
@@ -18,6 +19,11 @@ function Background() {
 
 Background.prototype = new GameObject(); // Inherit from GameObject
 Background.prototype.constructor = Background; // Correct the constructor to use this, not GameObject
+
+Background.prototype.hard_reset = function() {
+    // For when the player restarts after a Game Over
+    this.x = 0;
+}
 
 Background.prototype.move = function() {
     // Scroll the background and stop when we reach the end of the image

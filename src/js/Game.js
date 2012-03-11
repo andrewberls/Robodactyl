@@ -14,6 +14,12 @@ Game.prototype.load_level_one = function() {
     debug("load_level_one() called");
     resetManagers();
 
+    // Environment
+    background.hard_reset()
+
+    // Characters    
+    player.hard_reset();
+
     /* SCREEN 1
     ----0-------------340--------------780---*/
     // Enemies
@@ -116,6 +122,9 @@ Game.prototype.load_level_one = function() {
   LEVEL 2 INIT
 ---------------------------------------*/
 Game.prototype.load_level_two = function() {
+
+    debug("load_level_one() called");
+    resetManagers();
 
     /* SCREEN 1
     ----0-------------340--------------780---*/
@@ -443,12 +452,13 @@ var endGame = function() {
     setTimeout(function() {
         var endMenu = new Menu(
         "Game Over!",      // Description
-        //["Restart Game"],  // Options
-        [],
+        ["Restart Game"],  // Options
         function(option) { // Function triggered by enter key
           if (option == 0) {
             debug("restart; render level 1");            
-            //menuActive = false;   
+            menuActive = false;
+            var game = new Game();
+            game.load_level_one();
           }
         }, true);
     },player.respawnTime);

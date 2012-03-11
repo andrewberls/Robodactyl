@@ -5,6 +5,7 @@
 
     Method Signatures:
         reset()
+        hard_reset()
         setDirection()        
         attack()
         damage(dmg)
@@ -60,8 +61,9 @@ function Player() {
 Player.prototype = new GameObject(); // Inherit from GameObject
 Player.prototype.constructor = Player; // Correct the constructor to use this, not GameObject
 
-Player.prototype.reset = function() {
-    
+Player.prototype.freeze = function() {
+    // For when the player dies
+
     // Stop the player and disable all powerups
     this.RageDactyl = false;
     this.shieldCounter = 0;
@@ -69,6 +71,20 @@ Player.prototype.reset = function() {
     this.dx = 0;
     this.dy = 0;
     
+}
+
+Player.prototype.hard_reset = function() {
+    // For when the player is restarting after a Game Over
+
+    // Stop the player and disable all powerups
+    this.RageDactyl = false;
+    this.shieldCounter = 0;
+    this.dir = "";
+    this.x = 10;
+    this.y = 10;
+    this.dx = 0;
+    this.dy = 0;
+    this.isAlive = true;
 }
 
 Player.prototype.setDirection = function() {
@@ -183,7 +199,7 @@ Player.prototype.kill = function() {
     debug("Player killed");
 
     this.score -= 75;
-    this.reset();
+    this.freeze();
     enemyProjectiles = []; // Clear enemy bullets
     
     if (this.lives > 1) {
