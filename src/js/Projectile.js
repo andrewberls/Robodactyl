@@ -7,24 +7,6 @@
 */
 
 /*---------------------------------------
-  GENERIC PROJECTILE
----------------------------------------*/
-function Projectile(x,y,dx,dy) {
-    
-    this.x = x;
-    this.y = y;
-
-    this.dx = dx;
-    this.dy = dy;
-
-    this.sprite = new Image();  
-}
-
-Projectile.prototype = new GameObject(); // Inherit from GameObject
-Projectile.prototype.constructor = Projectile; // Correct the constructor to use this, not GameObject
-
-
-/*---------------------------------------
   PLAYER PROJECTILE
 ---------------------------------------*/
 function PlayerProjectile(x,y,dx,dy) {
@@ -46,7 +28,7 @@ function PlayerProjectile(x,y,dx,dy) {
   }
 }
 
-PlayerProjectile.prototype = new Projectile(); // Inherit from Projectile
+PlayerProjectile.prototype = new GameObject(); // Inherit from Projectile
 PlayerProjectile.prototype.constructor = PlayerProjectile; // Correct the constructor to use this, not Projectile
 
 
@@ -66,14 +48,13 @@ function ScientistProjectile(x,y,dx,dy) {
   this.width = 25;
 }
 
-ScientistProjectile.prototype = new Projectile(); // Inherit from Projectile
+ScientistProjectile.prototype = new GameObject(); // Inherit from Projectile
 ScientistProjectile.prototype.constructor = ScientistProjectile; // Correct the constructor to use this, not Projectile
 
 
 /*---------------------------------------
   HUNTER PROJECTILE
 ---------------------------------------*/
-/*
 function HunterProjectile(x,y,dx,dy) {
 
   this.x = x;
@@ -87,6 +68,5 @@ function HunterProjectile(x,y,dx,dy) {
   this.width = 25;
 }
 
-HunterProjectile.prototype = new Projectile(); // Inherit from Projectile
+HunterProjectile.prototype = new GameObject(); // Inherit from Projectile
 HunterProjectile.prototype.constructor = HunterProjectile; // Correct the constructor to use this, not Projectile
-*/

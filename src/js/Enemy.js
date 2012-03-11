@@ -21,7 +21,7 @@ Enemy.prototype = new GameObject(); // Inherit from GameObject
 Enemy.prototype.constructor = Enemy; // Correct the constructor to use this, not GameObject
 
 
-Enemy.prototype.fire = function() {  
+Enemy.prototype.fire = function(ProjType) {  
     // Calculate bullet vectors and fire at the player
     
     // Only fire if the player is on the same screen as the enemy
@@ -42,7 +42,7 @@ Enemy.prototype.fire = function() {
         var bulletDY = this.bulletSpeed * Math.sin(rad);
         
         if (this.in(enemies)) { // Is the enemy alive?
-            var proj = new ScientistProjectile(this.x + this.width/2, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
+            var proj = new ProjType(this.x + this.width/2, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
             enemyProjectiles.push(proj);
             enemy_fire.play();
         }
@@ -120,7 +120,7 @@ function Scientist(x) {
     
     this.moveSpeed = 0.8; // For pacing back and forth
 
-    this.health = 1;
+    //this.health = 1;
 
     this.bulletSpeed = 2.6; // Old: 2.5
 
@@ -139,7 +139,7 @@ function Scientist(x) {
         return function() {
             if (!menuActive && player.isAlive) {
                 // Hack to fix glitch where enemies were firing while menu was on
-                self.fire();
+                self.fire(ScientistProjectile);
             }
         }
     })(this), randomFromTo(1500, 3000)); // Random firing interval
@@ -152,14 +152,46 @@ Scientist.prototype = new Enemy(); // Inherit from Enemy
 Scientist.prototype.constructor = Scientist; // Correct the constructor to use this, not Enemy
 
 
-
-
 /*---------------------------------------
   HUNTER
 ---------------------------------------*/
-/*function Hunter(x) {
+function Hunter(x) {
+
+    this.height = 3 * TILE_SIZE;
+    this.width = 2 * TILE_SIZE;
+  
+    this.x = x;
+    this.y = C_HEIGHT-this.height-TILE_SIZE; // Game floor
+    
+    this.moveSpeed = 0.8; // For pacing back and forth
+
+    //this.health = 1;
+
+    this.bulletSpeed = 2.6; // Old: 2.5
+
+    // Randomly select the sprite source
+    this.sprite = new Image();
+    if (randomFromTo(1,50)%2 == 0) {
+        this.sprite.src = "images/enemy/scientist_1.png";   
+    } else {
+        this.sprite.src = "images/enemy/scientist_2.png";    
+    }
+ 
+    // Set the firing loop
+    // This looks super funky, but it's necessary 
+    // to preserve the correct 'this' context - DOMWindow otherwise
+    this.fireLoop = setInterval((function(self) {
+        return function() {
+            if (!menuActive && player.isAlive) {
+                // Hack to fix glitch where enemies were firing while menu was on
+                self.fire(HunterProjectile);
+            }
+        }
+    })(this), randomFromTo(1500, 3000)); // Random firing interval
+
+    enemies.push(this); // Add self to manager array
 
 }
 
 Hunter.prototype = new Enemy(); // Inherit from Enemy
-Hunter.prototype.constructor = Hunter; // Correct the constructor to use this, not Enemy*/
+Hunter.prototype.constructor = Hunter; // Correct the constructor to use this, not Enemy
