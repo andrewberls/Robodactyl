@@ -16,21 +16,17 @@ Game.prototype.load_level_one = function() {
 
     /* SCREEN 1
     ----0-------------340--------------780---*/
-   
     // Enemies
     var enemy1 = new Scientist(100);
     var enemy2 = new Scientist(595);
     var enemy3 = new Scientist(635);
 
     // Blocks
-    
     var block1 = new Block(340,0);
     var block2 = new Block(340,60);
     var block3 = new Block(340,120);
-
     var block5 = new Block(340,340);
     var block1 = new Block(340,400);
-
 
     //PowerUp
     var powerup = new PowerUp(200,200, 1);
@@ -38,8 +34,6 @@ Game.prototype.load_level_one = function() {
 
     /* SCREEN 2
     ---780-------------1170---------------1560---*/
-    
-    
     // Enemies
     var e_2_1 = new Scientist(905);
     var e_2_2 = new Scientist(1150);
@@ -47,12 +41,10 @@ Game.prototype.load_level_one = function() {
     var e_2_4 = new Scientist(1430);
     var e_2_5 = new Scientist(1500);
 
-
     // Blocks
     var b_2_1 = new Block(930,120);
     var b_2_2 = new Block(1170, 190);
     var b_2_2 = new Block(1410, 120);
-
 
     // Powerups
     var p_2_1 = new PowerUp(1175, 120, 4); // Shield
@@ -61,13 +53,10 @@ Game.prototype.load_level_one = function() {
     /* SCREEN 3
     ----1560------------1950--------------2340----*/
     // Enemies
-
     var e_3_1 = new Scientist(1755);
     var e_3_2 = new Scientist(1960);
     var e_3_3 = new Scientist(2145);
     var e_3_4 = new Scientist(2260);
-
-
 
     // Blocks
     var b_3_1 = new Block(1750, 125);
@@ -80,13 +69,10 @@ Game.prototype.load_level_one = function() {
 
     /* SCREEN 4
     ---2340-------------2730---------------3120---*/
-
-
     var e_4_1 = new Scientist(randomFromTo(2340,2440));
     var e_4_2 = new Scientist(randomFromTo(2440,2740));
     var e_4_3 = new Scientist(randomFromTo(2740,2900));
     var e_4_4 = new Scientist(randomFromTo(2900,3120));
-
 
     // Blocks
     var b_4_1 = new Block(((2730+2340)/2),0);
@@ -108,7 +94,6 @@ Game.prototype.load_level_one = function() {
     var enemy51 = new Scientist(3220);
     var enemy52 = new Scientist(3410);
     var enemy53 = new Scientist(3610);
-
 
     // Blocks
     var block52 = new Block((((3510+3120)/2)-100),100);
@@ -133,9 +118,9 @@ Game.prototype.load_level_one = function() {
 ---------------------------------------*/
 Game.prototype.load_level_two = function() {
 
-/* SCREEN 1
+    /* SCREEN 1
     ----0-------------340--------------780---*/
-    
+    // Enemies
     var enemy_L2_1_1 = new Hunter(100);
     var enemy_L2_1_2 = new Hunter(200);
     var enemy_L2_1_3 = new Hunter(300);
@@ -162,7 +147,6 @@ Game.prototype.load_level_two = function() {
     /* SCREEN 2
     ---780-------------1170---------------1560---*/
     // Enemies
-    
     var enemy_L2_2_1 = new Hunter(780);
     var enemy_L2_2_2 = new Hunter(880);
     var enemy_L2_2_3 = new Hunter(980);
@@ -180,7 +164,6 @@ Game.prototype.load_level_two = function() {
     var block_L2_2_6 = new Tree_Block(1150,90);
     var block_L2_2_7 = new Tree_Block(1210,90);
     
-    
     // Powerups
     var powerup_L2_2_1 = new PowerUp(900,390,1);
     var powerup_L2_2_2 = new PowerUp(960,390,1);
@@ -194,13 +177,11 @@ Game.prototype.load_level_two = function() {
     /* SCREEN 3
     ----1560------------1950--------------2340----*/
     // Enemies
-
     var enemy_L2_3_1 = new Hunter(1950);
     var enemy_L2_3_2 = new Hunter(1560);
     var enemy_L2_3_3 = new Hunter(2340);
 
     // Blocks
-    
     var block_L2_3_1 = new Tree_Block(1170,120);
     var block_L2_3_2 = new Tree_Block(1170,180);
     var block_L2_3_3 = new Tree_Block(1170,240);
@@ -208,7 +189,6 @@ Game.prototype.load_level_two = function() {
     var block_L2_3_5 = new Tree_Block(1230,180);
   
     // Powerups
-    
     var powerup_L2_3_1 = new PowerUp(1110,120,2);
     var powerup_L2_3_2 = new PowerUp(1110,240,2);
     var powerup_L2_3_3 = new PowerUp(1230,120,2);
@@ -217,11 +197,9 @@ Game.prototype.load_level_two = function() {
     /* SCREEN 4
     ---2340-------------2730---------------3120---*/
     // Enemies
-
     var enemy_L2_4_1 = new Hunter(2730);
     var enemy_L2_4_2 = new Hunter(2630);
     var enemy_L2_4_3 = new Hunter(2830);
-    
     
     // Blocks
     var block_L2_4_1 = new Tree_Block(2340,0);
@@ -253,6 +231,7 @@ Game.prototype.load_level_two = function() {
     // Powerups
     var powerup_L2_4_1 = new PowerUp(2730,180,4);
     var powerup_L2_4_2 = new PowerUp(2730,0,3);
+
     
     /* SCREEN 5
     --3120----------------3510--------------3900--*/
@@ -266,7 +245,6 @@ Game.prototype.load_level_two = function() {
     // Blocks
     //var block_L2_5_1 = new Block(3120,180);
     
-
     // Powerups
     var powerup_L2_5_1 = new PowerUp(3120,0,1);
     
