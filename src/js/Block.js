@@ -10,9 +10,9 @@
 
 
 /*---------------------------------------
-  GENERIC BLOCK
+  (L1) CAUTION BLOCK
 ---------------------------------------*/
-function Block(x,y) {
+function Caution_Block(x,y) {
   
     this.x = x;
     this.y = y;
@@ -26,14 +26,33 @@ function Block(x,y) {
     
 }
 
-Block.prototype = new GameObject();
-Block.prototype.constructor = Block;
+Caution_Block.prototype = new GameObject();
+Caution_Block.prototype.constructor = Caution_Block;
 
 
 /*---------------------------------------
-  TURRET BLOCK
+  (L2) TREE BLOCK
 ---------------------------------------*/
-function Block_Turret(x,y) {
+function Tree_Block(x,y) {
+    this.x = x;
+    this.y = y;
+  
+    this.width  = 2 * TILE_SIZE;
+    this.height = 2 * TILE_SIZE;
+
+    this.sprite.src = "images/block/block3.png";                      
+
+    blocks.push(this); // Add self to manager array
+}
+
+Tree_Block.prototype = new GameObject();
+Tree_Block.prototype.constructor = Tree_Block;
+
+
+/*---------------------------------------
+  (L2) TURRET BLOCK
+---------------------------------------*/
+function Turret(x,y) {
   
     this.x = x;
     this.y = y;
@@ -47,3 +66,6 @@ function Block_Turret(x,y) {
     blocks.push(this); // Add self to manager array
     
 }
+
+Turret.prototype = new GameObject();
+Turret.prototype.constructor = Turret;

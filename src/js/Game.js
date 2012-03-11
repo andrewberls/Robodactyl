@@ -22,11 +22,11 @@ Game.prototype.load_level_one = function() {
     var enemy3 = new Scientist(635);
 
     // Blocks
-    var block1 = new Block(340,0);
-    var block2 = new Block(340,60);
-    var block3 = new Block(340,120);
-    var block5 = new Block(340,340);
-    var block1 = new Block(340,400);
+    var block1 = new Caution_Block(340,0);
+    var block2 = new Caution_Block(340,60);
+    var block3 = new Caution_Block(340,120);
+    var block5 = new Caution_Block(340,340);
+    var block1 = new Caution_Block(340,400);
 
     //PowerUp
     var powerup = new PowerUp(200,200, 1);
@@ -42,9 +42,9 @@ Game.prototype.load_level_one = function() {
     var e_2_5 = new Scientist(1500);
 
     // Blocks
-    var b_2_1 = new Block(930,120);
-    var b_2_2 = new Block(1170, 190);
-    var b_2_2 = new Block(1410, 120);
+    var b_2_1 = new Caution_Block(930,120);
+    var b_2_2 = new Caution_Block(1170, 190);
+    var b_2_2 = new Caution_Block(1410, 120);
 
     // Powerups
     var p_2_1 = new PowerUp(1175, 120, 4); // Shield
@@ -59,8 +59,8 @@ Game.prototype.load_level_one = function() {
     var e_3_4 = new Scientist(2260);
 
     // Blocks
-    var b_3_1 = new Block(1750, 125);
-    var b_3_1 = new Block(2140, 125);
+    var b_3_1 = new Caution_Block(1750, 125);
+    var b_3_1 = new Caution_Block(2140, 125);
 
     // Powerups
     var p_3_1 = new PowerUp(1945, 100, 3); // Life
@@ -75,14 +75,14 @@ Game.prototype.load_level_one = function() {
     var e_4_4 = new Scientist(randomFromTo(2900,3120));
 
     // Blocks
-    var b_4_1 = new Block(((2730+2340)/2),0);
-    var b_4_2 = new Block(((2730+2340)/2),60);
-    var b_4_3 = new Block(((2730+2340)/2),120);
-    var b_4_4 = new Block(((2730+2340)/2),180);
-    var b_4_5 = new Block(((3120+2730)/2),0);
-    var b_4_6 = new Block(((3120+2730)/2),60);
-    var b_4_7 = new Block(((3120+2730)/2),120);
-    var b_4_8 = new Block(((3120+2730)/2),180);
+    var b_4_1 = new Caution_Block(((2730+2340)/2),0);
+    var b_4_2 = new Caution_Block(((2730+2340)/2),60);
+    var b_4_3 = new Caution_Block(((2730+2340)/2),120);
+    var b_4_4 = new Caution_Block(((2730+2340)/2),180);
+    var b_4_5 = new Caution_Block(((3120+2730)/2),0);
+    var b_4_6 = new Caution_Block(((3120+2730)/2),60);
+    var b_4_7 = new Caution_Block(((3120+2730)/2),120);
+    var b_4_8 = new Caution_Block(((3120+2730)/2),180);
 
     // Powerups
     var p_4_1 = new PowerUp(2730,10, 2); // Health
@@ -96,16 +96,15 @@ Game.prototype.load_level_one = function() {
     var enemy53 = new Scientist(3610);
 
     // Blocks
-    var block52 = new Block((((3510+3120)/2)-100),100);
-    var block53 = new Block((((3510+3120)/2)-100),160);
-    var block54 = new Block((((3510+3120)/2)-100),220);
-    var block51 = new Block((((3510+3120)/2)-100),400);
+    var block52 = new Caution_Block((((3510+3120)/2)-100),100);
+    var block53 = new Caution_Block((((3510+3120)/2)-100),160);
+    var block54 = new Caution_Block((((3510+3120)/2)-100),220);
+    var block51 = new Caution_Block((((3510+3120)/2)-100),400);
 
-
-    var block59 = new Block((3510),180);
-    var block561 = new Block((3510),120);
-    var block562 = new Block((3510),60);
-    var block563 = new Block((3510),0);
+    var block59 = new Caution_Block((3510),180);
+    var block561 = new Caution_Block((3510),120);
+    var block562 = new Caution_Block((3510),60);
+    var block563 = new Caution_Block((3510),0);
 
     // Powerups
     var powerup51 = new PowerUp(3220,10,3);
