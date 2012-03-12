@@ -176,13 +176,13 @@ Scientist.prototype.kill = function() {
 ---------------------------------------*/
 function Hunter(x) {
 
-    this.height = 3 * TILE_SIZE;
+    this.height = 2 * TILE_SIZE;
     this.width = 2 * TILE_SIZE;
   
     this.x = x;
     this.y = C_HEIGHT-this.height-TILE_SIZE; // Game floor
     
-    this.moveSpeed = 0.8; // For pacing back and forth
+    this.moveSpeed = 0.4; // For pacing back and forth
 
     //this.health = 1;
 
@@ -190,11 +190,7 @@ function Hunter(x) {
 
     // Randomly select the sprite source
     this.sprite = new Image();
-    if (randomFromTo(1,50)%2 == 0) {
-        this.sprite.src = "images/enemy/scientist_1.png";   
-    } else {
-        this.sprite.src = "images/enemy/scientist_2.png";    
-    }
+    this.sprite.src = "images/enemy/hunter_1.png";
  
     // Set the firing loop
     // This looks super funky, but it's necessary 
@@ -203,7 +199,7 @@ function Hunter(x) {
         return function() {
             if (!menuActive && player.isAlive) {
                 // Hack to fix glitch where enemies were firing while menu was on
-                self.fire(HunterProjectile);
+                self.fire(HunterProjectile, hunter_fire);
             }
         }
     })(this), randomFromTo(1500, 3000)); // Random firing interval
