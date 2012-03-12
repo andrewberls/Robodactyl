@@ -282,13 +282,41 @@ Game.prototype.draw = function() {
     currentMenu.draw();
   }
   else if (Math.abs(background.x) >= background.width-C_WIDTH && player.x >= 600) { // This seems super hacky. I'm sorry :(
-    // Has the player reached the end?
-    // If so, display a (temporary) menu with their score
-    
-    setTimeout(function() {
-        var endMenu = new Menu("Level One Completed!", [], function() {}, true);
-    }, 2000);
+    // Display appropriate menu if the player has reached the end of a level
 
+    switch (current_level) {
+        case 1: // Level 1 -> 2
+            setTimeout(function() {
+                var endMenu = new Menu("Level One Completed!", [], function(option) {
+                    if (option === 0) { current_level++; game.load_level_two; }
+                }, false);
+            }, 2000);
+        break;
+        case 2: // Level 2 -> 3
+            setTimeout(function() {
+                var endMenu = new Menu("Level Two Completed!", [], function(option) {
+                    if (option === 0) { current_level++; game.load_level_three; }
+                }, false);
+            }, 2000);
+        break;
+        case 3:
+            // Final level (Game victory menu)
+            setTimeout(function() {
+                var endMenu = new Menu(
+                    "Victory!", // Description
+                    ["Play again? :)"], //Options
+                    function(option) {
+                        if (option === 0) {
+                            var game = new Game();
+                            game.load_level_one();
+                        }
+                    }, // Callback 
+                    true // Score?
+                );
+            }, 2000);
+        break;
+    };
+    
   }
   else {
     // Gameplay mode!

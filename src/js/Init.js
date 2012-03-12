@@ -9,7 +9,9 @@ var canvas     = document.getElementById('canvas'), // Hook to the HTML element
     TILE_SIZE  = 30,    
     gamePaused = false,
     menuActive = false,
-    gameLoop;
+    gameLoop,
+    MAX_LEVELS = 3,
+    current_level = 1;
     
 var DEBUG_MODE = true; // Set to true to enable debug messages in the console
     
