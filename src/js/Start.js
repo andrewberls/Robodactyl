@@ -28,7 +28,7 @@ function init() {
       if (option == 0) {
         menuActive = false;
         game.load_level_one();
-        //themeSong.play();
+        //level1_music.play();
       }
     });
 }

@@ -21,7 +21,7 @@ Enemy.prototype = new GameObject(); // Inherit from GameObject
 Enemy.prototype.constructor = Enemy; // Correct the constructor to use this, not GameObject
 
 
-Enemy.prototype.fire = function(ProjType) {  
+Enemy.prototype.fire = function(ProjType, sound) {  
     // Calculate bullet vectors and fire at the player
     
     // Only fire if the player is on the same screen as the enemy
@@ -44,7 +44,7 @@ Enemy.prototype.fire = function(ProjType) {
         if (this.in(enemies)) { // Is the enemy alive?
             var proj = new ProjType(this.x + this.width/2, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
             enemyProjectiles.push(proj);
-            enemy_fire.play();
+            sound.play();
         }
     }
 
@@ -139,7 +139,7 @@ function Scientist(x) {
         return function() {
             if (!menuActive && player.isAlive) {
                 // Hack to fix glitch where enemies were firing while menu was on
-                self.fire(ScientistProjectile);
+                self.fire(ScientistProjectile, scientist_fire);
             }
         }
     })(this), randomFromTo(1500, 3000)); // Random firing interval
@@ -150,6 +150,25 @@ function Scientist(x) {
 
 Scientist.prototype = new Enemy(); // Inherit from Enemy
 Scientist.prototype.constructor = Scientist; // Correct the constructor to use this, not Enemy
+
+Scientist.prototype.kill = function() {
+    // Play a random death sound and delete the instance from manager array
+    
+    switch(randomFromTo(1,3)) {
+        case 1:
+            scientist_death1.play();
+            break;
+        case 2:
+            scientist_death2.play();
+            break;
+        case 3:
+            scientist_death3.play();
+            break;
+    };
+
+    enemies.remove(this);
+
+}
 
 
 /*---------------------------------------
