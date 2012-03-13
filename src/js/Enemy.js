@@ -27,19 +27,19 @@ Enemy.prototype.fire = function(ProjType, sound) {
     // Only fire if the player is on the same screen as the enemy
     if (this.x >= 0 && this.x < C_WIDTH) {
 
-        if (this.x >= player.midx) { // Player is to the left of the enemy
-            var y = -1 * Math.abs(this.midy-player.midy);
+        if (this.x >= player.midx) { 
+            // Player is to the left of the enemy
             var x = -1 * Math.abs(this.midx-player.midx);
+        } else  { 
+            // Player is to the right of the enemy
+            var x = Math.abs(this.midx-player.midx);
         }
 
-        else if (this.x <= player.midx) { // Player is to the right of the enemy
-            var y = -1 * Math.abs(this.midy-player.midy);
-            var x = 1 * Math.abs(this.midx-player.midx);
-        }
+        var y = -1 * Math.abs(this.midy-player.midy);
 
-        var rad = Math.atan2(y,x); // Angle between enemy and player
-        var bulletDX = this.bulletSpeed * Math.cos(rad); // Velocity vectors
-        var bulletDY = this.bulletSpeed * Math.sin(rad);
+        var rad = Math.atan2(y,x), // Angle between enemy and player
+            bulletDX = this.bulletSpeed * Math.cos(rad), // Velocity vectors
+            bulletDY = this.bulletSpeed * Math.sin(rad);
         
         if (this.in(enemies)) { // Is the enemy alive?
             var proj = new ProjType(this.x + this.width/2, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
