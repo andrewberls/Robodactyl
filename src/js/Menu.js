@@ -31,7 +31,7 @@ function Menu(description, options, callback, score) {
     this.options = options;
     this.callback = callback;
     this.score = score; // Boolean; whether or not to display the score line
-    this.points = Math.floor(player.score);
+    if (score) this.points = Math.floor(player.score);
     this.selected = 0;
 
     menuActive = true;

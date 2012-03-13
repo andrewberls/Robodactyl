@@ -7,7 +7,7 @@
 /* DEPENDENT GLOBAL REFERENCES
 /----------------------------------*/
 // Environment
-var background = new Background(1);
+//var background = new Background(1);
 
 // Characters
 var player = new Player();
