@@ -183,10 +183,7 @@ function Hunter(x) {
     this.y = C_HEIGHT-this.height-TILE_SIZE; // Game floor
     
     this.moveSpeed = 0.4; // For pacing back and forth
-
-    //this.health = 1;
-
-    this.bulletSpeed = 2.6; // Old: 2.5
+    this.bulletSpeed = 2.6;
 
     // Randomly select the sprite source
     this.sprite = new Image();
