@@ -18,10 +18,10 @@ function Background(level) {
             this.sprite.src = "images/bg/lvl1/lvl1.jpg"; // lvl1_debug.png
         break;
         case 2:
-            //this.sprite.src = "images/bg/lvl2/lvl2.jpg"; // lvl1_debug.png
+            this.sprite.src = "images/bg/lvl2/lvl2.jpg";
         break;
         case 3:
-            //this.sprite.src = "images/bg/lvl3/lvl3.jpg"; // lvl1_debug.png
+            //this.sprite.src = "images/bg/lvl3/lvl3.jpg";
         break;
 
     };

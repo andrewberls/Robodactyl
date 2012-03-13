@@ -130,6 +130,13 @@ Game.prototype.load_level_two = function() {
     resetManagers();
     level2_music.play();
 
+    // Environment
+    background = new Background(2);
+    background.hard_reset
+
+    // Characters    
+   
+
     /* SCREEN 1
     ----0-------------340--------------780---*/
     // Enemies
