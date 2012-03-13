@@ -43,7 +43,7 @@ function ScientistProjectile(x,y,dx,dy) {
   this.dx = dx;
   this.dy = dy;
 
-  this.sprite.src = "images/enemy/enemyprojectile.png";
+  this.sprite.src = "images/enemy/scientistProjectile.png";
   this.height = 25;
   this.width = 25;
 }
@@ -63,7 +63,7 @@ function HunterProjectile(x,y,dx,dy) {
   this.dx = dx;
   this.dy = dy;
 
-  this.sprite.src = "images/enemy/hunterprojectile.png";
+  this.sprite.src = "images/enemy/hunterProjectile.png";
   this.height = 25;
   this.width = 25;
 }
