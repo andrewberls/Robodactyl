@@ -11,7 +11,7 @@ var canvas     = document.getElementById('canvas'), // Hook to the HTML element
     menuActive = false,
     gameLoop,
     MAX_LEVELS = 3,
-    current_level = 1;
+    current_level = 0;
     
 var DEBUG_MODE = true; // Set to true to enable debug messages in the console
     

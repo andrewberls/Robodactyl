@@ -12,6 +12,7 @@ function Game() {}
 Game.prototype.load_level_one = function() {
 
     debug("load_level_one() called");
+    current_level++;
     resetManagers();
     level1_music.play();
 
@@ -125,6 +126,7 @@ Game.prototype.load_level_one = function() {
 Game.prototype.load_level_two = function() {
 
     debug("load_level_two() called");
+    current_level++;
     resetManagers();
     level2_music.play();
 
