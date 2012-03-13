@@ -29,7 +29,7 @@ function init() {
         menuActive = false;
         game.load_level_one();
         //game.load_level_two();
-        level1_music.play();
+        
       }
     });
 }

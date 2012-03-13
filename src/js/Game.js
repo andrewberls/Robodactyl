@@ -13,6 +13,7 @@ Game.prototype.load_level_one = function() {
 
     debug("load_level_one() called");
     resetManagers();
+    level1_music.play();
 
     // Environment
     background.hard_reset()
@@ -125,6 +126,7 @@ Game.prototype.load_level_two = function() {
 
     debug("load_level_two() called");
     resetManagers();
+    level2_music.play();
 
     /* SCREEN 1
     ----0-------------340--------------780---*/

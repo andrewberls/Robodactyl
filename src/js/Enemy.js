@@ -7,7 +7,7 @@
   Method Signatures:
     Enemy(x)
     fire()
-    kill()
+    kill() [Overloaded]
     move()
     draw()
 */
@@ -50,24 +50,13 @@ Enemy.prototype.fire = function(ProjType, sound) {
 
 }
 
-Enemy.prototype.kill = function() {
-    // Play a random death sound and delete the instance from manager array
+/*Enemy.prototype.kill = function(sound) {
+    // Play a sound and delete the instance from manager array
     
-    switch(randomFromTo(1,3)) {
-        case 1:
-            enemy_death1.play();
-            break;
-        case 2:
-            enemy_death2.play();
-            break;
-        case 3:
-            enemy_death3.play();
-            break;
-    };
-
+    sound.play()
     enemies.remove(this);
 
-}
+}*/
 
 Enemy.prototype.move = function() {
     // Scroll the enemy with the background and pace back and forth
@@ -207,3 +196,10 @@ function Hunter(x) {
 
 Hunter.prototype = new Enemy(); // Inherit from Enemy
 Hunter.prototype.constructor = Hunter; // Correct the constructor to use this, not Enemy
+
+Hunter.prototype.kill = function() {
+
+    hunter_death.play();
+    enemies.remove(this);
+
+}

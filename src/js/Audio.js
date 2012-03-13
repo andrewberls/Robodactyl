@@ -6,7 +6,9 @@
 
 /* MUSIC
 /----------------------------------*/
-var level1_music = new Audio("audio/theme_soft50.ogg");
+var level1_music = new Audio("audio/level1_music.ogg");
+var level2_music = new Audio("audio/level2_music.ogg");
+var level3_music = new Audio("audio/level3_music.ogg");
 
 
 /* WEAPONS
