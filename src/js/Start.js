@@ -7,7 +7,7 @@
 /* DEPENDENT GLOBAL REFERENCES
 /----------------------------------*/
 // Environment
-var background = new Background();
+var background = new Background(1);
 
 // Characters
 var player = new Player();
@@ -28,7 +28,8 @@ function init() {
       if (option == 0) {
         menuActive = false;
         game.load_level_one();
-        //level1_music.play();
+        //game.load_level_two();
+        level1_music.play();
       }
     });
 }

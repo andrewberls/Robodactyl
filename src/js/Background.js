@@ -4,17 +4,28 @@
     Description: Handles the game background (lab, jungle, etc)
     
     Method Signatures:
-        Background()
+        Background(level)
         hard_reset();
         move()	
 */
 
-function Background() {
+function Background(level) {
     
-    this.width = 3900; // 5 screens to start
+    this.width = 3900; // 5 screens * 780px
   
-    // This needs to be parameterized by leve or something
-    this.sprite.src = "images/bg/lvl1/lvl1.jpg"; // lvl1_debug.png
+    switch(level) {
+        case 1:
+            this.sprite.src = "images/bg/lvl1/lvl1.jpg"; // lvl1_debug.png
+        break;
+        case 2:
+            //this.sprite.src = "images/bg/lvl2/lvl2.jpg"; // lvl1_debug.png
+        break;
+        case 3:
+            //this.sprite.src = "images/bg/lvl3/lvl3.jpg"; // lvl1_debug.png
+        break;
+
+    };
+    
 }
 
 Background.prototype = new GameObject(); // Inherit from GameObject
