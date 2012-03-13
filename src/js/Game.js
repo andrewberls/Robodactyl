@@ -312,8 +312,7 @@ Game.prototype.draw = function() {
                 var endMenu = new Menu(
                     "Level One Completed!", // Description
                     ["Begin level two"],    // Options
-                    function(option) { if (option === 0) { current_level++; game.load_level_two; }}, 
-                    false // Score?
+                    function(option) { if (option === 0) { current_level++; game.load_level_two; }}                   
                 );
             }, 2000);
         break;
@@ -323,8 +322,7 @@ Game.prototype.draw = function() {
                 var endMenu = new Menu(
                     "Level Two Completed!", // Description
                     ["Begin level three"],  // Options
-                    function(option) { if (option === 0) { current_level++; game.load_level_three; }}, 
-                    false // Score?
+                    function(option) { if (option === 0) { current_level++; game.load_level_three; }}                 
                 );
             }, 2000);
         break;
