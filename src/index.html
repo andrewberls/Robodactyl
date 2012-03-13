@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
   <title>RoboDactyl Escape</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
@@ -10,8 +9,6 @@
 
 <body>
   
-
-
   <canvas id="canvas" width="780px" height="490px">
     <p>Your browser does not support the canvas element. We recommend upgrading to 
       <a href="http://support.google.com/chrome/bin/answer.py?hl=en&answer=95346">Google Chrome</a>.</p>
@@ -42,11 +39,14 @@
         <li class="health">+1 Health</li>
         <li class="life">Extra Life</li>
       </ul>
-    </div><!-- .column -->
+    </div><!-- .column.large -->
 
-  </div>
+  </div><!-- .wrapper -->
 
-		
+	<!--
+    HTTP requests are bad, mmmkay
+    We should probably be using a build script #fuckthepolice 
+  -->
   <script type="text/javascript" src="js/lib/jquery.min.js"></script>
   <script type="text/javascript" src="js/Init.js"></script>
   <script type="text/javascript" src="js/Audio.js"></script>
