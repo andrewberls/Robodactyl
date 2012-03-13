@@ -14,7 +14,7 @@ Game.prototype.load_level_one = function() {
     debug("load_level_one() called");
     current_level++;
     resetManagers();
-    pause_all_music();
+    stop_all_music();
     level1_music.play();
 
     // Environment
