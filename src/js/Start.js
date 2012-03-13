@@ -27,7 +27,7 @@ function init() {
     function(option) {   // Function triggered by enter key
       if (option == 0) {
         menuActive = false;
-        game.load_level_one();
+        game.load_level_two();
         //game.load_level_two();
         
 
