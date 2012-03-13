@@ -14,9 +14,11 @@ Game.prototype.load_level_one = function() {
     debug("load_level_one() called");
     current_level++;
     resetManagers();
+    pause_all_music();
     level1_music.play();
 
     // Environment
+    background = new Background(1);
     background.hard_reset()
 
     // Characters    

@@ -45,3 +45,9 @@ var rage_activate = new Audio("audio/rage_activate.ogg");
 var shield_activate = new Audio("audio/shield_activate.ogg");
 var shield_hit = new Audio("audio/shield_hit.ogg");
 var shield_deactivate = new Audio("audio/shield_deactivate.ogg");
+
+function pause_all_music() {
+	level1_music.pause();
+	level2_music.pause();
+	level3_music.pause();
+}

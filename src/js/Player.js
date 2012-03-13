@@ -84,6 +84,8 @@ Player.prototype.hard_reset = function() {
     this.y = 10;
     this.dx = 0;
     this.dy = 0;
+    this.health = this.max_health;
+    this.lives = this.max_lives;
     this.isAlive = true;
 }
 
