@@ -40,7 +40,7 @@ function Tree_Block(x,y) {
     this.width  = 2 * TILE_SIZE;
     this.height = 2 * TILE_SIZE;
 
-    this.sprite.src = "images/block/block3.png";                      
+    this.sprite.src = "images/block/block4_small.png";                      
 
     blocks.push(this); // Add self to manager array
 }
