@@ -13,6 +13,7 @@ Game.prototype.load_level_one = function() {
 
     debug("load_level_one() called");
     resetManagers();
+    level1_music.play();
 
     // Environment
     background.hard_reset()
@@ -123,8 +124,9 @@ Game.prototype.load_level_one = function() {
 ---------------------------------------*/
 Game.prototype.load_level_two = function() {
 
-    debug("load_level_one() called");
+    debug("load_level_two() called");
     resetManagers();
+    level2_music.play();
 
     /* SCREEN 1
     ----0-------------340--------------780---*/
@@ -298,41 +300,47 @@ Game.prototype.draw = function() {
     // Are we in menu mode?
     currentMenu.draw();
   }
-  else if (Math.abs(background.x) >= background.width-C_WIDTH && player.x >= 600) { // This seems super hacky. I'm sorry :(
+  else if (Math.abs(background.x) >= background.width-C_WIDTH && player.x >= 600) {
     // Display appropriate menu if the player has reached the end of a level
+    // The timeout is so that the menu doesn't pop up instantly
+    // I am extremely sorry that this code exists :(
 
     switch (current_level) {
+
         case 1: // Level 1 -> 2
             setTimeout(function() {
-                var endMenu = new Menu("Level One Completed!", [], function(option) {
-                    if (option === 0) { current_level++; game.load_level_two; }
-                }, false);
+                var endMenu = new Menu(
+                    "Level One Completed!", // Description
+                    ["Begin level two"],    // Options
+                    function(option) { if (option === 0) { current_level++; game.load_level_two; }}, 
+                    false // Score?
+                );
             }, 2000);
         break;
+
         case 2: // Level 2 -> 3
             setTimeout(function() {
-                var endMenu = new Menu("Level Two Completed!", [], function(option) {
-                    if (option === 0) { current_level++; game.load_level_three; }
-                }, false);
+                var endMenu = new Menu(
+                    "Level Two Completed!", // Description
+                    ["Begin level three"],  // Options
+                    function(option) { if (option === 0) { current_level++; game.load_level_three; }}, 
+                    false // Score?
+                );
             }, 2000);
         break;
-        case 3:
-            // Final level (Game victory menu)
+
+        case 3: // Final level (Game victory menu)
             setTimeout(function() {
                 var endMenu = new Menu(
-                    "Victory!", // Description
+                    "Victory!",         // Description
                     ["Play again? :)"], //Options
-                    function(option) {
-                        if (option === 0) {
-                            var game = new Game();
-                            game.load_level_one();
-                        }
-                    }, // Callback 
+                    function(option) { if (option === 0) { var game = new Game(); game.load_level_one(); }},
                     true // Score?
                 );
             }, 2000);
         break;
-    };
+
+    }; // switch(current_level)
     
   }
   else {
