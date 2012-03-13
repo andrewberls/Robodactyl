@@ -151,8 +151,8 @@ Game.prototype.load_level_two = function() {
     
     
     //Powerups
-    var powerup_L2_1_1 = new PowerUp(200,120, 4);
-    var powerup_L2_1_2 = new PowerUp(200,260, 1);
+    var powerup_L2_1_1 = new PowerUp(220,120, 4);
+    var powerup_L2_1_2 = new PowerUp(220,260, 1);
     
     
     /* SCREEN 2
@@ -210,14 +210,11 @@ Game.prototype.load_level_two = function() {
     var block_L2_3_10 = new Tree_Block(((2010+2340)-40)/2,180);
   
     // Powerups
-    var powerup_L2_3_1 = new PowerUp(((1890+1560)-200)/2,120,2);
+    var powerup_L2_3_1 = new PowerUp(((1890+1560)-200)/2,120,3);
     var powerup_L2_3_2 = new PowerUp(((1890+1560)-200)/2,240,2);
-    var powerup_L2_3_3 = new PowerUp(((2010+1560)+200)/2,120,2);
-    var powerup_L2_3_4 = new PowerUp(((2010+1560)+200)/2,240,2);
+    var powerup_L2_3_3 = new PowerUp(((2010+1560))/2,120,2);
+    var powerup_L2_3_4 = new PowerUp(((2010+1560))/2,240,3);
     
-    
-    var powerup_L2_3_7 = new PowerUp(((2010+1560)+200)/2,120,2);
-    var powerup_L2_3_8 = new PowerUp(((2010+1560)+200)/2,240,2);
     
     /* SCREEN 4
     ---2340-------------2730---------------3120---*/
