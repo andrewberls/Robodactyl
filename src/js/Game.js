@@ -4,9 +4,19 @@
     manager arrays, moves/draws all objects, and handles collisions.
 */
 
-function Game() {
-    this.self = this;
-}
+function Game() {}
+
+/*
+    I hate the way objects are instantiated and loaded here.
+    Idea for future: load everything using arrays
+    and object notation, since we don't really need names
+    for the objects. Ex:
+    Scientists.load([10, 75, 100, etc]); // x-coordinates
+    Blocks.load([
+        {x: 150, y: 100},
+        {} etc
+    ])
+*/
 
 /*---------------------------------------
   LEVEL 1 INIT
