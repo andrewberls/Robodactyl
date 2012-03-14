@@ -4,7 +4,9 @@
     manager arrays, moves/draws all objects, and handles collisions.
 */
 
-function Game() {}
+function Game() {
+    this.self = this;
+}
 
 /*---------------------------------------
   LEVEL 1 INIT
@@ -130,6 +132,7 @@ Game.prototype.load_level_two = function() {
     debug("load_level_two() called");
     current_level++;
     resetManagers();
+    stop_all_music()
     level2_music.play();
 
     // Environment
@@ -137,7 +140,7 @@ Game.prototype.load_level_two = function() {
     background.hard_reset
 
     // Characters    
-   
+   player.hard_reset();
 
     /* SCREEN 1
     ----0-------------340--------------780---*/
@@ -318,34 +321,49 @@ Game.prototype.draw = function() {
     switch (current_level) {
 
         case 1: // Level 1 -> 2
-            setTimeout(function() {
-                var endMenu = new Menu(
-                    "Level One Completed!", // Description
-                    ["Begin level two"],    // Options
-                    function(option) { if (option === 0) { current_level++; game.load_level_two; }}                   
-                );
-            }, 2000);
+            debug("player.hard_reset")
+            player.hard_reset();
+            var endMenu = new Menu(
+                "Level One Completed!", // Description
+                ["Begin level two"],    // Options
+                function(option) { if (option === 0) {                
+                    current_level++;
+                    var game = new Game();
+                    game.load_level_two();                        
+                    menuActive = false;                        
+                }}                  
+            );
         break;
 
         case 2: // Level 2 -> 3
-            setTimeout(function() {
-                var endMenu = new Menu(
-                    "Level Two Completed!", // Description
-                    ["Begin level three"],  // Options
-                    function(option) { if (option === 0) { current_level++; game.load_level_three; }}                 
-                );
-            }, 2000);
+            debug("player.hard_reset")
+            player.hard_reset();
+            var endMenu = new Menu(
+                "Level Two Completed!", // Description
+                ["Begin level three"],  // Options
+                function(option) { if (option === 0) {                
+                    current_level++;
+                    var game = new Game();
+                    game.load_level_three();                        
+                    menuActive = false;                        
+                }}                
+            );
         break;
 
         case 3: // Final level (Game victory menu)
-            setTimeout(function() {
-                var endMenu = new Menu(
-                    "Victory!",         // Description
-                    ["Play again? :)"], //Options
-                    function(option) { if (option === 0) { var game = new Game(); game.load_level_one(); }},
-                    true // Score?
-                );
-            }, 2000);
+            debug("player.hard_reset")
+            player.hard_reset();
+            var endMenu = new Menu(
+                "Victory!",         // Description
+                ["Play again? :)"], //Options
+                function(option) { if (option === 0) {                
+                    current_level = 0;
+                    var game = new Game();
+                    game.load_level_one();                        
+                    menuActive = false;                        
+                }},
+                true // Score?
+            );
         break;
 
     }; // switch(current_level)
@@ -517,10 +535,11 @@ var endGame = function() {
         ["Restart Game"],  // Options
         function(option) { // Function triggered by enter key
           if (option == 0) {
-            debug("restart; render level 1");            
-            menuActive = false;
+            debug("restart; render level 1");
+            current_level = 0;
             var game = new Game();
             game.load_level_one();
+            menuActive = false;
           }
         }, true);
     },player.respawnTime);
