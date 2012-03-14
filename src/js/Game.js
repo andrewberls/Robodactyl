@@ -151,6 +151,7 @@ Game.prototype.load_level_two = function() {
     var enemy_L2_1_6 = new Hunter(600);
     var enemy_L2_1_7 = new Hunter(700);
     */
+    var TURRET_TEST = new Turret(455, 92);
     
     //Blocks
     
@@ -158,6 +159,7 @@ Game.prototype.load_level_two = function() {
     var block_L2_1_3 = new Tree_Block(220,380);
     
     var block_L2_1_6 = new Tree_Block(445,180);
+    var block_L2_1_6 = new Tree_Block(505,180);
     
     
     
@@ -404,7 +406,8 @@ Game.prototype.draw = function() {
         $.each(enemyProjectiles, function(i, proj) {
             // Is an enemy projectile hitting the block?
             if (intersecting(block, proj)) {
-                debug("Enemy projectile hit a block");
+                if (block instanceof Turret) return false; // Hack - turret bullets don't collide with itself
+                debug("Enemy projectile hit a block");                
                 enemyProjectiles.remove(proj);
             }
         });

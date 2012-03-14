@@ -47,25 +47,3 @@ function Tree_Block(x,y) {
 
 Tree_Block.prototype = new GameObject();
 Tree_Block.prototype.constructor = Tree_Block;
-
-
-/*---------------------------------------
-  (L2) TURRET BLOCK
----------------------------------------*/
-function Turret(x,y) {
-  
-    this.x = x;
-    this.y = y;
-  
-    this.width  = 2 * TILE_SIZE;
-    this.height = 2 * TILE_SIZE;
-
-    this.sprite = new Image();
-    this.sprite.src = "";                      
-
-    blocks.push(this); // Add self to manager array
-    
-}
-
-Turret.prototype = new GameObject();
-Turret.prototype.constructor = Turret;

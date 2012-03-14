@@ -203,3 +203,55 @@ Hunter.prototype.kill = function() {
     enemies.remove(this);
 
 }
+
+/*---------------------------------------
+  TURRET
+---------------------------------------*/
+function Turret(x,y) {
+    // Turret is sort of a hybrid class in that it's tracked/handled
+    // like a block, but fires like an enemy
+  
+    this.x = x;
+    this.y = y;
+  
+    this.width  = 100;
+    this.height = 3 * TILE_SIZE;
+
+    this.mouth_y = this.y+(this.height-30); // y-coordinate of the mouth, for accurate looking firing
+
+    this.fireRate = 1200;
+    this.bulletSpeed = 1; // 2.6
+
+    //this.sprite = new Image();
+    this.sprite.src = "images/enemy/monster2.png";
+
+    this.fireLoop = setInterval((function(self) {
+        return function() {
+            if (!menuActive && player.isAlive) {
+                // Hack to fix glitch where enemies were firing while menu was on
+                self.fire(TurretProjectile, turret_fire);
+            }
+        }
+    })(this), this.fireRate); // Random firing interval
+
+    blocks.push(this); // Add self to manager array
+    
+}
+
+Turret.prototype = new GameObject();
+Turret.prototype.constructor = Turret;
+
+Turret.prototype.fire = function(ProjType, sound) {
+    // Stripped down version of Enemy.fire()
+    // Constantly fires in the direction it is facing
+    // - no player calculation or tracking
+    
+    // Only fire if the player is on the same screen as the enemy
+    if (this.x > 0-this.width && this.x <= C_WIDTH) {
+        var bulletDX = -3.5, // -4
+            bulletDY = 0,
+            proj = new ProjType(this.x, this.mouth_y, bulletDX, bulletDY);
+        enemyProjectiles.push(proj);
+        sound.play();
+    }
+}

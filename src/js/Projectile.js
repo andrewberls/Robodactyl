@@ -70,3 +70,23 @@ function HunterProjectile(x,y,dx,dy) {
 
 HunterProjectile.prototype = new GameObject(); // Inherit from Projectile
 HunterProjectile.prototype.constructor = HunterProjectile; // Correct the constructor to use this, not Projectile
+
+
+/*---------------------------------------
+  TURRET PROJECTILE
+---------------------------------------*/
+function TurretProjectile(x,y,dx,dy) {
+
+  this.x = x;
+  this.y = y;
+
+  this.dx = dx;
+  this.dy = dy;
+
+  this.sprite.src = "images/enemy/turretProjectile.png";
+  this.height = 25;
+  this.width = 25;
+}
+
+TurretProjectile.prototype = new GameObject(); // Inherit from Projectile
+TurretProjectile.prototype.constructor = TurretProjectile; // Correct the constructor to use this, not Projectile
