@@ -45,6 +45,7 @@ var rage_activate = new Audio("audio/rage_activate.ogg");
 var shield_activate = new Audio("audio/shield_activate.ogg");
 var shield_hit = new Audio("audio/shield_hit.ogg");
 var shield_deactivate = new Audio("audio/shield_deactivate.ogg");
+var coin_pickup = new Audio("audio/coin_pickup.ogg");
 
 function stop_all_music() {
 

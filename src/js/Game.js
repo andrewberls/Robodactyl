@@ -155,7 +155,8 @@ Game.prototype.load_level_two = function() {
     var enemy_L2_1_7 = new Hunter(700);
     */
     var TURRET_TEST = new Turret(455, 92);
-    var TREE_TEST = new Tree(455, C_HEIGHT-205)
+    var TREE_TEST = new Tree(455, C_HEIGHT-205);
+    var COIN_TEST = new PowerUp(200,75,5)
     
     //Blocks
     

@@ -25,7 +25,7 @@ function PowerUp(x,y, type) {
   
     this.sprite = new Image();
   
-    this.ChoosePowerup(); //Picks which Power-Up to use and assigns a skin
+    this.ChoosePowerup(); // Set the skin
   
     collectables.push(this);
 }
@@ -101,6 +101,12 @@ PowerUp.prototype.ShieldDactyl = function() {
     }
 
 }
+
+PowerUp.prototype.Coin = function() {
+  // Score is automatically given for all powerups
+  // This is more of a placeholder than anything else
+  coin_pickup.play()
+}
 	
 PowerUp.prototype.ChoosePowerup = function() {
     
@@ -113,20 +119,23 @@ PowerUp.prototype.ChoosePowerup = function() {
   */
 	  
   switch(this.type) {        
-      case 1:
-          this.sprite.src = "images/powerup/rage.png"; 
-          break;
-      case 2:
-          this.sprite.src = "images/powerup/health.png";
-          break;
-      case 3:
-          this.sprite.src = "images/powerup/extralife.png"; 
-          break;
-      case 4:
-          this.sprite.src = "images/powerup/shield.png";
-          break;
-      default:
-          break;
+    case 1:
+      this.sprite.src = "images/powerup/rage.png"; 
+    break;
+    case 2:
+      this.sprite.src = "images/powerup/health.png";
+    break;
+    case 3:
+      this.sprite.src = "images/powerup/extralife.png"; 
+    break;
+    case 4:
+      this.sprite.src = "images/powerup/shield.png";
+    break;
+    case 5:
+      this.sprite.src = "images/powerup/coin.png";
+    break;
+    default:
+        break;
   };
 
 }
@@ -138,22 +147,25 @@ PowerUp.prototype.ActivatePowerup = function() {
     player.score += 50;
   
     switch(this.type) {
-        case 1:
-            this.RageDactyl();
-            break;
-        case 2:
-            this.ApplyHealth();
-            break;    
-        case 3:
-            this.ExtraLife();
-            break;
-        case 4:
-            this.ShieldDactyl();
-            debug("Shield powerup activated");
-            debug("player.shieldCounter is now: " + player.shieldCounter.toString());
-            break;
-        default:
-          break;
+      case 1:
+        this.RageDactyl();
+      break;
+      case 2:
+        this.ApplyHealth();
+      break;    
+      case 3:
+        this.ExtraLife();
+      break;
+      case 4:
+        this.ShieldDactyl();
+        debug("Shield powerup activated");
+        debug("player.shieldCounter is now: " + player.shieldCounter.toString());
+      break;
+      case 5:
+        this.Coin();
+      break;
+      default:
+        break;
     };
 
 }
