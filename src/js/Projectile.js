@@ -83,7 +83,8 @@ function TurretProjectile(x,y,dx,dy) {
   this.dx = dx;
   this.dy = dy;
 
-  this.sprite.src = "images/enemy/turretProjectile.png";
+  //this.sprite.src = "images/enemy/turretProjectile.png";
+  this.sprite.src = "images/enemy/hunterProjectile.png";
   this.height = 25;
   this.width = 25;
 }
