@@ -233,8 +233,7 @@ Player.prototype.respawn = function() {
 
             setTimeout((function(player) {
                 return function() {
-                    // Disable temporary respawn invincibility
-                    // Nested closures, weeehooo.
+                    // Disable temporary respawn invincibility                    
                     player.isInvincible = false;
                     debug("player is invincible: " + self.isInvincible.toString());
                 }

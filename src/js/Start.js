@@ -1,15 +1,10 @@
 /*
-  File: Init.js
-  Description: Initialize global variables and begin the game
+  File: Start.js
+  Description: Initialize the player and display the first menu
 */
 
-
-/* DEPENDENT GLOBAL REFERENCES
-/----------------------------------*/
-// Environment
-//var background = new Background(1);
-
-// Characters
+// Dependent global references
+var background = new Background(1);
 var player = new Player();
 
 
@@ -22,14 +17,15 @@ function init() {
 
     // Display the start menu
     var startMenu = new Menu(
-    "Robodactyl Escape", // Description
-    ["Start Level 1"],   // Options
+    "Robodactyl Escape, Level 1", // Description
+    ["Press Enter To Begin"],   // Options
     function(option) {   // Function triggered by enter key
       if (option == 0) {
         menuActive = false;
         game.load_level_one();        
       }
     });
+
 }
 
 window.onload = init;

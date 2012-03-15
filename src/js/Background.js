@@ -1,7 +1,7 @@
 /*
     Class File: Background.js
     Inherits from: GameObject
-    Description: Handles the game background (lab, jungle, etc)
+    Description: Handles the game background drawing/scrolling
     
     Method Signatures:
         Background(level)
@@ -20,10 +20,6 @@ function Background(level) {
         case 2:
             this.sprite.src = "images/bg/lvl2/lvl2.jpg";
         break;
-        case 3:
-            //this.sprite.src = "images/bg/lvl3/lvl3.jpg";
-        break;
-
     };
     
 }

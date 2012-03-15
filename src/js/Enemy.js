@@ -51,6 +51,9 @@ Enemy.prototype.fire = function(ProjType, sound) {
 }
 
 /*Enemy.prototype.kill = function(sound) {
+
+    // THIS METHOD IS NOW OVERLOADED IN EACH CLASS
+
     // Play a sound and delete the instance from manager array
     
     sound.play()
@@ -89,8 +92,7 @@ Enemy.prototype.draw = function() {
         debug("removing offscreen enemy");
         enemies.remove(this);
     }
-
-    //ctx.fillRect(this.x, this.y, this.width, this.height); // Box model
+    
     ctx.drawImage(this.sprite, this.x, this.y);
 
 }
@@ -107,9 +109,7 @@ function Scientist(x) {
     this.x = x;
     this.y = C_HEIGHT-this.height-TILE_SIZE; // Game floor
     
-    this.moveSpeed = 0.8; // For pacing back and forth
-
-    //this.health = 1;
+    this.moveSpeed = 0.8; // For pacing back and forth   
 
     this.bulletSpeed = 2.6; // Old: 2.5
 
@@ -249,7 +249,7 @@ Turret.prototype.fire = function(ProjType, sound) {
     // Only fire if the player is on the same screen as the enemy
     // The current level hack fixes a bug when restarting the game from level 2
     // and turrets would still be firing. No clue why
-    if (this.x > 0-this.width && this.x <= C_WIDTH && current_level === 2) {
+    if (this.x > 0-this.width && this.x <= C_WIDTH && current_level === 2) { 
         var bulletDX = -3.5, // -4
             bulletDY = 0,
             proj = new ProjType(this.x, this.mouth_y, bulletDX, bulletDY);

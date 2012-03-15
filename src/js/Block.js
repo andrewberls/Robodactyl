@@ -70,3 +70,9 @@ function Tree(x,y) {
 
 Tree.prototype = new GameObject();
 Tree.prototype.constructor = Tree;
+
+
+/*---------------------------------------
+  Note that Turrets are managed as a Block,
+  but the code is in Enemy.js
+---------------------------------------*/

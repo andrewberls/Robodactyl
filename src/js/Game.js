@@ -155,18 +155,6 @@ resetManagers();
 
     /* SCREEN 1
     ----0-------------340--------------780---*/
-
-    // Enemies
-    /*
-    var enemy_L2_1_1 = new Hunter(100);
-    var enemy_L2_1_2 = new Hunter(200);
-    var enemy_L2_1_3 = new Hunter(300);
-    var enemy_L2_1_4 = new Hunter(400);
-    var enemy_L2_1_5 = new Hunter(500);
-    var enemy_L2_1_6 = new Hunter(600);
-    var enemy_L2_1_7 = new Hunter(700);
-    */
-
     // Turret
     var t_1_1 = new Turret(455, 102);
     var block_L2_1_6 = new Tree_Block(445,190);
