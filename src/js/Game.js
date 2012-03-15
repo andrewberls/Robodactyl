@@ -272,23 +272,24 @@ Game.prototype.load_level_two = function() {
     
     var enemy_L2_4_1 = new Hunter(2500);
     var enemy_L2_4_2 = new Hunter(2850);
-    // var enemy_L2_4_3 = new Hunter(2830);
     
     
     // Blocks
     
-    var block_L2_4_1 = new Tree_Block(2340+90,240);
-    var block_L2_4_2 = new Tree_Block(2730,240);
-    var block_L2_4_3 = new Tree_Block(3120-90,240);
+    var block_L2_4_1 = new Tree_Block(2340+110,240);
+    var block_L2_4_2 = new Tree_Block(2670,240);
+    var block_L2_4_3 = new Tree_Block(2730,240);
+    var block_L2_4_4 = new Tree_Block(2790,240);
+    var block_L2_4_5 = new Tree_Block(3120-110,240);
     
     // Coins
-    var c_4_1 = new PowerUp(2340+120,240,5);
-    var c_4_2 = new PowerUp(2730+90,240,5);
+    var c_4_1 = new PowerUp(2340+140,240,5);
+    var c_4_2 = new PowerUp(3120-140,240,5);
     
     
     // Powerups
 
-    var powerup_L2_4_1 = new PowerUp(2730,290,2);
+    var powerup_L2_4_1 = new PowerUp(2730,150,2);
     
     
 
