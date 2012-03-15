@@ -186,37 +186,26 @@ Game.prototype.load_level_two = function() {
     
     /* SCREEN 2
     ---780-------------1170---------------1560---*/
+    
     // Enemies
-    /*
-    var enemy_L2_2_1 = new Hunter(780);
-    var enemy_L2_2_2 = new Hunter(880);
-    var enemy_L2_2_3 = new Hunter(980);
-    var enemy_L2_2_4 = new Hunter(1080);
-    var enemy_L2_2_5 = new Hunter(1180);
-    var enemy_L2_2_6 = new Hunter(1280);
-    var enemy_L2_2_7 = new Hunter(1380);
-    */
-
+    var enemy_L2_2_1 = new Hunter(1170+100);
+    var enemy_L2_2_2 = new Hunter(1170-100);
+    var turret_L2_2_3 = new Turret(1170-180, 92);
+    var turret_L2_2_4 = new Turret(1170+120, 92);
+    
     // Blocks
-    var block_L2_2_1 = new Tree_Block(780,405);
-    var block_L2_2_2 = new Tree_Block(840,345);
-    var block_L2_2_3 = new Tree_Block(900,285);
-    var block_L2_2_4 = new Tree_Block(960,225);
-    var block_L2_2_5 = new Tree_Block(1020,165);
-    var block_L2_2_6 = new Tree_Block(1150,165);
-    var block_L2_2_7 = new Tree_Block(1210,165);
-    var block_L2_2_8 = new Tree_Block(1270,165);
-    var block_L2_2_9 = new Tree_Block(1330,165);
+    var block_L2_2_1 = new Tree_Block(1170-120,180);
+    var block_L2_2_2 = new Tree_Block(1170+120,180);
+    var block_L2_2_3 = new Tree_Block(1170-60,240);
+    var block_L2_2_4 = new Tree_Block(1170+60,240);
+    var block_L2_2_5 = new Tree_Block(1170,240);
+    
     
     // Powerups
-    var powerup_L2_2_1 = new PowerUp(900,405,1);
-    var powerup_L2_2_2 = new PowerUp(960,405,1);
-    var powerup_L2_2_3 = new PowerUp(960,405,1)
-    var powerup_L2_2_4 = new PowerUp(1020,405,1)
-    var powerup_L2_2_5 = new PowerUp(1080,285,2);
-    var powerup_L2_2_6 = new PowerUp(1080,405,1);
-    var powerup_L2_2_7 = new PowerUp(1080,15,2);
-    var powerup_L2_2_8 = new PowerUp(1080,75,4);
+    var powerup_L2_2_1 = new PowerUp(1170,360,5);
+    var powerup_L2_2_2 = new PowerUp(1170,180,1);
+    var powerup_L2_2_3 = new PowerUp(1170,30,2);
+    
     
     /* SCREEN 3
     ----1560------------1950--------------2340----*/
