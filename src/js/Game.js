@@ -35,6 +35,7 @@ Game.prototype.load_level_one = function() {
 
     // Characters    
     player.hard_reset();
+    player.score = 0;
 
     /* SCREEN 1
     ----0-------------340--------------780---*/
@@ -331,7 +332,6 @@ Game.prototype.draw = function() {
   else if (Math.abs(background.x) >= background.width-C_WIDTH && player.x >= 600) {
     // Display appropriate menu if the player has reached the end of a level
     // The timeout is so that the menu doesn't pop up instantly
-    // I am extremely sorry that this code exists :(
 
     switch (current_level) {
 
