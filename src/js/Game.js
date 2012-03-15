@@ -156,7 +156,7 @@ Game.prototype.load_level_two = function() {
     /* SCREEN 1
     ----0-------------340--------------780---*/
     // Enemies
-    /*X
+    /*
     var enemy_L2_1_1 = new Hunter(100);
     var enemy_L2_1_2 = new Hunter(200);
     var enemy_L2_1_3 = new Hunter(300);
