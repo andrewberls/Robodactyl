@@ -180,7 +180,7 @@ Game.prototype.load_level_two = function() {
     
     // Enemies
     var e_1_1 = new Hunter(300);
-    var e_1_2 = new Hunter(700);
+    var e_1_2 = new Hunter(700);    
     
     
     /* SCREEN 2
@@ -203,7 +203,10 @@ Game.prototype.load_level_two = function() {
     
     
     // Powerups
-    var powerup_L2_2_1 = new PowerUp(1170,360,5);
+    var powerup_L2_2_1 = new PowerUp(1170-60,360,5);
+    var powerup_L2_2_1b = new PowerUp(1170,360,5);
+    var powerup_L2_2_1c = new PowerUp(1170+60,360,5);
+    var powerup_L2_2_1d = new PowerUp(1170+120,360,5);
     var powerup_L2_2_2 = new PowerUp(1170,180,1);
     var powerup_L2_2_3 = new PowerUp(1170,30,2);
     
@@ -261,48 +264,48 @@ Game.prototype.load_level_two = function() {
     var e_3_1 = new Hunter(150+1560);
     var e_3_1 = new Hunter(350+1560);
 
-    
+   
     
     /* SCREEN 4
     ---2340-------------2730---------------3120---*/
     // Enemies
-    /*
-    var enemy_L2_4_1 = new Hunter(2730);
-    var enemy_L2_4_2 = new Hunter(2630);
-    var enemy_L2_4_3 = new Hunter(2830);
-    */
+    
+    var enemy_L2_4_1 = new Hunter(2500);
+    var enemy_L2_4_2 = new Hunter(2850);
+    
     
     // Blocks
     
-    var block_L2_4_1 = new Tree(2730+250,60);
-    var block_L2_4_3 = new Tree_Block(2730+300,240);
-    var block_L2_4_4 = new Tree_Block(2730+240,240);
-    var block_L2_4_5 = new Tree_Block(2730+180,240);
-    var block_L2_4_6 = new Tree_Block(2730+120,240);
-    var block_L2_4_7 = new Tree_Block(2730+60,240);
-    var block_L2_4_8 = new Tree_Block(2730,240);
+    var block_L2_4_1 = new Tree_Block(2340+110,240);
+    var block_L2_4_2 = new Tree_Block(2670,240);
+    var block_L2_4_3 = new Tree_Block(2730,240);
+    var block_L2_4_4 = new Tree_Block(2790,240);
+    var block_L2_4_5 = new Tree_Block(3120-110,240);
+    
+    // Coins
+    var c_4_1 = new PowerUp(2340+200,240,5);
+    var c_4_2 = new PowerUp(3120-200,240,5);
     
     
     // Powerups
-    var powerup_L2_4_1 = new PowerUp(2730+200,180,1);
+
+    var powerup_L2_4_1 = new PowerUp(2730,150,2);
     
     
 
     
     /* SCREEN 5
     --3120----------------3510--------------3900--*/
-    // Enemies
-    var enemy_L2_5_1 = new Hunter(2730);
-    var enemy_L2_5_2 = new Hunter(3510);
-    var enemy_L2_5_3 = new Hunter(3900);
-    var enemy_L2_5_4 = new Hunter((3510+3120)/2);
-    var enemy_L2_5_5 = new Hunter((3510+3900)/2);
+    // Tree/block    
+    var tr_5_1 = new Tree(320+3120,25);
+    var b_5_1 = new Tree_Block(365+3120, 205);
 
-    // Blocks
-    //var block_L2_5_1 = new Block(3120,180);
+    var e_5_1 = new Hunter(155+3120);
+    var e_5_1 = new Hunter(625+3120);
+
+    var c_5_1 = new PowerUp(155+3120,220,5);
+    var c_5_1 = new PowerUp(625+3120,220,5);
     
-    // Powerups
-    var powerup_L2_5_1 = new PowerUp(3120,0,1);
     
     
 } // load_level_two()
