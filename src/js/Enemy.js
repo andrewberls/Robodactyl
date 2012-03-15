@@ -247,7 +247,9 @@ Turret.prototype.fire = function(ProjType, sound) {
     // - no player calculation or tracking
     
     // Only fire if the player is on the same screen as the enemy
-    if (this.x > 0-this.width && this.x <= C_WIDTH) {
+    // The current level hack fixes a bug when restarting the game from level 2
+    // and turrets would still be firing. No clue why
+    if (this.x > 0-this.width && this.x <= C_WIDTH && current_level === 2) {
         var bulletDX = -3.5, // -4
             bulletDY = 0,
             proj = new ProjType(this.x, this.mouth_y, bulletDX, bulletDY);
