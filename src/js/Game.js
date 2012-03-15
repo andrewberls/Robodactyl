@@ -203,7 +203,10 @@ Game.prototype.load_level_two = function() {
     
     
     // Powerups
-    var powerup_L2_2_1 = new PowerUp(1170,360,5);
+    var powerup_L2_2_1 = new PowerUp(1170-60,360,5);
+    var powerup_L2_2_1b = new PowerUp(1170,360,5);
+    var powerup_L2_2_1c = new PowerUp(1170+60,360,5);
+    var powerup_L2_2_1d = new PowerUp(1170+120,360,5);
     var powerup_L2_2_2 = new PowerUp(1170,180,1);
     var powerup_L2_2_3 = new PowerUp(1170,30,2);
     
