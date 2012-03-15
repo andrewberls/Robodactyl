@@ -193,11 +193,13 @@ Game.prototype.load_level_two = function() {
     var turret_L2_2_4 = new Turret(1170+120, 92);
     
     // Blocks
-    var block_L2_2_1 = new Tree_Block(1170-120,180);
-    var block_L2_2_2 = new Tree_Block(1170+120,180);
-    var block_L2_2_3 = new Tree_Block(1170-60,240);
-    var block_L2_2_4 = new Tree_Block(1170+60,240);
-    var block_L2_2_5 = new Tree_Block(1170,240);
+    var block_L2_2_1 = new Tree_Block(1170-180,180);
+    var block_L2_2_2 = new Tree_Block(1170+180,180);
+    var block_L2_2_3 = new Tree_Block(1170-120,180);
+    var block_L2_2_4 = new Tree_Block(1170+120,180);
+    var block_L2_2_5 = new Tree_Block(1170-60,240);
+    var block_L2_2_6 = new Tree_Block(1170+60,240);
+    var block_L2_2_7 = new Tree_Block(1170,240);
     
     
     // Powerups
@@ -243,35 +245,21 @@ Game.prototype.load_level_two = function() {
     */
     
     // Blocks
-    var block_L2_4_1 = new Tree_Block(2540,0);
-    var block_L2_4_2 = new Tree_Block(2540,60);
-    var block_L2_4_3 = new Tree_Block(2540,120);
-    var block_L2_4_4 = new Tree_Block(2540,180);
-    var block_L2_4_5 = new Tree_Block(2600,0);
-    var block_L2_4_6 = new Tree_Block(2600,60);
-    var block_L2_4_7 = new Tree_Block(2600,120);
-    var block_L2_4_8 = new Tree_Block(2600,180);
-    var block_L2_4_9 = new Tree_Block(2660,0);
-    var block_L2_4_10 = new Tree_Block(2660,60);
-    var block_L2_4_11 = new Tree_Block(2660,120);
-    var block_L2_4_12 = new Tree_Block(2660,180);
     
-    var block_L2_4_13 = new Tree_Block(3000,0);
-    var block_L2_4_14 = new Tree_Block(3000,60);
-    var block_L2_4_15 = new Tree_Block(3000,120);
-    var block_L2_4_16 = new Tree_Block(3000,180);
-    var block_L2_4_17 = new Tree_Block(3060,0);
-    var block_L2_4_18 = new Tree_Block(3060,60);
-    var block_L2_4_19 = new Tree_Block(3060,120);
-    var block_L2_4_20 = new Tree_Block(3060,180);
-    var block_L2_4_21 = new Tree_Block(3120,0);
-    var block_L2_4_22 = new Tree_Block(3120,60);
-    var block_L2_4_23 = new Tree_Block(3120,120);
-    var block_L2_4_24 = new Tree_Block(3120,180);
+    var block_L2_4_1 = new Tree(2730+360,60);
+    var block_L2_4_2 = new Tree_Block(2730+360,240);
+    var block_L2_4_3 = new Tree_Block(2730+300,240);
+    var block_L2_4_4 = new Tree_Block(2730+240,240);
+    var block_L2_4_5 = new Tree_Block(2730+180,240);
+    var block_L2_4_6 = new Tree_Block(2730+120,240);
+    var block_L2_4_7 = new Tree_Block(2730+60,240);
+    var block_L2_4_8 = new Tree_Block(2730,240);
+    
     
     // Powerups
     var powerup_L2_4_1 = new PowerUp(2730,180,4);
     var powerup_L2_4_2 = new PowerUp(2730,0,3);
+    
 
     
     /* SCREEN 5
