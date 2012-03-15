@@ -106,6 +106,7 @@ PowerUp.prototype.Coin = function() {
   // Score is automatically given for all powerups
   // This is more of a placeholder than anything else
   coin_pickup.play()
+  player.score += 25;
 }
 	
 PowerUp.prototype.ChoosePowerup = function() {

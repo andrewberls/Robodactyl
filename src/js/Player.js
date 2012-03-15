@@ -200,7 +200,7 @@ Player.prototype.kill = function() {
     
     debug("Player killed");
 
-    this.score -= 75;
+    this.score -= 50;
     this.freeze();
     enemyProjectiles = []; // Clear enemy bullets
     
