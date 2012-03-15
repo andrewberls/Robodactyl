@@ -243,7 +243,9 @@ resetManagers();
     
     // Coins
     var c_4_1 = new PowerUp(2340+200,240,5);
-    var c_4_2 = new PowerUp(3120-200,240,5);
+    var c_4_2 = new PowerUp(2340+230,240,5);
+    var c_4_3 = new PowerUp(3120-200,240,5);
+    var c_4_4 = new PowerUp(3120+230,240,5);
     
     // Powerups
     var powerup_L2_4_1 = new PowerUp(2730,150,2);
