@@ -63,7 +63,7 @@ function HunterProjectile(x,y,dx,dy) {
   this.dx = dx;
   this.dy = dy;
 
-  this.sprite.src = "images/enemy/hunterProjectile.png";
+  this.sprite.src = "images/enemy/hunterProjectile2.png";
   this.height = 25;
   this.width = 25;
 }
