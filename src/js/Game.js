@@ -273,8 +273,7 @@ Game.prototype.load_level_two = function() {
     
     // Blocks
     
-    var block_L2_4_1 = new Tree(2730+360,60);
-    var block_L2_4_2 = new Tree_Block(2730+360,240);
+    var block_L2_4_1 = new Tree(2730+250,60);
     var block_L2_4_3 = new Tree_Block(2730+300,240);
     var block_L2_4_4 = new Tree_Block(2730+240,240);
     var block_L2_4_5 = new Tree_Block(2730+180,240);
@@ -284,8 +283,8 @@ Game.prototype.load_level_two = function() {
     
     
     // Powerups
-    var powerup_L2_4_1 = new PowerUp(2730,180,4);
-    var powerup_L2_4_2 = new PowerUp(2730,0,3);
+    var powerup_L2_4_1 = new PowerUp(2730+200,180,1);
+    
     
 
     
