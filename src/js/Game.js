@@ -351,22 +351,7 @@ Game.prototype.draw = function() {
             );
         break;
 
-        case 2: // Level 2 -> 3
-            debug("player.hard_reset")
-            player.hard_reset();
-            var endMenu = new Menu(
-                "Level Two Completed!", // Description
-                ["Begin level three"],  // Options
-                function(option) { if (option === 0) {                
-                    current_level++;
-                    var game = new Game();
-                    game.load_level_three();                        
-                    menuActive = false;                        
-                }}                
-            );
-        break;
-
-        case 3: // Final level (Game victory menu)
+        case 2: // Final level (Game victory menu)
             debug("player.hard_reset")
             player.hard_reset();
             var endMenu = new Menu(
