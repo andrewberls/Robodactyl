@@ -283,8 +283,8 @@ Game.prototype.load_level_two = function() {
     var block_L2_4_5 = new Tree_Block(3120-110,240);
     
     // Coins
-    var c_4_1 = new PowerUp(2340+140,240,5);
-    var c_4_2 = new PowerUp(3120-140,240,5);
+    var c_4_1 = new PowerUp(2340+200,240,5);
+    var c_4_2 = new PowerUp(3120-200,240,5);
     
     
     // Powerups
