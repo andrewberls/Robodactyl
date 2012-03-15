@@ -8,6 +8,7 @@ body {
 }
 
 canvas {
+  background-image: url('../images/menu/loading.png');
   display: block;
 	margin: 5px auto 10px;
 }
