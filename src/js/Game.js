@@ -165,25 +165,21 @@ Game.prototype.load_level_two = function() {
     var enemy_L2_1_7 = new Hunter(700);
     */
 
-    var TURRET_TEST = new Turret(455, 92);
-    var TREE_TEST = new Tree(455, C_HEIGHT-205);
-    var COIN_TEST = new PowerUp(200,75,5)
-    
-    //Blocks
-    
-    var block_L2_1_2 = new Tree_Block(220,180);
-    var block_L2_1_3 = new Tree_Block(220,380);
-    
-    var block_L2_1_6 = new Tree_Block(445,180);
-    var block_L2_1_6 = new Tree_Block(505,180);
-    
-    
-    
-    //Powerups
-    var powerup_L2_1_1 = new PowerUp(220,120, 4);
-    var powerup_L2_1_2 = new PowerUp(220,260, 1);
-    
+    // Turret
+    var t_1_1 = new Turret(455, 102);
+    var block_L2_1_6 = new Tree_Block(445,190);
+    var block_L2_1_6 = new Tree_Block(505,190);
+    var tr_1_1 = new Tree(455, C_HEIGHT-205);
 
+    // Coins
+    var c_1_1 = new PowerUp(230,85,5);
+    var c_1_2 = new PowerUp(230,135,5);
+    var c_1_3 = new PowerUp(230,185,5);
+    var c_1_4 = new PowerUp(230,235,5);
+    
+    // Enemies
+    var e_1_1 = new Hunter(300);
+    var e_1_2 = new Hunter(700);
     
     
     /* SCREEN 2
