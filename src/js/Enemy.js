@@ -2,8 +2,8 @@
   Class File: Enemy.js
   Inherits from: GameObject
   Description: An enemy that fires projectiles at the player
-		
-	
+
+
   Method Signatures:
     Enemy(x)
     fire()
@@ -21,16 +21,16 @@ Enemy.prototype = new GameObject(); // Inherit from GameObject
 Enemy.prototype.constructor = Enemy; // Correct the constructor to use this, not GameObject
 
 
-Enemy.prototype.fire = function(ProjType, sound) {  
+Enemy.prototype.fire = function(ProjType, sound) {
     // Calculate bullet vectors and fire at the player
-    
+
     // Only fire if the player is on the same screen as the enemy
     if (this.x >= 0 && this.x < C_WIDTH) {
 
-        if (this.x >= player.midx) { 
+        if (this.x >= player.midx) {
             // Player is to the left of the enemy
             var x = -1 * Math.abs(this.midx-player.midx);
-        } else  { 
+        } else  {
             // Player is to the right of the enemy
             var x = Math.abs(this.midx-player.midx);
         }
@@ -40,7 +40,7 @@ Enemy.prototype.fire = function(ProjType, sound) {
         var rad = Math.atan2(y,x), // Angle between enemy and player
             bulletDX = this.bulletSpeed * Math.cos(rad), // Velocity vectors
             bulletDY = this.bulletSpeed * Math.sin(rad);
-        
+
         if (this.in(enemies)) { // Is the enemy alive?
             var proj = new ProjType(this.x + this.width/2, this.y, bulletDX, bulletDY); // Params: (x,y,dx,dy)
             enemyProjectiles.push(proj);
@@ -55,7 +55,7 @@ Enemy.prototype.fire = function(ProjType, sound) {
     // THIS METHOD IS NOW OVERLOADED IN EACH CLASS
 
     // Play a sound and delete the instance from manager array
-    
+
     sound.play()
     enemies.remove(this);
 
@@ -63,7 +63,7 @@ Enemy.prototype.fire = function(ProjType, sound) {
 
 Enemy.prototype.move = function() {
     // Scroll the enemy with the background and pace back and forth
-  
+
     // Calculate midpoints
     this.midx = this.x + this.width/2;
     this.midy = this.y + this.height/2;
@@ -85,14 +85,14 @@ Enemy.prototype.move = function() {
 }
 
 Enemy.prototype.draw = function() {
-    // Draw sprite to the canvas    
-    
+    // Draw sprite to the canvas
+
     // Remove enemies from manager if offscreen for efficiency
     if (this.x+this.width < 0) {
         debug("removing offscreen enemy");
         enemies.remove(this);
     }
-    
+
     ctx.drawImage(this.sprite, this.x, this.y);
 
 }
@@ -105,33 +105,31 @@ function Scientist(x) {
 
     this.height = 3 * TILE_SIZE;
     this.width = 2 * TILE_SIZE;
-  
+
     this.x = x;
     this.y = C_HEIGHT-this.height-TILE_SIZE; // Game floor
-    
-    this.moveSpeed = 0.8; // For pacing back and forth   
+
+    this.moveSpeed = 0.8; // For pacing back and forth
 
     this.bulletSpeed = 2.6; // Old: 2.5
 
     // Randomly select the sprite source
     this.sprite = new Image();
     if (randomFromTo(1,50)%2 == 0) {
-        this.sprite.src = "images/enemy/scientist_1.png";   
+        this.sprite.src = "images/enemy/scientist_1.png";
     } else {
-        this.sprite.src = "images/enemy/scientist_2.png";    
+        this.sprite.src = "images/enemy/scientist_2.png";
     }
- 
+
     // Set the firing loop
-    // This looks super funky, but it's necessary 
-    // to preserve the correct 'this' context - DOMWindow otherwise
-    this.fireLoop = setInterval((function(self) {
-        return function() {
-            if (!menuActive && player.isAlive) {
-                // Hack to fix glitch where enemies were firing while menu was on
-                self.fire(ScientistProjectile, scientist_fire);
-            }
-        }
-    })(this), randomFromTo(1500, 3000)); // Random firing interval
+    // 'self' hack necessary to preserve correct 'this' contect
+    var self = this;
+    this.fireloop = setInterval(function() {
+        if (!menuActive && player.isAlive) {
+             // Hack to fix glitch where enemies were firing while menu was on
+             self.fire(ScientistProjectile, scientist_fire);
+         }
+    }, randomFromTo(1500, 3000));
 
     enemies.push(this); // Add self to manager array
 
@@ -142,7 +140,7 @@ Scientist.prototype.constructor = Scientist; // Correct the constructor to use t
 
 Scientist.prototype.kill = function() {
     // Play a random death sound and delete the instance from manager array
-    
+
     switch(randomFromTo(1,3)) {
         case 1:
             scientist_death1.play();
@@ -167,28 +165,26 @@ function Hunter(x) {
 
     this.height = 2 * TILE_SIZE;
     this.width = 2 * TILE_SIZE;
-  
+
     this.x = x;
     this.y = C_HEIGHT-this.height-TILE_SIZE; // Game floor
-    
+
     this.moveSpeed = 0.4; // For pacing back and forth
     this.bulletSpeed = 2.6;
 
     // Randomly select the sprite source
     this.sprite = new Image();
     this.sprite.src = "images/enemy/hunter_1.png";
- 
+
     // Set the firing loop
-    // This looks super funky, but it's necessary 
-    // to preserve the correct 'this' context - DOMWindow otherwise
-    this.fireLoop = setInterval((function(self) {
-        return function() {
-            if (!menuActive && player.isAlive) {
-                // Hack to fix glitch where enemies were firing while menu was on
-                self.fire(HunterProjectile, hunter_fire);
-            }
-        }
-    })(this), randomFromTo(1500, 3000)); // Random firing interval
+    // 'self' hack necessary to preserve correct 'this' contect
+    var self = this;
+    this.fireloop = setInterval(function() {
+        if (!menuActive && player.isAlive) {
+             // Hack to fix glitch where enemies were firing while menu was on
+             self.fire(HunterProjectile, hunter_fire);
+         }
+    }, randomFromTo(1500, 3000));
 
     enemies.push(this); // Add self to manager array
 
@@ -210,10 +206,10 @@ Hunter.prototype.kill = function() {
 function Turret(x,y) {
     // Turret is sort of a hybrid class in that it's tracked/handled
     // like a block, but fires like an enemy
-  
+
     this.x = x;
     this.y = y;
-  
+
     this.width  = 100;
     this.height = 3 * TILE_SIZE;
 
@@ -222,20 +218,20 @@ function Turret(x,y) {
     this.fireRate = 1200;
     this.bulletSpeed = 1; // 2.6
 
-    //this.sprite = new Image();
     this.sprite.src = "images/enemy/monster2.png";
 
-    this.fireLoop = setInterval((function(self) {
-        return function() {
-            if (!menuActive && player.isAlive) {
-                // Hack to fix glitch where enemies were firing while menu was on
-                self.fire(TurretProjectile, turret_fire);
-            }
-        }
-    })(this), this.fireRate); // Random firing interval
+    // Set the firing loop
+    // 'self' hack necessary to preserve correct 'this' contect
+    var self = this;
+    this.fireloop = setInterval(function() {
+        if (!menuActive && player.isAlive) {
+             // Hack to fix glitch where enemies were firing while menu was on
+             self.fire(TurretProjectile, turret_fire);
+         }
+    }, this.fireRate);
 
     blocks.push(this); // Add self to manager array
-    
+
 }
 
 Turret.prototype = new GameObject();
@@ -245,11 +241,11 @@ Turret.prototype.fire = function(ProjType, sound) {
     // Stripped down version of Enemy.fire()
     // Constantly fires in the direction it is facing
     // - no player calculation or tracking
-    
+
     // Only fire if the player is on the same screen as the enemy
     // The current level hack fixes a bug when restarting the game from level 2
     // and turrets would still be firing. No clue why
-    if (this.x > 0-this.width && this.x <= C_WIDTH && current_level === 2) { 
+    if (this.x > 0-this.width && this.x <= C_WIDTH && current_level === 2) {
         var bulletDX = -3.5, // -4
             bulletDY = 0,
             proj = new ProjType(this.x, this.mouth_y, bulletDX, bulletDY);

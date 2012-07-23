@@ -11,8 +11,8 @@ var player = new Player();
 /* MAIN INITIALIZATION
 /----------------------------------*/
 function init() {
-    
-    var game = new Game();    
+
+    var game = new Game();
     gameLoop = setInterval(game.draw, 20);
 
     // Display the start menu
@@ -22,7 +22,7 @@ function init() {
     function(option) {   // Function triggered by enter key
       if (option == 0) {
         menuActive = false;
-        game.load_level_one();        
+        game.load_level_one();
       }
     });
 

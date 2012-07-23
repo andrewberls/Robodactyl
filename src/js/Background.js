@@ -2,26 +2,26 @@
     Class File: Background.js
     Inherits from: GameObject
     Description: Handles the game background drawing/scrolling
-    
+
     Method Signatures:
         Background(level)
         hard_reset();
-        move()	
+        move()
 */
 
 function Background(level) {
-    
+
     this.width = 3900; // 5 screens * 780px
-  
+
     switch(level) {
         case 1:
             this.sprite.src = "images/bg/lvl1/lvl1.jpg"; // lvl1_debug.png
-        break;
+            break;
         case 2:
             this.sprite.src = "images/bg/lvl2/lvl2.jpg";
-        break;
+            break;
     };
-    
+
 }
 
 Background.prototype = new GameObject(); // Inherit from GameObject
@@ -34,7 +34,7 @@ Background.prototype.hard_reset = function() {
 
 Background.prototype.move = function() {
     // Scroll the background and stop when we reach the end of the image
-    
+
     if (Math.abs(this.x) <= this.width-C_WIDTH) {
         this.x += this.dx;
     }
